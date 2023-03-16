@@ -1,0 +1,9 @@
+SQL logic building explaination:
+
+The code is reading data from a database using Apache Spark's spark.read method and a JDBC connection. Specifically, it is executing a SQL query to retrieve data from two tables (batter_counts and game) and joining them using a common column (game_id).
+
+After loading the data into a Spark dataframe (df_sql1), the code creates a temporary view called game_date_batter so that it can execute another SQL query (df_sql2_rolling_100days) on the dataframe.
+
+The second SQL query uses window functions to calculate rolling averages for each batter over a 100-day period. It calculates the sum of hits, sum of at-bats, and count of games played for each batter in the 100 days preceding each game in the original dataset. The results of this query are saved in a temporary view called rolling_100days.
+
+Finally, the code executes a third SQL query on the rolling_100days view to calculate the rolling average for each batter and returns the result as a Spark dataframe called final_result. The resulting dataframe includes the batter's name, game ID, date, rolling hit average, rolling at-bat average, and count of games played in the rolling window. The results are sorted by batter, game ID, and date.

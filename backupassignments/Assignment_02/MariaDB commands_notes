@@ -1,0 +1,105 @@
+Commands for installing and checking the mariadb server stutus
+
+installing
+ apt-get install -y mariadb-server
+ 
+ --checking server status
+ sudo systemctl status mariadb
+
+--starting the server
+sudo systemctl start mariadb
+
+--stoping the server
+sudo systemctl stop mariadb
+
+=================================================================================================
+Lokesh@lokesh-Inspiron-14-5418:~$ sudo mysql
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 31
+Server version: 10.6.11-MariaDB-0ubuntu0.22.04.1 Ubuntu 22.04
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+
+================================================================================================
+
+##  creating new baseball database and running sql file for its schema
+
+--given by prof in lec slides
+
+""DATABASE_TO_COPY_INTO="baseball"
+DATABASE_FILE="baseball.sql"
+
+mysql -u root -p -e "CREATE DATABASE ${DATABASE_TO_COPY_INTO}"
+mysql -u root -p ${DATABASE_TO_COPY_INTO} < ${DATABASE_FILE} 
+
+""
+lokesh@lokesh-Inspiron-14-5418:~/Desktop/BDA602/BDA_602_Machine_learning$ cd Assignment_02
+lokesh@lokesh-Inspiron-14-5418:~/Desktop/BDA602/BDA_602_Machine_learning/Assignment_02$ ls -l
+total 1841516
+-rw-r--r-- 1 lokesh lokesh 1246771983 Jul 26  2020  baseball.sql
+-rw-rw-r-- 1 lokesh lokesh  218159395 Feb 17 20:03  baseball.sql.tar.gz
+-rw-rw-r-- 1 lokesh lokesh        853 Feb 17 20:01 'MariaDB commands_notes'
+-rw-r--r-- 1 lokesh lokesh  344477480 Jul 26  2020  ponies.sql
+-rw-rw-r-- 1 lokesh lokesh   76280959 Feb 17 20:03  ponies.sql.tar.gz
+lokesh@lokesh-Inspiron-14-5418:~/Desktop/BDA602/BDA_602_Machine_learning/Assignment_02$ sudo mysql -u root -p -e "CREATE DATABASE ${DATABASE_TO_COPY_INTO}"
+Enter password: 
+ERROR 1007 (HY000) at line 1: Can't create database 'baseball'; database exists
+lokesh@lokesh-Inspiron-14-5418:~/Desktop/BDA602/BDA_602_Machine_learning/Assignment_02$ sudo mysql -u root -p ${DATABASE_TO_COPY_INTO} < ${DATABASE_FILE}
+Enter password: 
+lokesh@lokesh-Inspiron-14-5418:~/Desktop/BDA602/BDA_602_Machine_learning/Assignment_02$ sudo mysql
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 38
+Server version: 10.6.11-MariaDB-0ubuntu0.22.04.1 Ubuntu 22.04
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show database
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'database' at line 1
+MariaDB [(none)]>
+
+========================================================================================================
+# to switch the database	
+-- Show all the available databases
+SHOW DATABASES;
+ 
+-- Use the baseball database
+USE baseball;
+ 
+-- Show all the tables in the baseball database
+SHOW TABLES;
+ 
+-- Game Table (Don't forget to include limits, or the whole table prints out)
+SELECT *
+    FROM game 
+    LIMIT 0, 20;
+ 
+-- You can also specify the database in your query
+SELECT *
+    FROM baseball.game 
+    LIMIT 0,20;
+ 
+-- Team Table
+SELECT *
+    FROM team
+    LIMIT 0, 20;
+
+
+
+
+
