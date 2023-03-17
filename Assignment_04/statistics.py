@@ -1,7 +1,6 @@
 import statsmodels.api
-from plotly import express as px
-
 from dataset_loader import TestDatasets
+from plotly import express as px
 
 # from sklearn import datasets
 
