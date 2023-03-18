@@ -1,5 +1,5 @@
-import statsmodels.api
-from dataset_loader import TestDatasets
+import statsmodels.api as sm
+from datasets import TestDatasets
 from plotly import express as px
 
 # from sklearn import datasets
@@ -20,8 +20,8 @@ class statistics:
 
         for idx, col in enumerate(x.columns):
             feature_name = col
-            pred = statsmodels.api.add_constant(x[col])
-            linear_regression_model = statsmodels.api.OLS(y, pred)
+            pred = sm.add_constant(x[col])
+            linear_regression_model = sm.OLS(y, pred)
             linear_regression_model_fitted = linear_regression_model.fit()
             # print(f"Variable: {feature_name}")
             # print(linear_regression_model_fitted.summary())
@@ -29,7 +29,8 @@ class statistics:
             In this code, statsmodels.api.add_constant is used to add a
             constant (i.e., an intercept term) to the column data.
             Adding a constant to the predictor is important
-            because it ensures that the regression line intercepts the y-axis at the correct point,
+            because it ensures that the regression line intercepts
+             the y-axis at the correct point,
              even if the data has a mean value of zero.
             """
             # Get the stats
@@ -38,7 +39,8 @@ class statistics:
             # Plot the figure
             fig = px.scatter(data_frame=df, x=col, y=y, trendline="ols")
             fig.update_layout(
-                title=f"Variable: {feature_name}: (t-value={t_value}) (p-value={p_value})",
+                title=f"Variable: {feature_name}: (t-value={t_value})"
+                f" (p-value={p_value})",
                 xaxis_title=f"Variable: {feature_name}",
                 yaxis_title="target",
             )
@@ -64,7 +66,7 @@ class statistics:
 
         for idx, col in enumerate(x.columns):
             feature_name = col
-            logit = statsmodels.api.Logit(y, statsmodels.api.add_constant(x[col]))
+            logit = sm.Logit(y, sm.add_constant(x[col]))
             logit_fitted = logit.fit()
 
             # Get the stats
