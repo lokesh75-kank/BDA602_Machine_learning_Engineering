@@ -44,7 +44,7 @@ def main():
                 dict[col] = "== Continuous"
         return dict
 
-    print(to_check_cat_con_pred(predictors_df))
+    print("checking_predictors_type:", to_check_cat_con_pred(predictors_df))
 
     def to_check_cat_con_response(column):
         for i in column:
@@ -53,7 +53,7 @@ def main():
             else:
                 print("Categorical")
 
-    # print(to_check_cat_con_response(df["target"]))
+    print("checking_response_type:", to_check_cat_con_response(df["target"]))
 
     def ploting_graphs_cont_cat_target_predictors():
         for i in predictors_df:
@@ -92,6 +92,8 @@ def main():
         # Print the new number of rows and columns in the DataFrame
         # print("New shape of the DataFrame:", df.shape)
         return df
+
+    remove_missing_values(df)
 
     def diff_mean_plots(df, predictors, class_name):
         df = df.copy()
