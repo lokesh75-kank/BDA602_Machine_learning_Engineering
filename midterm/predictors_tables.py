@@ -1,34 +1,21 @@
 import os
-import statistics
 
-import numpy
 import numpy as np
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objs as go
 import plotly.io as pio
-import plotly.offline as pyo
 import statsmodels
-import statsmodels.api as sm
 from sklearn.ensemble import RandomForestRegressor
-
-from midterm.brute_force import form_pairs
-
-# cat=object
-# con=float64, int64, bool
 
 continuous_pred = []
 catagorical_pred = []
 
 
 def predictor_plots(df_pred, df_res):
-    # check if response is categorical or continuous
 
     my_fig_con = []
     my_fig_cat = []
-
-    # print("df_res.dtype",df_res.dtype)
-    # print(("df_pred.dtype",df_pred.dtypes))
 
     if df_res.dtype == "object":
         # Categorical Response
@@ -37,7 +24,6 @@ def predictor_plots(df_pred, df_res):
 
             if df_pred[col].dtype == "object" or df_pred[col].dtype.name == "category":
                 catagorical_pred.append(col)
-                # print("check 1",catagorical_pred)
 
                 fig = px.histogram(df_pred, x=col, color=df_res)
                 fig.update_layout(title=f"Histogram of {col} Or by Response")
@@ -45,7 +31,6 @@ def predictor_plots(df_pred, df_res):
                 # fig.show()
             else:
                 continuous_pred.append(col)
-                # print("check 2",continuous_pred)
 
                 fig = px.violin(
                     df_pred, y=col, x=df_res, box=True, points="all", color="origin"
@@ -64,7 +49,6 @@ def predictor_plots(df_pred, df_res):
         for col in df_pred.columns:
             if df_pred[col].dtype == "object" or df_pred[col].dtype.name == "category":
                 catagorical_pred.append(col)
-                # print("check 3",catagorical_pred)
 
                 # df_pred = df_pred.sort_values("origin")
                 fig = px.violin(
@@ -82,17 +66,13 @@ def predictor_plots(df_pred, df_res):
                 # fig.show()
             else:
                 continuous_pred.append(col)
-                # print("check 4",continuous_pred)
 
                 fig = px.scatter(df_pred, x=col, y=df_res, trendline="ols")
                 fig.update_layout(title="Scatter Plot of Response vs Weight")
                 my_fig_con.append(fig)
                 # fig.show()
 
-    print("continuous_pred", continuous_pred)
-    print("catagorical_pred", catagorical_pred)
-
-    # ////////////////////CREATE HTML FILES OF PLOTS///////////////
+    # CREATE HTML FILES OF PLOTS
 
     # Create directory if it doesn't exist
     if not os.path.exists("Categorical_Predictors_Plots"):
@@ -106,51 +86,117 @@ def predictor_plots(df_pred, df_res):
     for i, fig in enumerate(my_fig_cat):
         file_name = f"plot_{i}.html"
         file_path = os.path.join("Categorical_Predictors_Plots", file_name)
-        pio.write_html(fig, file_path)
+        pio.write_html(fig, file_path, include_plotlyjs="cdn")
 
     for i, fig in enumerate(my_fig_con):
         file_name = f"plot_{i}.html"
         file_path = os.path.join("Continuous_Predictors_Plots", file_name)
-        pio.write_html(fig, file_path)
+        pio.write_html(fig, file_path, include_plotlyjs="cdn")
+
+    return continuous_pred, catagorical_pred
 
 
-################################################################################
+def create_predictor_dfs(df, response, continuous_pred, catagorical_pred):
 
+    my_fig_con = []
+    my_fig_cat = []
 
-def create_predictor_dfs(df, response):
+    con_col2 = []
+    con_col3 = []
+
+    for i in range(0, len(continuous_pred)):
+        link = "'Continuous_Predictors_Plots/plot_" + str(i) + ".html'"
+        temp = "<a href=" + link + ">" + continuous_pred[i] + "</a>"
+        con_col2.append(temp)
+
+    for i in range(0, len(continuous_pred)):
+        link = (
+            "'Continuous_Mean_of_Response_Plot/Mean_of_Response_Plot_"
+            + continuous_pred[i]
+            + ".html'"
+        )
+        temp = "<a href=" + link + ">" + continuous_pred[i] + "</a>"
+        con_col3.append(temp)
 
     continuous_pred_df = pd.DataFrame(
         {
             "Feature": continuous_pred,
-            "Plot": continuous_pred,
-            "Mean of Response Plot": continuous_pred,
+            "Plot": con_col2,
+            "Mean of Response Plot": con_col3,
             "Diff Mean Response (Weighted)": [np.nan] * len(continuous_pred),
             "Diff Mean Response (Unweighted)": [np.nan] * len(continuous_pred),
+            "P-Value": [np.nan] * len(continuous_pred),
+            "T-Score": [np.nan] * len(continuous_pred),
         }
     )
+
+    cat_col2 = []
+    cat_col3 = []
+
+    for i in range(0, len(catagorical_pred)):
+        link = "'Categorical_Predictors_Plots/plot_" + str(i) + ".html'"
+        temp = "<a href=" + link + 'target="_blank">' + catagorical_pred[i] + "</a>"
+        cat_col2.append(temp)
+
+    for i in range(0, len(catagorical_pred)):
+        link = (
+            "'Categorical_Mean_of_Response_Plot/Mean_of_Response_Plot_"
+            + catagorical_pred[i]
+            + ".html'"
+        )
+        # link = "'Categorical_Mean_of_Response_Plot/plot_"+str(i)+".html'"
+        temp = "<a href=" + link + 'target="_blank">' + catagorical_pred[i] + "</a>"
+        cat_col3.append(temp)
 
     catagorical_pred_df = pd.DataFrame(
         {
             "Feature": catagorical_pred,
-            "Plot": catagorical_pred,
-            "Mean of Response Plot": catagorical_pred,
+            "Plot": cat_col2,
+            "Mean of Response Plot": cat_col3,
+            "Diff Mean Response (Weighted)": [np.nan] * len(catagorical_pred),
+            "Diff Mean Response (Unweighted)": [np.nan] * len(catagorical_pred),
         }
     )
 
-    # for pred in continuous_pred:
-    #     uw_mse, w_mse = unweighted_table_con(df,pred,response)
-    #     continuous_pred_df = continuous_pred_df.append({'uw_mse': uw_mse, 'w_mse': w_mse}, ignore_index=True)
-
     for i, pred in enumerate(continuous_pred):
-        uw_mse, w_mse = unweighted_table_con(df, pred, response)
+        uw_mse, w_mse, fig = weighted_unweighted_table_con(df, pred, response)
+        p, t = p_t_values(df, pred, response)
         continuous_pred_df.loc[i, "Diff Mean Response (Weighted)"] = w_mse
         continuous_pred_df.loc[i, "Diff Mean Response (Unweighted)"] = uw_mse
+        continuous_pred_df.loc[i, "P-Value"] = p
+        continuous_pred_df.loc[i, "T-Score"] = t
+        my_fig_con.append(fig)
 
-    # return continuous_pred_df, catagorical_pred_df
-    print("continuous_pred_df\n", continuous_pred_df)
-    print("catagorical_pred_df\n", catagorical_pred_df)
+    for i, pred in enumerate(catagorical_pred):
+        uw_mse, w_mse, fig = weighted_unweighted_table_cat(df, pred, response)
+        catagorical_pred_df.loc[i, "Diff Mean Response (Weighted)"] = w_mse
+        catagorical_pred_df.loc[i, "Diff Mean Response (Unweighted)"] = uw_mse
+        my_fig_cat.append(fig)
 
-    return continuous_pred_df, catagorical_pred_df, continuous_pred, catagorical_pred
+    # CREATE HTML FILES OF Mean of Response Plots
+
+    # Create directory if it doesn't exist
+    if not os.path.exists("Categorical_Mean_of_Response_Plot"):
+        os.makedirs("Categorical_Mean_of_Response_Plot")
+
+    if not os.path.exists("Continuous_Mean_of_Response_Plot"):
+        os.makedirs("Continuous_Mean_of_Response_Plot")
+
+    # Save each figure to HTML file in the directory
+
+    for i, fig in enumerate(my_fig_cat):
+        var = catagorical_pred[i]
+        file_name = f"Mean_of_Response_Plot_{var}.html"
+        file_path = os.path.join("Categorical_Mean_of_Response_Plot", file_name)
+        pio.write_html(fig, file_path, include_plotlyjs="cdn")
+
+    for i, fig in enumerate(my_fig_con):
+        var = continuous_pred[i]
+        file_name = f"Mean_of_Response_Plot_{var}.html"
+        file_path = os.path.join("Continuous_Mean_of_Response_Plot", file_name)
+        pio.write_html(fig, file_path, include_plotlyjs="cdn")
+
+    return continuous_pred_df, catagorical_pred_df
 
 
 def weighted_unweighted_table_con(data, feature_name, response_name):
@@ -204,14 +250,6 @@ def weighted_unweighted_table_con(data, feature_name, response_name):
     uw_mse = table["MeanSquareDiff"].sum() / 10
     w_mse = table["WeightedMSD"].sum()
 
-    # fig = px.bar(x=table['BinCenter'], y=table["BinCount"])
-    # fig.add_hline(y=table["PopulationMean"][0])
-    # fig.add_trace(px.imshow(x=table['BinCenter'], y=table["BinMean"]))
-    #
-    # fig.update_layout(
-    #     xaxis_title=f"Predictors Bin {feature_name}",
-    #     yaxis_title="Response"
-    # )
     fig = go.Figure()
     fig.add_trace(
         go.Bar(
@@ -245,92 +283,10 @@ def weighted_unweighted_table_con(data, feature_name, response_name):
         yaxis2={"title": "Population", "side": "right", "overlaying": "y"},
     )
 
-    # fig.show()
-    print("uw_mse, w_mse", uw_mse, w_mse)
-    print("table.columns", table.columns)
-
-    return uw_mse, w_mse
-
-
-def unweighted_table_con(data, feature_name, response_name):
-    # print(feature_name)
-    feature = data[feature_name]
-    Y = data[response_name]
-    y = Y.to_list()
-
-    table = pd.DataFrame(
-        columns=[
-            "Category",
-            "BinCount",
-            "BinMean",
-            "PopulationMean",
-            "MeanSquareDiff",
-        ]
-    )
-    categories = feature.unique()
-    number_bins = len(categories)
-
-    # mean square unweighted table
-    for category in categories:
-        feature_bin_list = []
-        response_bin_list = []
-        for i in range(len(feature)):
-            if feature[i] == category:
-                feature_bin_list.append(feature[i])
-                response_bin_list.append(y[i])
-        bin_count = len(feature_bin_list)
-        bin_mean = statistics.mean(response_bin_list)
-        pop_mean = numpy.nanmean(y)
-        mean_sq_diff = round(abs((bin_mean - pop_mean) ** 2), 5)
-        new_table = {
-            "Category": category,
-            "BinCount": bin_count,
-            "BinMean": bin_mean,
-            "PopulationMean": pop_mean,
-            "MeanSquareDiff": mean_sq_diff,
-        }
-        table = table.append(new_table, ignore_index=True)
-
-    fig = px.bar(x=table.index, y=table["BinMean"])
-    fig.add_hline(y=table["PopulationMean"][0])
-    fig.update_layout(xaxis_title="Predictors Bin", yaxis_title="Response")
-    fig.show()
-
-    print("unweighted table:", table)
-
-    return table
-
-
-import plotly.express as px
-import statsmodels.api as sm
-
-
-def pval_tscore(df, predictors, response):
-    # Fit OLS model and extract p-value and t-score for each predictor
-    X = df[predictors]
-    X = sm.add_constant(X)
-    y = df[response]
-    model = sm.OLS(y, X).fit()
-    pvalues = model.pvalues[1:]
-    tscores = model.tvalues[1:]
-
-    # Create DataFrame with p-values and t-scores
-    result_df = pd.DataFrame(
-        {"Predictor": predictors, "p-value": pvalues, "t-score": tscores}
-    )
-
-    # Plot p-values and t-scores using Plotly
-    # fig = px.bar(result_df, x='Predictor', y='p-value', title='P-values for Predictors')
-    # fig.show()
-    #
-    # fig = px.bar(result_df, x='Predictor', y='t-score', title='T-scores for Predictors')
-    # fig.show()
-
-    print(result_df)
+    return uw_mse, w_mse, fig
 
 
 def p_t_values(df, continuous_pred, response):
-    print("#####################")
     y = df[response]
     pred = df[continuous_pred]
     predictor = statsmodels.api.add_constant(pred)
@@ -343,20 +299,8 @@ def p_t_values(df, continuous_pred, response):
     t_value = round(linear_regression_model_fitted.tvalues[1], 6)
     p_value = "{:.6e}".format(linear_regression_model_fitted.pvalues[1])
 
-    print("pvalues:", p_value)
-    print("pvalues:", t_value)
-
-    # Plot the figure
-    # fig = px.scatter(x=column, y=y, trendline="ols")
-    # fig.update_layout(
-    #     title=f"Variable: {feature_name}: (t-value={t_value}) (p-value={p_value})",
-    #     xaxis_title=f"Variable: {feature_name}",
-    #     yaxis_title="y",
-    # )
-    # fig.show()
-    # fig.write_html(
-    #     file=f"../../plots/lecture_6_var_{idx}.html", include_plotlyjs="cdn"
-    # )
+    # print("pvalues:", p_value)
+    # print("tvalues:", t_value)
     return p_value, t_value
 
 
@@ -373,90 +317,73 @@ def impurity_based_feature_importance(df, continuous_pred_df, response):
     return feature_importance
 
 
-# def ranking_con_con(col1, col2, data, feature_name, response_name):
-#     # print("features name",feature_name)
-#     feature = data[feature_name]
-#     Y = data[response_name]
-#
-#     number_bins = 10
-#     min_feature = feature.min()
-#     max_feature = feature.max()
-#     bin_size = (max_feature - min_feature) / number_bins
-#
-#     table = pd.DataFrame(
-#         columns=["LowerBin", "UpperBin", "BinCenter", "BinCount", "BinMean"]
-#     )
-#
-#     for n in range(number_bins):
-#         low = min_feature + (bin_size * n)
-#         high = min_feature + (bin_size * (n + 1))
-#         bin_mean = data[(feature >= low) & (feature < high)][response_name].mean()
-#         bin_count = data[(feature >= low) & (feature < high)][response_name].count()
-#
-#         if n == 9:
-#             bin_mean = data[(feature >= low) & (feature <= high)][response_name].mean()
-#             bin_count = data[(feature >= low) & (feature <= high)][response_name].count()
-#
-#         bin_center = (low + high) / 2
-#
-#         new_table = {
-#             "LowerBin": low,
-#             "UpperBin": high,
-#             "BinCenter": bin_center,
-#             "BinCount": bin_count,
-#             "BinMean": bin_mean,
-#         }
-#
-#         table = table.append(new_table, ignore_index=True)
-#
-#     pop_mean = Y.mean()
-#     # mean_sq_diff = np.sum((table["BinMean"] - pop_mean) ** 2) / len(table)
-#
-#     table["PopulationMean"] = pop_mean
-#     table["MeanSquareDiff"] = [((i - pop_mean) ** 2) for i in table["BinMean"]]
-#     table["PopulationProportion"] = [i / table["BinCount"].sum() for i in table["BinCount"]]
-#     table["WeightedMSD"] = table["MeanSquareDiff"] * table["PopulationProportion"]
-#
-#     uw_mse = table["MeanSquareDiff"].sum()/10
-#     w_mse = table["WeightedMSD"].sum()
-#
-#     # fig = px.bar(x=table['BinCenter'], y=table["BinCount"])
-#     # fig.add_hline(y=table["PopulationMean"][0])
-#     # fig.add_trace(px.imshow(x=table['BinCenter'], y=table["BinMean"]))
-#     #
-#     # fig.update_layout(
-#     #     xaxis_title=f"Predictors Bin {feature_name}",
-#     #     yaxis_title="Response"
-#     # )
-#     fig = go.Figure()
-#     fig.add_trace(
-#         go.Bar(
-#             x=table['BinCenter'], y=table["BinCount"], name="Population", yaxis="y2", opacity=0.5
-#         )
-#     )
-#     fig.add_trace(
-#         go.Scatter(
-#             x=table['BinCenter'],
-#             y=table["BinMean"],
-#             name="Bin Mean(μ𝑖)",
-#             yaxis="y",
-#         )
-#     )
-#     fig.add_trace(
-#         go.Scatter(
-#             x=table['BinCenter'],
-#             y=table['PopulationMean'],
-#             name="Population Mean(μpop)",
-#             yaxis="y",
-#             mode="lines",
-#         )
-#     )
-#     fig.update_layout(xaxis_title="Predictor Bin",
-#                       yaxis_title="Response",
-#                       yaxis2 = {"title": "Population","side":"right","overlaying":"y"})
-#
-#     # fig.show()
-#     print("uw_mse, w_mse", uw_mse, w_mse)
-#     print("table.columns",table.columns)
-#
-#     return uw_mse, w_mse
+def weighted_unweighted_table_cat(data, feature_name, response_name):
+    feature = data[feature_name]
+    Y = data[response_name]
+
+    categories = feature.unique()
+    table = pd.DataFrame(columns=["Category", "CategoryCount", "CategoryMean"])
+
+    for cat in categories:
+        cat_mean = data[feature == cat][response_name].mean()
+        cat_count = data[feature == cat][response_name].count()
+
+        new_table = {
+            "Category": cat,
+            "CategoryCount": cat_count,
+            "CategoryMean": cat_mean,
+        }
+
+        table = table.append(new_table, ignore_index=True)
+
+    pop_mean = Y.mean()
+
+    table["PopulationMean"] = pop_mean
+    table["MeanSquareDiff"] = [((i - pop_mean) ** 2) for i in table["CategoryMean"]]
+    table["PopulationProportion"] = [
+        i / table["CategoryCount"].sum() for i in table["CategoryCount"]
+    ]
+    table["WeightedMSD"] = table["MeanSquareDiff"] * table["PopulationProportion"]
+
+    uw_mse = table["MeanSquareDiff"].sum() / len(categories)
+    w_mse = table["WeightedMSD"].sum()
+
+    fig = go.Figure()
+    fig.add_trace(
+        go.Bar(
+            x=table["Category"],
+            y=table["CategoryCount"],
+            name="Population",
+            yaxis="y2",
+            opacity=0.5,
+        )
+    )
+    fig.add_trace(
+        go.Scatter(
+            x=table["Category"],
+            y=table["CategoryMean"],
+            name="Category Mean(μ𝑖)",
+            yaxis="y",
+        )
+    )
+    fig.add_trace(
+        go.Scatter(
+            x=table["Category"],
+            y=table["PopulationMean"],
+            name="Population Mean(μpop)",
+            yaxis="y",
+            mode="lines",
+        )
+    )
+    fig.update_layout(
+        xaxis_title="Predictor Category",
+        yaxis_title="Response",
+        yaxis2={"title": "Population", "side": "right", "overlaying": "y"},
+    )
+
+    # fig.show()
+
+    # print("uw_mse, w_mse", uw_mse, w_mse)
+    # print("table.columns", table.columns)
+
+    return uw_mse, w_mse, fig
