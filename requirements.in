@@ -1,6 +1,6 @@
 os
 numpy
-pandas
+pandas==1.5.3
 plotly
 statsmodels
 scikit-learn
