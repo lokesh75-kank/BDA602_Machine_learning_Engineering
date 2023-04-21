@@ -2,6 +2,8 @@
 import sys
 import warnings
 
+# import pandas as pd
+# import sqlalchemy
 from model import modeling
 from pyspark import StorageLevel
 from pyspark.sql import SparkSession
@@ -30,9 +32,25 @@ def main():
     password = "1196"
     server = "localhost"
     port = 3306
+    # db = "baseball"
+    # host = "localhost:3306"
+
+    # using sqlalchemy to connect DB #
+    """ I tried both ways for connecting DB.
+        The query runs fast with spark also few plots are not
+        generating with sqlalchemy hence using spark for DB connection
+    """
+    # SQL queries
+    # c = f"mariadb+mariadbconnector://{user}:{password}@{host}/{db}"  # pragma: allowlist secret
+    # query = "SELECT * FROM feature_ratio"
+    # sql_engine = sqlalchemy.create_engine(c)
+    # df = pd.read_sql_query(query, sql_engine)
+    # print(df.head(5))
+
+    # connected using pyspark also #
+
     jdbc_url = f"jdbc:mysql://{server}:{port}/{database}?permitMysqlScheme"
     jdbc_driver = "org.mariadb.jdbc.Driver"
-    # SQL queries
     sql1 = """
                 Select * from feature_ratio
             """
@@ -50,10 +68,9 @@ def main():
     df_sql1.persist(StorageLevel.DISK_ONLY)
     # df_sql1.show(1)
     df = df_sql1.toPandas()
+
     df = df.drop(["game_id", "home_team_id", "away_team_id"], axis=1)
-    # df = df.head(500)
-    print(df)
-    # print(df.isnull().sum())
+    # # print(df.isnull().sum())
     for col in df.columns:
         df[col].fillna(0, inplace=True)
 
@@ -129,9 +146,7 @@ def main():
     corr_figs = create_corrheatmapfigs(corr_cat_cat, corr_con_cat, corr_con_con)
 
     # df_con_pred = df[continuous_pred]
-
     # # impurity_based_feature_importance(df, df_con_pred, response)
-    #
     # # converts all the dataframes to html
     dataset_name = "Baseball"
     creating_html(
