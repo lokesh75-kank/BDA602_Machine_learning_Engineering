@@ -233,6 +233,22 @@ def diff_mean_resp_weighted_ranking_cat_cat(list1, list2, df, response_name):
                     cat_count = df[(df[cat1] == i) & (df[cat2] == j)][
                         response_name
                     ].count()
+
+                    # tried this to define range of bins but got errors
+                    # no_bins1 = np.linspace(df[cat1].min(), df[cat1].max(), num=11)
+                    # no_bins2 = np.linspace(df[cat2].min(), df[cat2].max(), num=11)
+                    # cat_mean_list = []
+                    # for i in range(len(no_bins1) - 1):
+                    #     temp = []
+                    #     for j in range(len(no_bins2) - 1):
+                    #         cat_mean = df[(df[cat2] >= no_bins1[i]) &
+                    #         (df[cat1] < no_bins1[i + 1]) &
+                    #                       (df[cat2] >= no_bins2[j]) &
+                    #                       (df[cat2] < no_bins2[j + 1])][response_name].mean()
+                    #         cat_count = df[(df[cat1] >= no_bins1[i]) & (df[cat1] < no_bins1[i + 1]) &
+                    #                        (df[cat2] >= no_bins2[j]) &
+                    #                        (df[cat2] < no_bins2[j + 1])][response_name].count()
+
                     my_list.append([i, j, cat_count, cat_mean])
                     temp.append(cat_mean)
                 cat_mean_list.append(temp)
@@ -311,6 +327,22 @@ def diff_mean_resp_weighted_ranking_cont_cat(list1, list2, df, response_name):
                     cat_count = df[(df[cont] == i) & (df[cat] == j)][
                         response_name
                     ].count()
+
+                    # no_bins1 = np.linspace(df[cont].min(), df[cont].max(), num=11)
+                    # no_bins2 = np.linspace(df[cat].min(), df[cat].max(), num=11)
+                    # cat_mean_list = []
+                    # for i in range(len(no_bins1) - 1):
+                    #     temp = []
+                    #     for j in range(len(no_bins2) - 1):
+                    #         cat_mean = df[(df[cont] >= no_bins1[i]) &
+                    #         (df[cont] < no_bins1[i + 1]) &
+                    #                       (df[cat] >= no_bins2[j]) &
+                    #                       (df[cat] < no_bins2[j + 1])][response_name].mean()
+                    #         cat_count = df[(df[cont] >= no_bins1[i]) &
+                    #         (df[cont] < no_bins1[i + 1]) &
+                    #                        (df[cat] >= no_bins2[j]) &
+                    #                        (df[cat] < no_bins2[j + 1])][response_name].count()
+
                     my_list.append([i, j, cat_count, cat_mean])
                     temp.append(cat_mean)
                 cat_mean_list.append(temp)
@@ -377,6 +409,7 @@ def diff_mean_resp_weighted_ranking_cont_cont(list1, list2, df, response_name):
         for cont2 in list2:
             my_list = []
             no_bins1 = df[cont1].unique()
+            # print("no_bins01\n",no_bins1)
             no_bins2 = df[cont2].unique()
             cat_mean_list = []
             for i in no_bins1:
@@ -388,6 +421,23 @@ def diff_mean_resp_weighted_ranking_cont_cont(list1, list2, df, response_name):
                     cat_count = df[(df[cont1] == i) & (df[cont2] == j)][
                         response_name
                     ].count()
+
+                    # tried this to define range of bins but got errors
+                    # no_bins1 = np.linspace(df[cont1].min(), df[cont1].max(), num=11)
+                    # no_bins2 = np.linspace(df[cont2].min(), df[cont2].max(), num=11)
+                    # cat_mean_list = []
+                    # for i in range(len(no_bins1) - 1):
+                    #     temp = []
+                    #     for j in range(len(no_bins2) - 1):
+                    #         cat_mean = df[(df[cont1] >= no_bins1[i]) &
+                    #         (df[cont1] < no_bins1[i + 1]) &
+                    #                       (df[cont2] >= no_bins2[j]) &
+                    #                       (df[cont2] < no_bins2[j + 1])][response_name].mean()
+                    #         cat_count = df[(df[cont1] >= no_bins1[i]) &
+                    #         (df[cont1] < no_bins1[i + 1]) &
+                    #                        (df[cont2] >= no_bins2[j]) &
+                    #                        (df[cont2] < no_bins2[j + 1])][response_name].count()
+
                     my_list.append([i, j, cat_count, cat_mean])
                     temp.append(cat_mean)
                 cat_mean_list.append(temp)

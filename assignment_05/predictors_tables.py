@@ -289,7 +289,7 @@ def p_t_values(df, continuous_pred, response):
     predictor = sm.add_constant(pred)
     linear_regression_model = sm.OLS(y, predictor)
     linear_regression_model_fitted = linear_regression_model.fit()
-    print(f"Variable: {continuous_pred}")
+    # print(f"Variable: {continuous_pred}")
     # print(linear_regression_model_fitted.summary())
 
     # Get the stats

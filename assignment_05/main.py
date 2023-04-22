@@ -22,10 +22,6 @@ warnings.simplefilter(action="ignore", category=FutureWarning)
 
 
 def main():
-    appName = "PySpark Example - MariaDB Example"
-    master = "local[*]"
-    # Create Spark session
-    spark = SparkSession.builder.appName(appName).master(master).getOrCreate()
     # database properties
     database = "baseball"
     user = "admin"
@@ -35,7 +31,7 @@ def main():
     # db = "baseball"
     # host = "localhost:3306"
 
-    # using sqlalchemy to connect DB #
+    # Tried using sqlalchemy to connect DB #
     """ I tried both ways for connecting DB.
         The query runs fast with spark also few plots are not
         generating with sqlalchemy hence using spark for DB connection
@@ -47,8 +43,11 @@ def main():
     # df = pd.read_sql_query(query, sql_engine)
     # print(df.head(5))
 
-    # connected using pyspark also #
-
+    # connected using pyspark as is runs fast on my machine#
+    appName = "PySpark Example - MariaDB Example"
+    master = "local[*]"
+    # Create Spark session
+    spark = SparkSession.builder.appName(appName).master(master).getOrCreate()
     jdbc_url = f"jdbc:mysql://{server}:{port}/{database}?permitMysqlScheme"
     jdbc_driver = "org.mariadb.jdbc.Driver"
     sql1 = """
@@ -78,26 +77,21 @@ def main():
     X = df.drop("home_team_wins", axis=1)
     y = df["home_team_wins"]
     modeling(X, y)
-    """
-    Result:
-    Based on the given results, it appears that the
-    logistic regression model has the highest accuracy
-    with a score of 0.5569, followed by the
-    support vector machine (SVM) with an accuracy of 0.5421,
-    and the random forest classifier with an accuracy of 0.5242.
-    Looking at the classification reports, the logistic regression
-    and SVM models have relatively high precision and recall for class 1,
-    which suggests that they are performing well in identifying instances
-    of that class. However, they have low precision and recall for class 0,
-    which suggests that they are not performing as well in identifying instances
-     of that class.
-    The random forest classifier, on the other hand, has relatively balanced
-    precision and recall for both classes, but its overall accuracy is lower
-    than the other models.
-    """
+    print(
+        "Model Comparision:\n"
+        "Based on the given results, it appears that the logistic regression model has the highest accuracy "
+        "with a score of 0.5569, followed by the support vector machine (SVM) with an accuracy of 0.5421, "
+        "and the random forest classifier with an accuracy of 0.5242.\n"
+        "Looking at the classification reports, the logistic regression and SVM models have relatively high "
+        "precision and recall for class 1, which suggests that they are performing well in identifying instances "
+        "of that class. However, they have low precision and recall for class 0, which suggests that they are "
+        "not performing as well in identifying instances of that class.\n"
+        "The random forest classifier, on the other hand, has relatively balanced precision and recall for both "
+        "classes, but its overall accuracy is lower than the other models."
+    )
 
     # Feature Analyzing
-    # As number of record in dataframe are more am selecting just 10 rows.
+    # code takes time to run for all records for plots so kept df with 10 rows.
 
     df = df.head(10)
     predictors = df.columns[:-1]
@@ -144,7 +138,6 @@ def main():
 
     # # create their heatmaps
     corr_figs = create_corrheatmapfigs(corr_cat_cat, corr_con_cat, corr_con_con)
-
     # df_con_pred = df[continuous_pred]
     # # impurity_based_feature_importance(df, df_con_pred, response)
     # # converts all the dataframes to html
