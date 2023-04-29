@@ -51,7 +51,7 @@ def main():
     jdbc_url = f"jdbc:mysql://{server}:{port}/{database}?permitMysqlScheme"
     jdbc_driver = "org.mariadb.jdbc.Driver"
     sql1 = """
-                Select * from game_features
+                Select * from Baseball_features
             """
     # Create a data frame by reading data from Oracle via JDBC using sql1
     df_sql1 = (
