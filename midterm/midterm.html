@@ -1,0 +1,2058 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Midterm</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <h1>Welcome to BDA 602 ML Midterm solution by Lokesh Kank</h1>
+    <h2>Dataset selected : mpg</h2>
+    <h3>Continuous Predictors</h3>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right">
+          <th>Feature</th>
+          <th>Plot</th>
+          <th>Mean of Response Plot</th>
+          <th>Diff Mean Response (Weighted)</th>
+          <th>Diff Mean Response (Unweighted)</th>
+          <th>P-Value</th>
+          <th>T-Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>cylinders</td>
+          <td>
+            <a href="Continuous_Predictors_Plots/plot_0.html">cylinders</a>
+          </td>
+          <td>
+            <a
+              href="Continuous_Mean_of_Response_Plot/Mean_of_Response_Plot_cylinders.html"
+              >cylinders</a
+            >
+          </td>
+          <td>38.965578</td>
+          <td>14.185669</td>
+          <td>1.311384e-80</td>
+          <td>-24.424680</td>
+        </tr>
+        <tr>
+          <td>displacement</td>
+          <td>
+            <a href="Continuous_Predictors_Plots/plot_1.html">displacement</a>
+          </td>
+          <td>
+            <a
+              href="Continuous_Mean_of_Response_Plot/Mean_of_Response_Plot_displacement.html"
+              >displacement</a
+            >
+          </td>
+          <td>43.033881</td>
+          <td>45.024871</td>
+          <td>1.660642e-90</td>
+          <td>-26.808153</td>
+        </tr>
+        <tr>
+          <td>horsepower</td>
+          <td>
+            <a href="Continuous_Predictors_Plots/plot_2.html">horsepower</a>
+          </td>
+          <td>
+            <a
+              href="Continuous_Mean_of_Response_Plot/Mean_of_Response_Plot_horsepower.html"
+              >horsepower</a
+            >
+          </td>
+          <td>40.372625</td>
+          <td>68.969060</td>
+          <td>7.031989e-81</td>
+          <td>-24.489135</td>
+        </tr>
+        <tr>
+          <td>weight</td>
+          <td><a href="Continuous_Predictors_Plots/plot_3.html">weight</a></td>
+          <td>
+            <a
+              href="Continuous_Mean_of_Response_Plot/Mean_of_Response_Plot_weight.html"
+              >weight</a
+            >
+          </td>
+          <td>42.440848</td>
+          <td>56.199666</td>
+          <td>6.015296e-102</td>
+          <td>-29.645082</td>
+        </tr>
+        <tr>
+          <td>acceleration</td>
+          <td>
+            <a href="Continuous_Predictors_Plots/plot_4.html">acceleration</a>
+          </td>
+          <td>
+            <a
+              href="Continuous_Mean_of_Response_Plot/Mean_of_Response_Plot_acceleration.html"
+              >acceleration</a
+            >
+          </td>
+          <td>12.678974</td>
+          <td>36.431440</td>
+          <td>1.778576e-18</td>
+          <td>9.227691</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Categorical Predictors</h3>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right">
+          <th>Feature</th>
+          <th>Plot</th>
+          <th>Mean of Response Plot</th>
+          <th>Diff Mean Response (Weighted)</th>
+          <th>Diff Mean Response (Unweighted)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>origin</td>
+          <td>
+            <a href="Categorical_Predictors_Plots/plot_0.html" target="_blank"
+              >origin</a
+            >
+          </td>
+          <td>
+            <a
+              href="Categorical_Mean_of_Response_Plot/Mean_of_Response_Plot_origin.html"
+              target="_blank"
+              >origin</a
+            >
+          </td>
+          <td>20.164008</td>
+          <td>25.997224</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Categorical/Categorical Correlations</h3>
+    <div>
+      <script type="text/javascript">
+        window.PlotlyConfig = { MathJaxConfig: "local" };
+      </script>
+      <script src="https://cdn.plot.ly/plotly-2.18.2.min.js"></script>
+      <div
+        id="9fcbb50c-89e5-425e-8866-cbe2a086633a"
+        class="plotly-graph-div"
+        style="height: 100%; width: 100%"
+      ></div>
+      <script type="text/javascript">
+        window.PLOTLYENV = window.PLOTLYENV || {};
+        if (document.getElementById("9fcbb50c-89e5-425e-8866-cbe2a086633a")) {
+          Plotly.newPlot(
+            "9fcbb50c-89e5-425e-8866-cbe2a086633a",
+            [
+              {
+                colorscale: [
+                  [0.0, "rgb(103,0,31)"],
+                  [0.1, "rgb(178,24,43)"],
+                  [0.2, "rgb(214,96,77)"],
+                  [0.3, "rgb(244,165,130)"],
+                  [0.4, "rgb(253,219,199)"],
+                  [0.5, "rgb(247,247,247)"],
+                  [0.6, "rgb(209,229,240)"],
+                  [0.7, "rgb(146,197,222)"],
+                  [0.8, "rgb(67,147,195)"],
+                  [0.9, "rgb(33,102,172)"],
+                  [1.0, "rgb(5,48,97)"],
+                ],
+                x: ["origin"],
+                y: ["origin"],
+                z: [[1.0]],
+                zmax: 1,
+                zmin: -1,
+                type: "heatmap",
+              },
+            ],
+            {
+              template: {
+                data: {
+                  histogram2dcontour: [
+                    {
+                      type: "histogram2dcontour",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  choropleth: [
+                    {
+                      type: "choropleth",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                    },
+                  ],
+                  histogram2d: [
+                    {
+                      type: "histogram2d",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  heatmap: [
+                    {
+                      type: "heatmap",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  heatmapgl: [
+                    {
+                      type: "heatmapgl",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  contourcarpet: [
+                    {
+                      type: "contourcarpet",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                    },
+                  ],
+                  contour: [
+                    {
+                      type: "contour",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  surface: [
+                    {
+                      type: "surface",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  mesh3d: [
+                    {
+                      type: "mesh3d",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                    },
+                  ],
+                  scatter: [
+                    {
+                      fillpattern: {
+                        fillmode: "overlay",
+                        size: 10,
+                        solidity: 0.2,
+                      },
+                      type: "scatter",
+                    },
+                  ],
+                  parcoords: [
+                    {
+                      type: "parcoords",
+                      line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatterpolargl: [
+                    {
+                      type: "scatterpolargl",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  bar: [
+                    {
+                      error_x: { color: "#2a3f5f" },
+                      error_y: { color: "#2a3f5f" },
+                      marker: {
+                        line: { color: "#E5ECF6", width: 0.5 },
+                        pattern: {
+                          fillmode: "overlay",
+                          size: 10,
+                          solidity: 0.2,
+                        },
+                      },
+                      type: "bar",
+                    },
+                  ],
+                  scattergeo: [
+                    {
+                      type: "scattergeo",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatterpolar: [
+                    {
+                      type: "scatterpolar",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  histogram: [
+                    {
+                      marker: {
+                        pattern: {
+                          fillmode: "overlay",
+                          size: 10,
+                          solidity: 0.2,
+                        },
+                      },
+                      type: "histogram",
+                    },
+                  ],
+                  scattergl: [
+                    {
+                      type: "scattergl",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatter3d: [
+                    {
+                      type: "scatter3d",
+                      line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scattermapbox: [
+                    {
+                      type: "scattermapbox",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatterternary: [
+                    {
+                      type: "scatterternary",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scattercarpet: [
+                    {
+                      type: "scattercarpet",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  carpet: [
+                    {
+                      aaxis: {
+                        endlinecolor: "#2a3f5f",
+                        gridcolor: "white",
+                        linecolor: "white",
+                        minorgridcolor: "white",
+                        startlinecolor: "#2a3f5f",
+                      },
+                      baxis: {
+                        endlinecolor: "#2a3f5f",
+                        gridcolor: "white",
+                        linecolor: "white",
+                        minorgridcolor: "white",
+                        startlinecolor: "#2a3f5f",
+                      },
+                      type: "carpet",
+                    },
+                  ],
+                  table: [
+                    {
+                      cells: {
+                        fill: { color: "#EBF0F8" },
+                        line: { color: "white" },
+                      },
+                      header: {
+                        fill: { color: "#C8D4E3" },
+                        line: { color: "white" },
+                      },
+                      type: "table",
+                    },
+                  ],
+                  barpolar: [
+                    {
+                      marker: {
+                        line: { color: "#E5ECF6", width: 0.5 },
+                        pattern: {
+                          fillmode: "overlay",
+                          size: 10,
+                          solidity: 0.2,
+                        },
+                      },
+                      type: "barpolar",
+                    },
+                  ],
+                  pie: [{ automargin: true, type: "pie" }],
+                },
+                layout: {
+                  autotypenumbers: "strict",
+                  colorway: [
+                    "#636efa",
+                    "#EF553B",
+                    "#00cc96",
+                    "#ab63fa",
+                    "#FFA15A",
+                    "#19d3f3",
+                    "#FF6692",
+                    "#B6E880",
+                    "#FF97FF",
+                    "#FECB52",
+                  ],
+                  font: { color: "#2a3f5f" },
+                  hovermode: "closest",
+                  hoverlabel: { align: "left" },
+                  paper_bgcolor: "white",
+                  plot_bgcolor: "#E5ECF6",
+                  polar: {
+                    bgcolor: "#E5ECF6",
+                    angularaxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                    radialaxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                  },
+                  ternary: {
+                    bgcolor: "#E5ECF6",
+                    aaxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                    baxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                    caxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                  },
+                  coloraxis: { colorbar: { outlinewidth: 0, ticks: "" } },
+                  colorscale: {
+                    sequential: [
+                      [0.0, "#0d0887"],
+                      [0.1111111111111111, "#46039f"],
+                      [0.2222222222222222, "#7201a8"],
+                      [0.3333333333333333, "#9c179e"],
+                      [0.4444444444444444, "#bd3786"],
+                      [0.5555555555555556, "#d8576b"],
+                      [0.6666666666666666, "#ed7953"],
+                      [0.7777777777777778, "#fb9f3a"],
+                      [0.8888888888888888, "#fdca26"],
+                      [1.0, "#f0f921"],
+                    ],
+                    sequentialminus: [
+                      [0.0, "#0d0887"],
+                      [0.1111111111111111, "#46039f"],
+                      [0.2222222222222222, "#7201a8"],
+                      [0.3333333333333333, "#9c179e"],
+                      [0.4444444444444444, "#bd3786"],
+                      [0.5555555555555556, "#d8576b"],
+                      [0.6666666666666666, "#ed7953"],
+                      [0.7777777777777778, "#fb9f3a"],
+                      [0.8888888888888888, "#fdca26"],
+                      [1.0, "#f0f921"],
+                    ],
+                    diverging: [
+                      [0, "#8e0152"],
+                      [0.1, "#c51b7d"],
+                      [0.2, "#de77ae"],
+                      [0.3, "#f1b6da"],
+                      [0.4, "#fde0ef"],
+                      [0.5, "#f7f7f7"],
+                      [0.6, "#e6f5d0"],
+                      [0.7, "#b8e186"],
+                      [0.8, "#7fbc41"],
+                      [0.9, "#4d9221"],
+                      [1, "#276419"],
+                    ],
+                  },
+                  xaxis: {
+                    gridcolor: "white",
+                    linecolor: "white",
+                    ticks: "",
+                    title: { standoff: 15 },
+                    zerolinecolor: "white",
+                    automargin: true,
+                    zerolinewidth: 2,
+                  },
+                  yaxis: {
+                    gridcolor: "white",
+                    linecolor: "white",
+                    ticks: "",
+                    title: { standoff: 15 },
+                    zerolinecolor: "white",
+                    automargin: true,
+                    zerolinewidth: 2,
+                  },
+                  scene: {
+                    xaxis: {
+                      backgroundcolor: "#E5ECF6",
+                      gridcolor: "white",
+                      linecolor: "white",
+                      showbackground: true,
+                      ticks: "",
+                      zerolinecolor: "white",
+                      gridwidth: 2,
+                    },
+                    yaxis: {
+                      backgroundcolor: "#E5ECF6",
+                      gridcolor: "white",
+                      linecolor: "white",
+                      showbackground: true,
+                      ticks: "",
+                      zerolinecolor: "white",
+                      gridwidth: 2,
+                    },
+                    zaxis: {
+                      backgroundcolor: "#E5ECF6",
+                      gridcolor: "white",
+                      linecolor: "white",
+                      showbackground: true,
+                      ticks: "",
+                      zerolinecolor: "white",
+                      gridwidth: 2,
+                    },
+                  },
+                  shapedefaults: { line: { color: "#2a3f5f" } },
+                  annotationdefaults: {
+                    arrowcolor: "#2a3f5f",
+                    arrowhead: 0,
+                    arrowwidth: 1,
+                  },
+                  geo: {
+                    bgcolor: "white",
+                    landcolor: "#E5ECF6",
+                    subunitcolor: "white",
+                    showland: true,
+                    showlakes: true,
+                    lakecolor: "white",
+                  },
+                  title: { x: 0.05 },
+                  mapbox: { style: "light" },
+                },
+              },
+            },
+            { responsive: true }
+          );
+        }
+      </script>
+    </div>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right">
+          <th></th>
+          <th>cat_1</th>
+          <th>cat_2</th>
+          <th>pearson</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>0</th>
+          <td>origin</td>
+          <td>origin</td>
+          <td>1.0</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Categorical/Continuous Correlations</h3>
+    <p>Correlation Ratio Matrix</p>
+    <div>
+      <script type="text/javascript">
+        window.PlotlyConfig = { MathJaxConfig: "local" };
+      </script>
+      <script src="https://cdn.plot.ly/plotly-2.18.2.min.js"></script>
+      <div
+        id="81d1de3b-de4c-4cc0-9460-90768c98e69f"
+        class="plotly-graph-div"
+        style="height: 100%; width: 100%"
+      ></div>
+      <script type="text/javascript">
+        window.PLOTLYENV = window.PLOTLYENV || {};
+        if (document.getElementById("81d1de3b-de4c-4cc0-9460-90768c98e69f")) {
+          Plotly.newPlot(
+            "81d1de3b-de4c-4cc0-9460-90768c98e69f",
+            [
+              {
+                colorscale: [
+                  [0.0, "rgb(103,0,31)"],
+                  [0.1, "rgb(178,24,43)"],
+                  [0.2, "rgb(214,96,77)"],
+                  [0.3, "rgb(244,165,130)"],
+                  [0.4, "rgb(253,219,199)"],
+                  [0.5, "rgb(247,247,247)"],
+                  [0.6, "rgb(209,229,240)"],
+                  [0.7, "rgb(146,197,222)"],
+                  [0.8, "rgb(67,147,195)"],
+                  [0.9, "rgb(33,102,172)"],
+                  [1.0, "rgb(5,48,97)"],
+                ],
+                x: [
+                  "acceleration",
+                  "cylinders",
+                  "displacement",
+                  "horsepower",
+                  "weight",
+                ],
+                y: ["origin"],
+                z: [
+                  [
+                    0.26726377610576907, 0.6105900614802614, 0.6562475256283248,
+                    0.48965849715200926, 0.6058138445622014,
+                  ],
+                ],
+                zmax: 1,
+                zmin: -1,
+                type: "heatmap",
+              },
+            ],
+            {
+              template: {
+                data: {
+                  histogram2dcontour: [
+                    {
+                      type: "histogram2dcontour",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  choropleth: [
+                    {
+                      type: "choropleth",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                    },
+                  ],
+                  histogram2d: [
+                    {
+                      type: "histogram2d",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  heatmap: [
+                    {
+                      type: "heatmap",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  heatmapgl: [
+                    {
+                      type: "heatmapgl",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  contourcarpet: [
+                    {
+                      type: "contourcarpet",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                    },
+                  ],
+                  contour: [
+                    {
+                      type: "contour",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  surface: [
+                    {
+                      type: "surface",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  mesh3d: [
+                    {
+                      type: "mesh3d",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                    },
+                  ],
+                  scatter: [
+                    {
+                      fillpattern: {
+                        fillmode: "overlay",
+                        size: 10,
+                        solidity: 0.2,
+                      },
+                      type: "scatter",
+                    },
+                  ],
+                  parcoords: [
+                    {
+                      type: "parcoords",
+                      line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatterpolargl: [
+                    {
+                      type: "scatterpolargl",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  bar: [
+                    {
+                      error_x: { color: "#2a3f5f" },
+                      error_y: { color: "#2a3f5f" },
+                      marker: {
+                        line: { color: "#E5ECF6", width: 0.5 },
+                        pattern: {
+                          fillmode: "overlay",
+                          size: 10,
+                          solidity: 0.2,
+                        },
+                      },
+                      type: "bar",
+                    },
+                  ],
+                  scattergeo: [
+                    {
+                      type: "scattergeo",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatterpolar: [
+                    {
+                      type: "scatterpolar",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  histogram: [
+                    {
+                      marker: {
+                        pattern: {
+                          fillmode: "overlay",
+                          size: 10,
+                          solidity: 0.2,
+                        },
+                      },
+                      type: "histogram",
+                    },
+                  ],
+                  scattergl: [
+                    {
+                      type: "scattergl",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatter3d: [
+                    {
+                      type: "scatter3d",
+                      line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scattermapbox: [
+                    {
+                      type: "scattermapbox",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatterternary: [
+                    {
+                      type: "scatterternary",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scattercarpet: [
+                    {
+                      type: "scattercarpet",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  carpet: [
+                    {
+                      aaxis: {
+                        endlinecolor: "#2a3f5f",
+                        gridcolor: "white",
+                        linecolor: "white",
+                        minorgridcolor: "white",
+                        startlinecolor: "#2a3f5f",
+                      },
+                      baxis: {
+                        endlinecolor: "#2a3f5f",
+                        gridcolor: "white",
+                        linecolor: "white",
+                        minorgridcolor: "white",
+                        startlinecolor: "#2a3f5f",
+                      },
+                      type: "carpet",
+                    },
+                  ],
+                  table: [
+                    {
+                      cells: {
+                        fill: { color: "#EBF0F8" },
+                        line: { color: "white" },
+                      },
+                      header: {
+                        fill: { color: "#C8D4E3" },
+                        line: { color: "white" },
+                      },
+                      type: "table",
+                    },
+                  ],
+                  barpolar: [
+                    {
+                      marker: {
+                        line: { color: "#E5ECF6", width: 0.5 },
+                        pattern: {
+                          fillmode: "overlay",
+                          size: 10,
+                          solidity: 0.2,
+                        },
+                      },
+                      type: "barpolar",
+                    },
+                  ],
+                  pie: [{ automargin: true, type: "pie" }],
+                },
+                layout: {
+                  autotypenumbers: "strict",
+                  colorway: [
+                    "#636efa",
+                    "#EF553B",
+                    "#00cc96",
+                    "#ab63fa",
+                    "#FFA15A",
+                    "#19d3f3",
+                    "#FF6692",
+                    "#B6E880",
+                    "#FF97FF",
+                    "#FECB52",
+                  ],
+                  font: { color: "#2a3f5f" },
+                  hovermode: "closest",
+                  hoverlabel: { align: "left" },
+                  paper_bgcolor: "white",
+                  plot_bgcolor: "#E5ECF6",
+                  polar: {
+                    bgcolor: "#E5ECF6",
+                    angularaxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                    radialaxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                  },
+                  ternary: {
+                    bgcolor: "#E5ECF6",
+                    aaxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                    baxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                    caxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                  },
+                  coloraxis: { colorbar: { outlinewidth: 0, ticks: "" } },
+                  colorscale: {
+                    sequential: [
+                      [0.0, "#0d0887"],
+                      [0.1111111111111111, "#46039f"],
+                      [0.2222222222222222, "#7201a8"],
+                      [0.3333333333333333, "#9c179e"],
+                      [0.4444444444444444, "#bd3786"],
+                      [0.5555555555555556, "#d8576b"],
+                      [0.6666666666666666, "#ed7953"],
+                      [0.7777777777777778, "#fb9f3a"],
+                      [0.8888888888888888, "#fdca26"],
+                      [1.0, "#f0f921"],
+                    ],
+                    sequentialminus: [
+                      [0.0, "#0d0887"],
+                      [0.1111111111111111, "#46039f"],
+                      [0.2222222222222222, "#7201a8"],
+                      [0.3333333333333333, "#9c179e"],
+                      [0.4444444444444444, "#bd3786"],
+                      [0.5555555555555556, "#d8576b"],
+                      [0.6666666666666666, "#ed7953"],
+                      [0.7777777777777778, "#fb9f3a"],
+                      [0.8888888888888888, "#fdca26"],
+                      [1.0, "#f0f921"],
+                    ],
+                    diverging: [
+                      [0, "#8e0152"],
+                      [0.1, "#c51b7d"],
+                      [0.2, "#de77ae"],
+                      [0.3, "#f1b6da"],
+                      [0.4, "#fde0ef"],
+                      [0.5, "#f7f7f7"],
+                      [0.6, "#e6f5d0"],
+                      [0.7, "#b8e186"],
+                      [0.8, "#7fbc41"],
+                      [0.9, "#4d9221"],
+                      [1, "#276419"],
+                    ],
+                  },
+                  xaxis: {
+                    gridcolor: "white",
+                    linecolor: "white",
+                    ticks: "",
+                    title: { standoff: 15 },
+                    zerolinecolor: "white",
+                    automargin: true,
+                    zerolinewidth: 2,
+                  },
+                  yaxis: {
+                    gridcolor: "white",
+                    linecolor: "white",
+                    ticks: "",
+                    title: { standoff: 15 },
+                    zerolinecolor: "white",
+                    automargin: true,
+                    zerolinewidth: 2,
+                  },
+                  scene: {
+                    xaxis: {
+                      backgroundcolor: "#E5ECF6",
+                      gridcolor: "white",
+                      linecolor: "white",
+                      showbackground: true,
+                      ticks: "",
+                      zerolinecolor: "white",
+                      gridwidth: 2,
+                    },
+                    yaxis: {
+                      backgroundcolor: "#E5ECF6",
+                      gridcolor: "white",
+                      linecolor: "white",
+                      showbackground: true,
+                      ticks: "",
+                      zerolinecolor: "white",
+                      gridwidth: 2,
+                    },
+                    zaxis: {
+                      backgroundcolor: "#E5ECF6",
+                      gridcolor: "white",
+                      linecolor: "white",
+                      showbackground: true,
+                      ticks: "",
+                      zerolinecolor: "white",
+                      gridwidth: 2,
+                    },
+                  },
+                  shapedefaults: { line: { color: "#2a3f5f" } },
+                  annotationdefaults: {
+                    arrowcolor: "#2a3f5f",
+                    arrowhead: 0,
+                    arrowwidth: 1,
+                  },
+                  geo: {
+                    bgcolor: "white",
+                    landcolor: "#E5ECF6",
+                    subunitcolor: "white",
+                    showland: true,
+                    showlakes: true,
+                    lakecolor: "white",
+                  },
+                  title: { x: 0.05 },
+                  mapbox: { style: "light" },
+                },
+              },
+            },
+            { responsive: true }
+          );
+        }
+      </script>
+    </div>
+    <p>Correlation Ratio Table</p>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right">
+          <th></th>
+          <th>cat</th>
+          <th>cont</th>
+          <th>corr_ratio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>0</th>
+          <td>origin</td>
+          <td>cylinders</td>
+          <td>0.610590</td>
+        </tr>
+        <tr>
+          <th>1</th>
+          <td>origin</td>
+          <td>displacement</td>
+          <td>0.656248</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>origin</td>
+          <td>horsepower</td>
+          <td>0.489658</td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <td>origin</td>
+          <td>weight</td>
+          <td>0.605814</td>
+        </tr>
+        <tr>
+          <th>4</th>
+          <td>origin</td>
+          <td>acceleration</td>
+          <td>0.267264</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Continuous/Continuous Correlations</h3>
+    <p>Correlation Pearson's Matrix</p>
+    <div>
+      <script type="text/javascript">
+        window.PlotlyConfig = { MathJaxConfig: "local" };
+      </script>
+      <script src="https://cdn.plot.ly/plotly-2.18.2.min.js"></script>
+      <div
+        id="1e915571-4021-4b69-92c7-cf6b65d78fc1"
+        class="plotly-graph-div"
+        style="height: 100%; width: 100%"
+      ></div>
+      <script type="text/javascript">
+        window.PLOTLYENV = window.PLOTLYENV || {};
+        if (document.getElementById("1e915571-4021-4b69-92c7-cf6b65d78fc1")) {
+          Plotly.newPlot(
+            "1e915571-4021-4b69-92c7-cf6b65d78fc1",
+            [
+              {
+                colorscale: [
+                  [0.0, "rgb(103,0,31)"],
+                  [0.1, "rgb(178,24,43)"],
+                  [0.2, "rgb(214,96,77)"],
+                  [0.3, "rgb(244,165,130)"],
+                  [0.4, "rgb(253,219,199)"],
+                  [0.5, "rgb(247,247,247)"],
+                  [0.6, "rgb(209,229,240)"],
+                  [0.7, "rgb(146,197,222)"],
+                  [0.8, "rgb(67,147,195)"],
+                  [0.9, "rgb(33,102,172)"],
+                  [1.0, "rgb(5,48,97)"],
+                ],
+                x: [
+                  "acceleration",
+                  "cylinders",
+                  "displacement",
+                  "horsepower",
+                  "weight",
+                ],
+                y: [
+                  "acceleration",
+                  "cylinders",
+                  "displacement",
+                  "horsepower",
+                  "weight",
+                ],
+                z: [
+                  [
+                    0.9999999999999998, -0.5046833793486444,
+                    -0.5438004967345675, -0.6891955103342365,
+                    -0.4168392020037066,
+                  ],
+                  [
+                    -0.5046833793486444, 0.9999999999999998, 0.9508233008277825,
+                    0.8429833569186566, 0.8975273403408172,
+                  ],
+                  [
+                    -0.5438004967345675, 0.9508233008277825, 0.9999999999999996,
+                    0.8972570018434691, 0.9329944040890107,
+                  ],
+                  [
+                    -0.6891955103342365, 0.8429833569186566, 0.8972570018434691,
+                    0.9999999999999999, 0.8645377375741445,
+                  ],
+                  [
+                    -0.4168392020037066, 0.8975273403408172, 0.9329944040890107,
+                    0.8645377375741445, 1.0,
+                  ],
+                ],
+                zmax: 1,
+                zmin: -1,
+                type: "heatmap",
+              },
+            ],
+            {
+              template: {
+                data: {
+                  histogram2dcontour: [
+                    {
+                      type: "histogram2dcontour",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  choropleth: [
+                    {
+                      type: "choropleth",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                    },
+                  ],
+                  histogram2d: [
+                    {
+                      type: "histogram2d",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  heatmap: [
+                    {
+                      type: "heatmap",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  heatmapgl: [
+                    {
+                      type: "heatmapgl",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  contourcarpet: [
+                    {
+                      type: "contourcarpet",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                    },
+                  ],
+                  contour: [
+                    {
+                      type: "contour",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  surface: [
+                    {
+                      type: "surface",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  mesh3d: [
+                    {
+                      type: "mesh3d",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                    },
+                  ],
+                  scatter: [
+                    {
+                      fillpattern: {
+                        fillmode: "overlay",
+                        size: 10,
+                        solidity: 0.2,
+                      },
+                      type: "scatter",
+                    },
+                  ],
+                  parcoords: [
+                    {
+                      type: "parcoords",
+                      line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatterpolargl: [
+                    {
+                      type: "scatterpolargl",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  bar: [
+                    {
+                      error_x: { color: "#2a3f5f" },
+                      error_y: { color: "#2a3f5f" },
+                      marker: {
+                        line: { color: "#E5ECF6", width: 0.5 },
+                        pattern: {
+                          fillmode: "overlay",
+                          size: 10,
+                          solidity: 0.2,
+                        },
+                      },
+                      type: "bar",
+                    },
+                  ],
+                  scattergeo: [
+                    {
+                      type: "scattergeo",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatterpolar: [
+                    {
+                      type: "scatterpolar",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  histogram: [
+                    {
+                      marker: {
+                        pattern: {
+                          fillmode: "overlay",
+                          size: 10,
+                          solidity: 0.2,
+                        },
+                      },
+                      type: "histogram",
+                    },
+                  ],
+                  scattergl: [
+                    {
+                      type: "scattergl",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatter3d: [
+                    {
+                      type: "scatter3d",
+                      line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scattermapbox: [
+                    {
+                      type: "scattermapbox",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatterternary: [
+                    {
+                      type: "scatterternary",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scattercarpet: [
+                    {
+                      type: "scattercarpet",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  carpet: [
+                    {
+                      aaxis: {
+                        endlinecolor: "#2a3f5f",
+                        gridcolor: "white",
+                        linecolor: "white",
+                        minorgridcolor: "white",
+                        startlinecolor: "#2a3f5f",
+                      },
+                      baxis: {
+                        endlinecolor: "#2a3f5f",
+                        gridcolor: "white",
+                        linecolor: "white",
+                        minorgridcolor: "white",
+                        startlinecolor: "#2a3f5f",
+                      },
+                      type: "carpet",
+                    },
+                  ],
+                  table: [
+                    {
+                      cells: {
+                        fill: { color: "#EBF0F8" },
+                        line: { color: "white" },
+                      },
+                      header: {
+                        fill: { color: "#C8D4E3" },
+                        line: { color: "white" },
+                      },
+                      type: "table",
+                    },
+                  ],
+                  barpolar: [
+                    {
+                      marker: {
+                        line: { color: "#E5ECF6", width: 0.5 },
+                        pattern: {
+                          fillmode: "overlay",
+                          size: 10,
+                          solidity: 0.2,
+                        },
+                      },
+                      type: "barpolar",
+                    },
+                  ],
+                  pie: [{ automargin: true, type: "pie" }],
+                },
+                layout: {
+                  autotypenumbers: "strict",
+                  colorway: [
+                    "#636efa",
+                    "#EF553B",
+                    "#00cc96",
+                    "#ab63fa",
+                    "#FFA15A",
+                    "#19d3f3",
+                    "#FF6692",
+                    "#B6E880",
+                    "#FF97FF",
+                    "#FECB52",
+                  ],
+                  font: { color: "#2a3f5f" },
+                  hovermode: "closest",
+                  hoverlabel: { align: "left" },
+                  paper_bgcolor: "white",
+                  plot_bgcolor: "#E5ECF6",
+                  polar: {
+                    bgcolor: "#E5ECF6",
+                    angularaxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                    radialaxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                  },
+                  ternary: {
+                    bgcolor: "#E5ECF6",
+                    aaxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                    baxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                    caxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                  },
+                  coloraxis: { colorbar: { outlinewidth: 0, ticks: "" } },
+                  colorscale: {
+                    sequential: [
+                      [0.0, "#0d0887"],
+                      [0.1111111111111111, "#46039f"],
+                      [0.2222222222222222, "#7201a8"],
+                      [0.3333333333333333, "#9c179e"],
+                      [0.4444444444444444, "#bd3786"],
+                      [0.5555555555555556, "#d8576b"],
+                      [0.6666666666666666, "#ed7953"],
+                      [0.7777777777777778, "#fb9f3a"],
+                      [0.8888888888888888, "#fdca26"],
+                      [1.0, "#f0f921"],
+                    ],
+                    sequentialminus: [
+                      [0.0, "#0d0887"],
+                      [0.1111111111111111, "#46039f"],
+                      [0.2222222222222222, "#7201a8"],
+                      [0.3333333333333333, "#9c179e"],
+                      [0.4444444444444444, "#bd3786"],
+                      [0.5555555555555556, "#d8576b"],
+                      [0.6666666666666666, "#ed7953"],
+                      [0.7777777777777778, "#fb9f3a"],
+                      [0.8888888888888888, "#fdca26"],
+                      [1.0, "#f0f921"],
+                    ],
+                    diverging: [
+                      [0, "#8e0152"],
+                      [0.1, "#c51b7d"],
+                      [0.2, "#de77ae"],
+                      [0.3, "#f1b6da"],
+                      [0.4, "#fde0ef"],
+                      [0.5, "#f7f7f7"],
+                      [0.6, "#e6f5d0"],
+                      [0.7, "#b8e186"],
+                      [0.8, "#7fbc41"],
+                      [0.9, "#4d9221"],
+                      [1, "#276419"],
+                    ],
+                  },
+                  xaxis: {
+                    gridcolor: "white",
+                    linecolor: "white",
+                    ticks: "",
+                    title: { standoff: 15 },
+                    zerolinecolor: "white",
+                    automargin: true,
+                    zerolinewidth: 2,
+                  },
+                  yaxis: {
+                    gridcolor: "white",
+                    linecolor: "white",
+                    ticks: "",
+                    title: { standoff: 15 },
+                    zerolinecolor: "white",
+                    automargin: true,
+                    zerolinewidth: 2,
+                  },
+                  scene: {
+                    xaxis: {
+                      backgroundcolor: "#E5ECF6",
+                      gridcolor: "white",
+                      linecolor: "white",
+                      showbackground: true,
+                      ticks: "",
+                      zerolinecolor: "white",
+                      gridwidth: 2,
+                    },
+                    yaxis: {
+                      backgroundcolor: "#E5ECF6",
+                      gridcolor: "white",
+                      linecolor: "white",
+                      showbackground: true,
+                      ticks: "",
+                      zerolinecolor: "white",
+                      gridwidth: 2,
+                    },
+                    zaxis: {
+                      backgroundcolor: "#E5ECF6",
+                      gridcolor: "white",
+                      linecolor: "white",
+                      showbackground: true,
+                      ticks: "",
+                      zerolinecolor: "white",
+                      gridwidth: 2,
+                    },
+                  },
+                  shapedefaults: { line: { color: "#2a3f5f" } },
+                  annotationdefaults: {
+                    arrowcolor: "#2a3f5f",
+                    arrowhead: 0,
+                    arrowwidth: 1,
+                  },
+                  geo: {
+                    bgcolor: "white",
+                    landcolor: "#E5ECF6",
+                    subunitcolor: "white",
+                    showland: true,
+                    showlakes: true,
+                    lakecolor: "white",
+                  },
+                  title: { x: 0.05 },
+                  mapbox: { style: "light" },
+                },
+              },
+            },
+            { responsive: true }
+          );
+        }
+      </script>
+    </div>
+    <p>Correlation Pearson's Table</p>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right">
+          <th></th>
+          <th>cont_1</th>
+          <th>cont_2</th>
+          <th>pearson</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>0</th>
+          <td>cylinders</td>
+          <td>cylinders</td>
+          <td>1.000000</td>
+        </tr>
+        <tr>
+          <th>1</th>
+          <td>cylinders</td>
+          <td>displacement</td>
+          <td>0.950823</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>cylinders</td>
+          <td>horsepower</td>
+          <td>0.842983</td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <td>cylinders</td>
+          <td>weight</td>
+          <td>0.897527</td>
+        </tr>
+        <tr>
+          <th>4</th>
+          <td>cylinders</td>
+          <td>acceleration</td>
+          <td>-0.504683</td>
+        </tr>
+        <tr>
+          <th>5</th>
+          <td>displacement</td>
+          <td>cylinders</td>
+          <td>0.950823</td>
+        </tr>
+        <tr>
+          <th>6</th>
+          <td>displacement</td>
+          <td>displacement</td>
+          <td>1.000000</td>
+        </tr>
+        <tr>
+          <th>7</th>
+          <td>displacement</td>
+          <td>horsepower</td>
+          <td>0.897257</td>
+        </tr>
+        <tr>
+          <th>8</th>
+          <td>displacement</td>
+          <td>weight</td>
+          <td>0.932994</td>
+        </tr>
+        <tr>
+          <th>9</th>
+          <td>displacement</td>
+          <td>acceleration</td>
+          <td>-0.543800</td>
+        </tr>
+        <tr>
+          <th>10</th>
+          <td>horsepower</td>
+          <td>cylinders</td>
+          <td>0.842983</td>
+        </tr>
+        <tr>
+          <th>11</th>
+          <td>horsepower</td>
+          <td>displacement</td>
+          <td>0.897257</td>
+        </tr>
+        <tr>
+          <th>12</th>
+          <td>horsepower</td>
+          <td>horsepower</td>
+          <td>1.000000</td>
+        </tr>
+        <tr>
+          <th>13</th>
+          <td>horsepower</td>
+          <td>weight</td>
+          <td>0.864538</td>
+        </tr>
+        <tr>
+          <th>14</th>
+          <td>horsepower</td>
+          <td>acceleration</td>
+          <td>-0.689196</td>
+        </tr>
+        <tr>
+          <th>15</th>
+          <td>weight</td>
+          <td>cylinders</td>
+          <td>0.897527</td>
+        </tr>
+        <tr>
+          <th>16</th>
+          <td>weight</td>
+          <td>displacement</td>
+          <td>0.932994</td>
+        </tr>
+        <tr>
+          <th>17</th>
+          <td>weight</td>
+          <td>horsepower</td>
+          <td>0.864538</td>
+        </tr>
+        <tr>
+          <th>18</th>
+          <td>weight</td>
+          <td>weight</td>
+          <td>1.000000</td>
+        </tr>
+        <tr>
+          <th>19</th>
+          <td>weight</td>
+          <td>acceleration</td>
+          <td>-0.416839</td>
+        </tr>
+        <tr>
+          <th>20</th>
+          <td>acceleration</td>
+          <td>cylinders</td>
+          <td>-0.504683</td>
+        </tr>
+        <tr>
+          <th>21</th>
+          <td>acceleration</td>
+          <td>displacement</td>
+          <td>-0.543800</td>
+        </tr>
+        <tr>
+          <th>22</th>
+          <td>acceleration</td>
+          <td>horsepower</td>
+          <td>-0.689196</td>
+        </tr>
+        <tr>
+          <th>23</th>
+          <td>acceleration</td>
+          <td>weight</td>
+          <td>-0.416839</td>
+        </tr>
+        <tr>
+          <th>24</th>
+          <td>acceleration</td>
+          <td>acceleration</td>
+          <td>1.000000</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Categorical/Categorical - Brute Force Table</h3>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right">
+          <th>cat_1</th>
+          <th>cat_2</th>
+          <th>diff_mean_resp_ranking</th>
+          <th>diff_mean_resp_weighted_ranking</th>
+          <th>pearson</th>
+          <th>abs_pearson</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <h3>Categorical/Continuous - Brute Force Table</h3>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right">
+          <th>cat</th>
+          <th>cont</th>
+          <th>diff_mean_resp_ranking</th>
+          <th>diff_mean_resp_weighted_ranking</th>
+          <th>corr_ratio</th>
+          <th>abs_corr_ratio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>origin</td>
+          <td>cylinders</td>
+          <td>15.369798</td>
+          <td>40.660468</td>
+          <td>0.610590</td>
+          <td>0.610590</td>
+        </tr>
+        <tr>
+          <td>origin</td>
+          <td>displacement</td>
+          <td>22.017449</td>
+          <td>51.576611</td>
+          <td>0.656248</td>
+          <td>0.656248</td>
+        </tr>
+        <tr>
+          <td>origin</td>
+          <td>horsepower</td>
+          <td>28.027145</td>
+          <td>52.130429</td>
+          <td>0.489658</td>
+          <td>0.489658</td>
+        </tr>
+        <tr>
+          <td>origin</td>
+          <td>weight</td>
+          <td>20.560674</td>
+          <td>59.814422</td>
+          <td>0.605814</td>
+          <td>0.605814</td>
+        </tr>
+        <tr>
+          <td>origin</td>
+          <td>acceleration</td>
+          <td>32.590567</td>
+          <td>44.781182</td>
+          <td>0.267264</td>
+          <td>0.267264</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Continuous/Continuous - Brute Force Table</h3>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right">
+          <th>cont_1</th>
+          <th>cont_2</th>
+          <th>diff_mean_resp_ranking</th>
+          <th>diff_mean_resp_weighted_ranking</th>
+          <th>pearson</th>
+          <th>abs_pearson</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>cylinders</td>
+          <td>displacement</td>
+          <td>10.419005</td>
+          <td>50.607111</td>
+          <td>0.950823</td>
+          <td>0.950823</td>
+        </tr>
+        <tr>
+          <td>cylinders</td>
+          <td>horsepower</td>
+          <td>14.180725</td>
+          <td>51.865492</td>
+          <td>0.842983</td>
+          <td>0.842983</td>
+        </tr>
+        <tr>
+          <td>cylinders</td>
+          <td>weight</td>
+          <td>11.680041</td>
+          <td>58.949161</td>
+          <td>0.897527</td>
+          <td>0.897527</td>
+        </tr>
+        <tr>
+          <td>cylinders</td>
+          <td>acceleration</td>
+          <td>19.447508</td>
+          <td>51.024230</td>
+          <td>-0.504683</td>
+          <td>0.504683</td>
+        </tr>
+        <tr>
+          <td>displacement</td>
+          <td>cylinders</td>
+          <td>10.419005</td>
+          <td>50.607111</td>
+          <td>0.950823</td>
+          <td>0.950823</td>
+        </tr>
+        <tr>
+          <td>displacement</td>
+          <td>horsepower</td>
+          <td>1.751717</td>
+          <td>58.034621</td>
+          <td>0.897257</td>
+          <td>0.897257</td>
+        </tr>
+        <tr>
+          <td>displacement</td>
+          <td>weight</td>
+          <td>0.817066</td>
+          <td>60.181114</td>
+          <td>0.932994</td>
+          <td>0.932994</td>
+        </tr>
+        <tr>
+          <td>displacement</td>
+          <td>acceleration</td>
+          <td>2.600963</td>
+          <td>59.801693</td>
+          <td>-0.543800</td>
+          <td>0.543800</td>
+        </tr>
+        <tr>
+          <td>horsepower</td>
+          <td>cylinders</td>
+          <td>14.180725</td>
+          <td>51.865492</td>
+          <td>0.842983</td>
+          <td>0.842983</td>
+        </tr>
+        <tr>
+          <td>horsepower</td>
+          <td>displacement</td>
+          <td>1.751717</td>
+          <td>58.034621</td>
+          <td>0.897257</td>
+          <td>0.897257</td>
+        </tr>
+        <tr>
+          <td>horsepower</td>
+          <td>weight</td>
+          <td>0.706067</td>
+          <td>60.513465</td>
+          <td>0.864538</td>
+          <td>0.864538</td>
+        </tr>
+        <tr>
+          <td>horsepower</td>
+          <td>acceleration</td>
+          <td>2.404495</td>
+          <td>59.619869</td>
+          <td>-0.689196</td>
+          <td>0.689196</td>
+        </tr>
+        <tr>
+          <td>weight</td>
+          <td>cylinders</td>
+          <td>11.680041</td>
+          <td>58.949161</td>
+          <td>0.897527</td>
+          <td>0.897527</td>
+        </tr>
+        <tr>
+          <td>weight</td>
+          <td>displacement</td>
+          <td>0.817066</td>
+          <td>60.181114</td>
+          <td>0.932994</td>
+          <td>0.932994</td>
+        </tr>
+        <tr>
+          <td>weight</td>
+          <td>horsepower</td>
+          <td>0.706067</td>
+          <td>60.513465</td>
+          <td>0.864538</td>
+          <td>0.864538</td>
+        </tr>
+        <tr>
+          <td>weight</td>
+          <td>acceleration</td>
+          <td>0.722200</td>
+          <td>60.751259</td>
+          <td>-0.416839</td>
+          <td>0.416839</td>
+        </tr>
+        <tr>
+          <td>acceleration</td>
+          <td>cylinders</td>
+          <td>19.447508</td>
+          <td>51.024230</td>
+          <td>-0.504683</td>
+          <td>0.504683</td>
+        </tr>
+        <tr>
+          <td>acceleration</td>
+          <td>displacement</td>
+          <td>2.600963</td>
+          <td>59.801693</td>
+          <td>-0.543800</td>
+          <td>0.543800</td>
+        </tr>
+        <tr>
+          <td>acceleration</td>
+          <td>horsepower</td>
+          <td>2.404495</td>
+          <td>59.619869</td>
+          <td>-0.689196</td>
+          <td>0.689196</td>
+        </tr>
+        <tr>
+          <td>acceleration</td>
+          <td>weight</td>
+          <td>0.722200</td>
+          <td>60.751259</td>
+          <td>-0.416839</td>
+          <td>0.416839</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

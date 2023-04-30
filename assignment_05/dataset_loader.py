@@ -5,6 +5,7 @@ import pandas
 import seaborn
 from sklearn import datasets
 
+
 # from sklearn.datasets import fetch_openml
 class TestDatasets:
     def __init__(self):
@@ -57,8 +58,7 @@ class TestDatasets:
 
         if data_set_name in self.seaborn_data_sets:
             if data_set_name == "mpg":
-                data_set = seaborn.load_dataset(name="mpg").dropna()
-                data_set = data_set.reset_index()
+                data_set = seaborn.load_dataset(name="mpg").dropna().reset_index()
                 predictors = [
                     "cylinders",
                     "displacement",
@@ -69,8 +69,7 @@ class TestDatasets:
                 ]
                 response = "mpg"
             elif data_set_name == "tips":
-                data_set = seaborn.load_dataset(name="tips").dropna()
-                data_set = data_set.reset_index()
+                data_set = seaborn.load_dataset(name="tips").dropna().reset_index()
                 predictors = [
                     "total_bill",
                     "sex",
@@ -120,3 +119,11 @@ if __name__ == "__main__":
     test_datasets = TestDatasets()
     for test in test_datasets.get_all_available_datasets():
         df, predictors, response = test_datasets.get_test_data_set(data_set_name=test)
+
+        print(df.head())
+        print("pred", predictors)
+        print("res", response)
+
+    print(df.head())
+    print("pred", predictors)
+    print("res", response)
