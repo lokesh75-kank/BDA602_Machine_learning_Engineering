@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  mariadb:
+    image: mariadb:10:6:12
+    container_name: mariadb_container
+    environment:
+      - MYSQL_USER= admin
+      - MYSQL_PASSWORD= 1196
+      - MYSQL_ROOT_PASSWORD= 1196
+    volumes:
+      - mariadb:/sql_data
+    ports:
+      - "3306:3306"
+    restart: unless-stopped
