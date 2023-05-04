@@ -14,7 +14,6 @@ CREATE INDEX rolling_lookup_game_id_idx ON table_rolling_lookup (game_id);
 CREATE INDEX rolling_lookup_local_date_idx ON table_rolling_lookup (local_date);
 CREATE INDEX rolling_lookup_batter_idx ON table_rolling_lookup (batter);
 
-
 DROP TEMPORARY TABLE IF EXISTS rolling_100_partition;
 CREATE TEMPORARY TABLE rolling_100_partition AS
 WITH subTable AS (
@@ -43,5 +42,4 @@ ELSE sum_Hit/sum_atBat END AS BA, cnt
 FROM subTable
 WHERE sum_Hit IS NOT NULL
 ORDER BY batter,game_id, local_date;
-
 -- SELECT * from rolling_100_partition where game_id = 12560;

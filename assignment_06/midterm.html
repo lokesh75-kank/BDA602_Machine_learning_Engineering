@@ -1,0 +1,3208 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Midterm</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <h1>Welcome to BDA 602 ML assignment_06 by Lokesh Kank</h1>
+    <h2>Dataset selected : Baseball</h2>
+    <h3>Continuous Predictors</h3>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right">
+          <th>Feature</th>
+          <th>Plot</th>
+          <th>Mean of Response Plot</th>
+          <th>Diff Mean Response (Weighted)</th>
+          <th>Diff Mean Response (Unweighted)</th>
+          <th>P-Value</th>
+          <th>T-Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>TB_Ratio</td>
+          <td>
+            <a href="Continuous_Predictors_Plots/plot_0.html">TB_Ratio</a>
+          </td>
+          <td>
+            <a
+              href="Continuous_Mean_of_Response_Plot/Mean_of_Response_Plot_TB_Ratio.html"
+              >TB_Ratio</a
+            >
+          </td>
+          <td>0.200000</td>
+          <td>0.125000</td>
+          <td>4.247542e-01</td>
+          <td>0.841030</td>
+        </tr>
+        <tr>
+          <td>P_WHIP_Ratio</td>
+          <td>
+            <a href="Continuous_Predictors_Plots/plot_1.html">P_WHIP_Ratio</a>
+          </td>
+          <td>
+            <a
+              href="Continuous_Mean_of_Response_Plot/Mean_of_Response_Plot_P_WHIP_Ratio.html"
+              >P_WHIP_Ratio</a
+            >
+          </td>
+          <td>0.078571</td>
+          <td>0.075510</td>
+          <td>1.485014e-01</td>
+          <td>1.598940</td>
+        </tr>
+        <tr>
+          <td>A_HR_Ratio</td>
+          <td>
+            <a href="Continuous_Predictors_Plots/plot_2.html">A_HR_Ratio</a>
+          </td>
+          <td>
+            <a
+              href="Continuous_Mean_of_Response_Plot/Mean_of_Response_Plot_A_HR_Ratio.html"
+              >A_HR_Ratio</a
+            >
+          </td>
+          <td>0.078571</td>
+          <td>0.075510</td>
+          <td>6.708414e-01</td>
+          <td>0.441067</td>
+        </tr>
+        <tr>
+          <td>ISO_Ratio</td>
+          <td>
+            <a href="Continuous_Predictors_Plots/plot_3.html">ISO_Ratio</a>
+          </td>
+          <td>
+            <a
+              href="Continuous_Mean_of_Response_Plot/Mean_of_Response_Plot_ISO_Ratio.html"
+              >ISO_Ratio</a
+            >
+          </td>
+          <td>0.138889</td>
+          <td>0.075000</td>
+          <td>1.180921e-01</td>
+          <td>1.750783</td>
+        </tr>
+        <tr>
+          <td>SLG_Ratio</td>
+          <td>
+            <a href="Continuous_Predictors_Plots/plot_4.html">SLG_Ratio</a>
+          </td>
+          <td>
+            <a
+              href="Continuous_Mean_of_Response_Plot/Mean_of_Response_Plot_SLG_Ratio.html"
+              >SLG_Ratio</a
+            >
+          </td>
+          <td>0.200000</td>
+          <td>0.125000</td>
+          <td>3.831573e-01</td>
+          <td>0.922681</td>
+        </tr>
+        <tr>
+          <td>TOB_Ratio</td>
+          <td>
+            <a href="Continuous_Predictors_Plots/plot_5.html">TOB_Ratio</a>
+          </td>
+          <td>
+            <a
+              href="Continuous_Mean_of_Response_Plot/Mean_of_Response_Plot_TOB_Ratio.html"
+              >TOB_Ratio</a
+            >
+          </td>
+          <td>0.250000</td>
+          <td>0.200000</td>
+          <td>6.848870e-01</td>
+          <td>0.420929</td>
+        </tr>
+        <tr>
+          <td>P_ERA_Ratio</td>
+          <td>
+            <a href="Continuous_Predictors_Plots/plot_6.html">P_ERA_Ratio</a>
+          </td>
+          <td>
+            <a
+              href="Continuous_Mean_of_Response_Plot/Mean_of_Response_Plot_P_ERA_Ratio.html"
+              >P_ERA_Ratio</a
+            >
+          </td>
+          <td>0.125000</td>
+          <td>0.081250</td>
+          <td>6.121836e-01</td>
+          <td>0.527462</td>
+        </tr>
+        <tr>
+          <td>HR9_Ratio</td>
+          <td>
+            <a href="Continuous_Predictors_Plots/plot_7.html">HR9_Ratio</a>
+          </td>
+          <td>
+            <a
+              href="Continuous_Mean_of_Response_Plot/Mean_of_Response_Plot_HR9_Ratio.html"
+              >HR9_Ratio</a
+            >
+          </td>
+          <td>0.028571</td>
+          <td>0.025510</td>
+          <td>1.615294e-01</td>
+          <td>1.542483</td>
+        </tr>
+        <tr>
+          <td>IP_Ratio</td>
+          <td>
+            <a href="Continuous_Predictors_Plots/plot_8.html">IP_Ratio</a>
+          </td>
+          <td>
+            <a
+              href="Continuous_Mean_of_Response_Plot/Mean_of_Response_Plot_IP_Ratio.html"
+              >IP_Ratio</a
+            >
+          </td>
+          <td>0.183333</td>
+          <td>0.177778</td>
+          <td>2.735679e-01</td>
+          <td>-1.175561</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Categorical Predictors</h3>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right">
+          <th>Feature</th>
+          <th>Plot</th>
+          <th>Mean of Response Plot</th>
+          <th>Diff Mean Response (Weighted)</th>
+          <th>Diff Mean Response (Unweighted)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>HBP_Ratio</td>
+          <td>
+            <a href="Categorical_Predictors_Plots/plot_0.html" target="_blank"
+              >HBP_Ratio</a
+            >
+          </td>
+          <td>
+            <a
+              href="Categorical_Mean_of_Response_Plot/Mean_of_Response_Plot_HBP_Ratio.html"
+              target="_blank"
+              >HBP_Ratio</a
+            >
+          </td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <td>BA_Ratio</td>
+          <td>
+            <a href="Categorical_Predictors_Plots/plot_1.html" target="_blank"
+              >BA_Ratio</a
+            >
+          </td>
+          <td>
+            <a
+              href="Categorical_Mean_of_Response_Plot/Mean_of_Response_Plot_BA_Ratio.html"
+              target="_blank"
+              >BA_Ratio</a
+            >
+          </td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <td>OBP_Ratio</td>
+          <td>
+            <a href="Categorical_Predictors_Plots/plot_2.html" target="_blank"
+              >OBP_Ratio</a
+            >
+          </td>
+          <td>
+            <a
+              href="Categorical_Mean_of_Response_Plot/Mean_of_Response_Plot_OBP_Ratio.html"
+              target="_blank"
+              >OBP_Ratio</a
+            >
+          </td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Categorical/Categorical Correlations</h3>
+    <div>
+      <script type="text/javascript">
+        window.PlotlyConfig = { MathJaxConfig: "local" };
+      </script>
+      <script src="https://cdn.plot.ly/plotly-2.18.2.min.js"></script>
+      <div
+        id="2b1202f7-faa1-482e-9624-eb310264200e"
+        class="plotly-graph-div"
+        style="height: 100%; width: 100%"
+      ></div>
+      <script type="text/javascript">
+        window.PLOTLYENV = window.PLOTLYENV || {};
+        if (document.getElementById("2b1202f7-faa1-482e-9624-eb310264200e")) {
+          Plotly.newPlot(
+            "2b1202f7-faa1-482e-9624-eb310264200e",
+            [
+              {
+                colorscale: [
+                  [0.0, "rgb(103,0,31)"],
+                  [0.1, "rgb(178,24,43)"],
+                  [0.2, "rgb(214,96,77)"],
+                  [0.3, "rgb(244,165,130)"],
+                  [0.4, "rgb(253,219,199)"],
+                  [0.5, "rgb(247,247,247)"],
+                  [0.6, "rgb(209,229,240)"],
+                  [0.7, "rgb(146,197,222)"],
+                  [0.8, "rgb(67,147,195)"],
+                  [0.9, "rgb(33,102,172)"],
+                  [1.0, "rgb(5,48,97)"],
+                ],
+                x: ["BA_Ratio", "HBP_Ratio", "OBP_Ratio"],
+                y: ["BA_Ratio", "HBP_Ratio", "OBP_Ratio"],
+                z: [
+                  [null, null, null],
+                  [null, null, null],
+                  [null, null, null],
+                ],
+                zmax: 1,
+                zmin: -1,
+                type: "heatmap",
+              },
+            ],
+            {
+              template: {
+                data: {
+                  histogram2dcontour: [
+                    {
+                      type: "histogram2dcontour",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  choropleth: [
+                    {
+                      type: "choropleth",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                    },
+                  ],
+                  histogram2d: [
+                    {
+                      type: "histogram2d",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  heatmap: [
+                    {
+                      type: "heatmap",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  heatmapgl: [
+                    {
+                      type: "heatmapgl",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  contourcarpet: [
+                    {
+                      type: "contourcarpet",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                    },
+                  ],
+                  contour: [
+                    {
+                      type: "contour",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  surface: [
+                    {
+                      type: "surface",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  mesh3d: [
+                    {
+                      type: "mesh3d",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                    },
+                  ],
+                  scatter: [
+                    {
+                      fillpattern: {
+                        fillmode: "overlay",
+                        size: 10,
+                        solidity: 0.2,
+                      },
+                      type: "scatter",
+                    },
+                  ],
+                  parcoords: [
+                    {
+                      type: "parcoords",
+                      line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatterpolargl: [
+                    {
+                      type: "scatterpolargl",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  bar: [
+                    {
+                      error_x: { color: "#2a3f5f" },
+                      error_y: { color: "#2a3f5f" },
+                      marker: {
+                        line: { color: "#E5ECF6", width: 0.5 },
+                        pattern: {
+                          fillmode: "overlay",
+                          size: 10,
+                          solidity: 0.2,
+                        },
+                      },
+                      type: "bar",
+                    },
+                  ],
+                  scattergeo: [
+                    {
+                      type: "scattergeo",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatterpolar: [
+                    {
+                      type: "scatterpolar",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  histogram: [
+                    {
+                      marker: {
+                        pattern: {
+                          fillmode: "overlay",
+                          size: 10,
+                          solidity: 0.2,
+                        },
+                      },
+                      type: "histogram",
+                    },
+                  ],
+                  scattergl: [
+                    {
+                      type: "scattergl",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatter3d: [
+                    {
+                      type: "scatter3d",
+                      line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scattermapbox: [
+                    {
+                      type: "scattermapbox",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatterternary: [
+                    {
+                      type: "scatterternary",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scattercarpet: [
+                    {
+                      type: "scattercarpet",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  carpet: [
+                    {
+                      aaxis: {
+                        endlinecolor: "#2a3f5f",
+                        gridcolor: "white",
+                        linecolor: "white",
+                        minorgridcolor: "white",
+                        startlinecolor: "#2a3f5f",
+                      },
+                      baxis: {
+                        endlinecolor: "#2a3f5f",
+                        gridcolor: "white",
+                        linecolor: "white",
+                        minorgridcolor: "white",
+                        startlinecolor: "#2a3f5f",
+                      },
+                      type: "carpet",
+                    },
+                  ],
+                  table: [
+                    {
+                      cells: {
+                        fill: { color: "#EBF0F8" },
+                        line: { color: "white" },
+                      },
+                      header: {
+                        fill: { color: "#C8D4E3" },
+                        line: { color: "white" },
+                      },
+                      type: "table",
+                    },
+                  ],
+                  barpolar: [
+                    {
+                      marker: {
+                        line: { color: "#E5ECF6", width: 0.5 },
+                        pattern: {
+                          fillmode: "overlay",
+                          size: 10,
+                          solidity: 0.2,
+                        },
+                      },
+                      type: "barpolar",
+                    },
+                  ],
+                  pie: [{ automargin: true, type: "pie" }],
+                },
+                layout: {
+                  autotypenumbers: "strict",
+                  colorway: [
+                    "#636efa",
+                    "#EF553B",
+                    "#00cc96",
+                    "#ab63fa",
+                    "#FFA15A",
+                    "#19d3f3",
+                    "#FF6692",
+                    "#B6E880",
+                    "#FF97FF",
+                    "#FECB52",
+                  ],
+                  font: { color: "#2a3f5f" },
+                  hovermode: "closest",
+                  hoverlabel: { align: "left" },
+                  paper_bgcolor: "white",
+                  plot_bgcolor: "#E5ECF6",
+                  polar: {
+                    bgcolor: "#E5ECF6",
+                    angularaxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                    radialaxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                  },
+                  ternary: {
+                    bgcolor: "#E5ECF6",
+                    aaxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                    baxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                    caxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                  },
+                  coloraxis: { colorbar: { outlinewidth: 0, ticks: "" } },
+                  colorscale: {
+                    sequential: [
+                      [0.0, "#0d0887"],
+                      [0.1111111111111111, "#46039f"],
+                      [0.2222222222222222, "#7201a8"],
+                      [0.3333333333333333, "#9c179e"],
+                      [0.4444444444444444, "#bd3786"],
+                      [0.5555555555555556, "#d8576b"],
+                      [0.6666666666666666, "#ed7953"],
+                      [0.7777777777777778, "#fb9f3a"],
+                      [0.8888888888888888, "#fdca26"],
+                      [1.0, "#f0f921"],
+                    ],
+                    sequentialminus: [
+                      [0.0, "#0d0887"],
+                      [0.1111111111111111, "#46039f"],
+                      [0.2222222222222222, "#7201a8"],
+                      [0.3333333333333333, "#9c179e"],
+                      [0.4444444444444444, "#bd3786"],
+                      [0.5555555555555556, "#d8576b"],
+                      [0.6666666666666666, "#ed7953"],
+                      [0.7777777777777778, "#fb9f3a"],
+                      [0.8888888888888888, "#fdca26"],
+                      [1.0, "#f0f921"],
+                    ],
+                    diverging: [
+                      [0, "#8e0152"],
+                      [0.1, "#c51b7d"],
+                      [0.2, "#de77ae"],
+                      [0.3, "#f1b6da"],
+                      [0.4, "#fde0ef"],
+                      [0.5, "#f7f7f7"],
+                      [0.6, "#e6f5d0"],
+                      [0.7, "#b8e186"],
+                      [0.8, "#7fbc41"],
+                      [0.9, "#4d9221"],
+                      [1, "#276419"],
+                    ],
+                  },
+                  xaxis: {
+                    gridcolor: "white",
+                    linecolor: "white",
+                    ticks: "",
+                    title: { standoff: 15 },
+                    zerolinecolor: "white",
+                    automargin: true,
+                    zerolinewidth: 2,
+                  },
+                  yaxis: {
+                    gridcolor: "white",
+                    linecolor: "white",
+                    ticks: "",
+                    title: { standoff: 15 },
+                    zerolinecolor: "white",
+                    automargin: true,
+                    zerolinewidth: 2,
+                  },
+                  scene: {
+                    xaxis: {
+                      backgroundcolor: "#E5ECF6",
+                      gridcolor: "white",
+                      linecolor: "white",
+                      showbackground: true,
+                      ticks: "",
+                      zerolinecolor: "white",
+                      gridwidth: 2,
+                    },
+                    yaxis: {
+                      backgroundcolor: "#E5ECF6",
+                      gridcolor: "white",
+                      linecolor: "white",
+                      showbackground: true,
+                      ticks: "",
+                      zerolinecolor: "white",
+                      gridwidth: 2,
+                    },
+                    zaxis: {
+                      backgroundcolor: "#E5ECF6",
+                      gridcolor: "white",
+                      linecolor: "white",
+                      showbackground: true,
+                      ticks: "",
+                      zerolinecolor: "white",
+                      gridwidth: 2,
+                    },
+                  },
+                  shapedefaults: { line: { color: "#2a3f5f" } },
+                  annotationdefaults: {
+                    arrowcolor: "#2a3f5f",
+                    arrowhead: 0,
+                    arrowwidth: 1,
+                  },
+                  geo: {
+                    bgcolor: "white",
+                    landcolor: "#E5ECF6",
+                    subunitcolor: "white",
+                    showland: true,
+                    showlakes: true,
+                    lakecolor: "white",
+                  },
+                  title: { x: 0.05 },
+                  mapbox: { style: "light" },
+                },
+              },
+            },
+            { responsive: true }
+          );
+        }
+      </script>
+    </div>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right">
+          <th></th>
+          <th>cat_1</th>
+          <th>cat_2</th>
+          <th>pearson</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>0</th>
+          <td>HBP_Ratio</td>
+          <td>HBP_Ratio</td>
+          <td>NaN</td>
+        </tr>
+        <tr>
+          <th>1</th>
+          <td>HBP_Ratio</td>
+          <td>BA_Ratio</td>
+          <td>NaN</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>HBP_Ratio</td>
+          <td>OBP_Ratio</td>
+          <td>NaN</td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <td>BA_Ratio</td>
+          <td>HBP_Ratio</td>
+          <td>NaN</td>
+        </tr>
+        <tr>
+          <th>4</th>
+          <td>BA_Ratio</td>
+          <td>BA_Ratio</td>
+          <td>NaN</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Categorical/Continuous Correlations</h3>
+    <p>Correlation Ratio Matrix</p>
+    <div>
+      <script type="text/javascript">
+        window.PlotlyConfig = { MathJaxConfig: "local" };
+      </script>
+      <script src="https://cdn.plot.ly/plotly-2.18.2.min.js"></script>
+      <div
+        id="bd8c2244-1791-4c4c-80d5-b05079b89398"
+        class="plotly-graph-div"
+        style="height: 100%; width: 100%"
+      ></div>
+      <script type="text/javascript">
+        window.PLOTLYENV = window.PLOTLYENV || {};
+        if (document.getElementById("bd8c2244-1791-4c4c-80d5-b05079b89398")) {
+          Plotly.newPlot(
+            "bd8c2244-1791-4c4c-80d5-b05079b89398",
+            [
+              {
+                colorscale: [
+                  [0.0, "rgb(103,0,31)"],
+                  [0.1, "rgb(178,24,43)"],
+                  [0.2, "rgb(214,96,77)"],
+                  [0.3, "rgb(244,165,130)"],
+                  [0.4, "rgb(253,219,199)"],
+                  [0.5, "rgb(247,247,247)"],
+                  [0.6, "rgb(209,229,240)"],
+                  [0.7, "rgb(146,197,222)"],
+                  [0.8, "rgb(67,147,195)"],
+                  [0.9, "rgb(33,102,172)"],
+                  [1.0, "rgb(5,48,97)"],
+                ],
+                x: [
+                  "A_HR_Ratio",
+                  "HR9_Ratio",
+                  "IP_Ratio",
+                  "ISO_Ratio",
+                  "P_ERA_Ratio",
+                  "P_WHIP_Ratio",
+                  "SLG_Ratio",
+                  "TB_Ratio",
+                  "TOB_Ratio",
+                ],
+                y: ["BA_Ratio", "HBP_Ratio", "OBP_Ratio"],
+                z: [
+                  [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                  [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                  [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                ],
+                zmax: 1,
+                zmin: -1,
+                type: "heatmap",
+              },
+            ],
+            {
+              template: {
+                data: {
+                  histogram2dcontour: [
+                    {
+                      type: "histogram2dcontour",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  choropleth: [
+                    {
+                      type: "choropleth",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                    },
+                  ],
+                  histogram2d: [
+                    {
+                      type: "histogram2d",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  heatmap: [
+                    {
+                      type: "heatmap",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  heatmapgl: [
+                    {
+                      type: "heatmapgl",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  contourcarpet: [
+                    {
+                      type: "contourcarpet",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                    },
+                  ],
+                  contour: [
+                    {
+                      type: "contour",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  surface: [
+                    {
+                      type: "surface",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  mesh3d: [
+                    {
+                      type: "mesh3d",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                    },
+                  ],
+                  scatter: [
+                    {
+                      fillpattern: {
+                        fillmode: "overlay",
+                        size: 10,
+                        solidity: 0.2,
+                      },
+                      type: "scatter",
+                    },
+                  ],
+                  parcoords: [
+                    {
+                      type: "parcoords",
+                      line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatterpolargl: [
+                    {
+                      type: "scatterpolargl",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  bar: [
+                    {
+                      error_x: { color: "#2a3f5f" },
+                      error_y: { color: "#2a3f5f" },
+                      marker: {
+                        line: { color: "#E5ECF6", width: 0.5 },
+                        pattern: {
+                          fillmode: "overlay",
+                          size: 10,
+                          solidity: 0.2,
+                        },
+                      },
+                      type: "bar",
+                    },
+                  ],
+                  scattergeo: [
+                    {
+                      type: "scattergeo",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatterpolar: [
+                    {
+                      type: "scatterpolar",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  histogram: [
+                    {
+                      marker: {
+                        pattern: {
+                          fillmode: "overlay",
+                          size: 10,
+                          solidity: 0.2,
+                        },
+                      },
+                      type: "histogram",
+                    },
+                  ],
+                  scattergl: [
+                    {
+                      type: "scattergl",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatter3d: [
+                    {
+                      type: "scatter3d",
+                      line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scattermapbox: [
+                    {
+                      type: "scattermapbox",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatterternary: [
+                    {
+                      type: "scatterternary",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scattercarpet: [
+                    {
+                      type: "scattercarpet",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  carpet: [
+                    {
+                      aaxis: {
+                        endlinecolor: "#2a3f5f",
+                        gridcolor: "white",
+                        linecolor: "white",
+                        minorgridcolor: "white",
+                        startlinecolor: "#2a3f5f",
+                      },
+                      baxis: {
+                        endlinecolor: "#2a3f5f",
+                        gridcolor: "white",
+                        linecolor: "white",
+                        minorgridcolor: "white",
+                        startlinecolor: "#2a3f5f",
+                      },
+                      type: "carpet",
+                    },
+                  ],
+                  table: [
+                    {
+                      cells: {
+                        fill: { color: "#EBF0F8" },
+                        line: { color: "white" },
+                      },
+                      header: {
+                        fill: { color: "#C8D4E3" },
+                        line: { color: "white" },
+                      },
+                      type: "table",
+                    },
+                  ],
+                  barpolar: [
+                    {
+                      marker: {
+                        line: { color: "#E5ECF6", width: 0.5 },
+                        pattern: {
+                          fillmode: "overlay",
+                          size: 10,
+                          solidity: 0.2,
+                        },
+                      },
+                      type: "barpolar",
+                    },
+                  ],
+                  pie: [{ automargin: true, type: "pie" }],
+                },
+                layout: {
+                  autotypenumbers: "strict",
+                  colorway: [
+                    "#636efa",
+                    "#EF553B",
+                    "#00cc96",
+                    "#ab63fa",
+                    "#FFA15A",
+                    "#19d3f3",
+                    "#FF6692",
+                    "#B6E880",
+                    "#FF97FF",
+                    "#FECB52",
+                  ],
+                  font: { color: "#2a3f5f" },
+                  hovermode: "closest",
+                  hoverlabel: { align: "left" },
+                  paper_bgcolor: "white",
+                  plot_bgcolor: "#E5ECF6",
+                  polar: {
+                    bgcolor: "#E5ECF6",
+                    angularaxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                    radialaxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                  },
+                  ternary: {
+                    bgcolor: "#E5ECF6",
+                    aaxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                    baxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                    caxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                  },
+                  coloraxis: { colorbar: { outlinewidth: 0, ticks: "" } },
+                  colorscale: {
+                    sequential: [
+                      [0.0, "#0d0887"],
+                      [0.1111111111111111, "#46039f"],
+                      [0.2222222222222222, "#7201a8"],
+                      [0.3333333333333333, "#9c179e"],
+                      [0.4444444444444444, "#bd3786"],
+                      [0.5555555555555556, "#d8576b"],
+                      [0.6666666666666666, "#ed7953"],
+                      [0.7777777777777778, "#fb9f3a"],
+                      [0.8888888888888888, "#fdca26"],
+                      [1.0, "#f0f921"],
+                    ],
+                    sequentialminus: [
+                      [0.0, "#0d0887"],
+                      [0.1111111111111111, "#46039f"],
+                      [0.2222222222222222, "#7201a8"],
+                      [0.3333333333333333, "#9c179e"],
+                      [0.4444444444444444, "#bd3786"],
+                      [0.5555555555555556, "#d8576b"],
+                      [0.6666666666666666, "#ed7953"],
+                      [0.7777777777777778, "#fb9f3a"],
+                      [0.8888888888888888, "#fdca26"],
+                      [1.0, "#f0f921"],
+                    ],
+                    diverging: [
+                      [0, "#8e0152"],
+                      [0.1, "#c51b7d"],
+                      [0.2, "#de77ae"],
+                      [0.3, "#f1b6da"],
+                      [0.4, "#fde0ef"],
+                      [0.5, "#f7f7f7"],
+                      [0.6, "#e6f5d0"],
+                      [0.7, "#b8e186"],
+                      [0.8, "#7fbc41"],
+                      [0.9, "#4d9221"],
+                      [1, "#276419"],
+                    ],
+                  },
+                  xaxis: {
+                    gridcolor: "white",
+                    linecolor: "white",
+                    ticks: "",
+                    title: { standoff: 15 },
+                    zerolinecolor: "white",
+                    automargin: true,
+                    zerolinewidth: 2,
+                  },
+                  yaxis: {
+                    gridcolor: "white",
+                    linecolor: "white",
+                    ticks: "",
+                    title: { standoff: 15 },
+                    zerolinecolor: "white",
+                    automargin: true,
+                    zerolinewidth: 2,
+                  },
+                  scene: {
+                    xaxis: {
+                      backgroundcolor: "#E5ECF6",
+                      gridcolor: "white",
+                      linecolor: "white",
+                      showbackground: true,
+                      ticks: "",
+                      zerolinecolor: "white",
+                      gridwidth: 2,
+                    },
+                    yaxis: {
+                      backgroundcolor: "#E5ECF6",
+                      gridcolor: "white",
+                      linecolor: "white",
+                      showbackground: true,
+                      ticks: "",
+                      zerolinecolor: "white",
+                      gridwidth: 2,
+                    },
+                    zaxis: {
+                      backgroundcolor: "#E5ECF6",
+                      gridcolor: "white",
+                      linecolor: "white",
+                      showbackground: true,
+                      ticks: "",
+                      zerolinecolor: "white",
+                      gridwidth: 2,
+                    },
+                  },
+                  shapedefaults: { line: { color: "#2a3f5f" } },
+                  annotationdefaults: {
+                    arrowcolor: "#2a3f5f",
+                    arrowhead: 0,
+                    arrowwidth: 1,
+                  },
+                  geo: {
+                    bgcolor: "white",
+                    landcolor: "#E5ECF6",
+                    subunitcolor: "white",
+                    showland: true,
+                    showlakes: true,
+                    lakecolor: "white",
+                  },
+                  title: { x: 0.05 },
+                  mapbox: { style: "light" },
+                },
+              },
+            },
+            { responsive: true }
+          );
+        }
+      </script>
+    </div>
+    <p>Correlation Ratio Table</p>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right">
+          <th></th>
+          <th>cat</th>
+          <th>cont</th>
+          <th>corr_ratio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>0</th>
+          <td>HBP_Ratio</td>
+          <td>TB_Ratio</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <th>1</th>
+          <td>HBP_Ratio</td>
+          <td>P_WHIP_Ratio</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>HBP_Ratio</td>
+          <td>A_HR_Ratio</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <td>HBP_Ratio</td>
+          <td>ISO_Ratio</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <th>4</th>
+          <td>HBP_Ratio</td>
+          <td>SLG_Ratio</td>
+          <td>0.0</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Continuous/Continuous Correlations</h3>
+    <p>Correlation Pearson's Matrix</p>
+    <div>
+      <script type="text/javascript">
+        window.PlotlyConfig = { MathJaxConfig: "local" };
+      </script>
+      <script src="https://cdn.plot.ly/plotly-2.18.2.min.js"></script>
+      <div
+        id="e1e3c4ab-cfe3-4eb2-a540-5384f323c8dc"
+        class="plotly-graph-div"
+        style="height: 100%; width: 100%"
+      ></div>
+      <script type="text/javascript">
+        window.PLOTLYENV = window.PLOTLYENV || {};
+        if (document.getElementById("e1e3c4ab-cfe3-4eb2-a540-5384f323c8dc")) {
+          Plotly.newPlot(
+            "e1e3c4ab-cfe3-4eb2-a540-5384f323c8dc",
+            [
+              {
+                colorscale: [
+                  [0.0, "rgb(103,0,31)"],
+                  [0.1, "rgb(178,24,43)"],
+                  [0.2, "rgb(214,96,77)"],
+                  [0.3, "rgb(244,165,130)"],
+                  [0.4, "rgb(253,219,199)"],
+                  [0.5, "rgb(247,247,247)"],
+                  [0.6, "rgb(209,229,240)"],
+                  [0.7, "rgb(146,197,222)"],
+                  [0.8, "rgb(67,147,195)"],
+                  [0.9, "rgb(33,102,172)"],
+                  [1.0, "rgb(5,48,97)"],
+                ],
+                x: [
+                  "A_HR_Ratio",
+                  "HR9_Ratio",
+                  "IP_Ratio",
+                  "ISO_Ratio",
+                  "P_ERA_Ratio",
+                  "P_WHIP_Ratio",
+                  "SLG_Ratio",
+                  "TB_Ratio",
+                  "TOB_Ratio",
+                ],
+                y: [
+                  "A_HR_Ratio",
+                  "HR9_Ratio",
+                  "IP_Ratio",
+                  "ISO_Ratio",
+                  "P_ERA_Ratio",
+                  "P_WHIP_Ratio",
+                  "SLG_Ratio",
+                  "TB_Ratio",
+                  "TOB_Ratio",
+                ],
+                z: [
+                  [
+                    1.0, 0.41958062991381156, 0.1865132755485849,
+                    -0.08848279185084924, 0.05895799699020475,
+                    0.5388143181420956, 0.028421942942998598,
+                    0.12091872470818862, -0.06710304667599169,
+                  ],
+                  [
+                    0.41958062991381156, 1.0, -0.6485325595362945,
+                    0.1403136208485058, 0.7499461915570877, 0.99055757986713,
+                    0.42079737075187224, 0.35975667520155186,
+                    -0.009114695689738286,
+                  ],
+                  [
+                    0.1865132755485849, -0.6485325595362945, 1.0,
+                    -0.24983686824159315, -0.5821971148258579,
+                    -0.5730694794449293, 0.03456983253559216,
+                    0.15428236193737768, 0.39893062219381287,
+                  ],
+                  [
+                    -0.08848279185084924, 0.1403136208485058,
+                    -0.24983686824159315, 0.9999999999999999,
+                    0.40731863429015647, 0.11877143544589856,
+                    0.37310320713912015, 0.3947893105271959,
+                    0.35206960739771553,
+                  ],
+                  [
+                    0.05895799699020475, 0.7499461915570877,
+                    -0.5821971148258579, 0.40731863429015647, 1.0,
+                    0.7056523701892902, 0.4211983906695762, 0.34676260858924834,
+                    0.0018236037018802898,
+                  ],
+                  [
+                    0.5388143181420956, 0.99055757986713, -0.5730694794449293,
+                    0.11877143544589856, 0.7056523701892902, 1.0,
+                    0.39382466829738066, 0.3512251630727772,
+                    -0.020039108897898075,
+                  ],
+                  [
+                    0.028421942942998598, 0.42079737075187224,
+                    0.03456983253559216, 0.37310320713912015,
+                    0.4211983906695762, 0.39382466829738066, 1.0,
+                    0.9854507905120351, 0.823669917846355,
+                  ],
+                  [
+                    0.12091872470818862, 0.35975667520155186,
+                    0.15428236193737768, 0.3947893105271959,
+                    0.34676260858924834, 0.3512251630727772, 0.9854507905120351,
+                    0.9999999999999999, 0.8532071651363914,
+                  ],
+                  [
+                    -0.06710304667599169, -0.009114695689738286,
+                    0.39893062219381287, 0.35206960739771553,
+                    0.0018236037018802898, -0.020039108897898075,
+                    0.823669917846355, 0.8532071651363914, 0.9999999999999999,
+                  ],
+                ],
+                zmax: 1,
+                zmin: -1,
+                type: "heatmap",
+              },
+            ],
+            {
+              template: {
+                data: {
+                  histogram2dcontour: [
+                    {
+                      type: "histogram2dcontour",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  choropleth: [
+                    {
+                      type: "choropleth",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                    },
+                  ],
+                  histogram2d: [
+                    {
+                      type: "histogram2d",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  heatmap: [
+                    {
+                      type: "heatmap",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  heatmapgl: [
+                    {
+                      type: "heatmapgl",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  contourcarpet: [
+                    {
+                      type: "contourcarpet",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                    },
+                  ],
+                  contour: [
+                    {
+                      type: "contour",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  surface: [
+                    {
+                      type: "surface",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  mesh3d: [
+                    {
+                      type: "mesh3d",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                    },
+                  ],
+                  scatter: [
+                    {
+                      fillpattern: {
+                        fillmode: "overlay",
+                        size: 10,
+                        solidity: 0.2,
+                      },
+                      type: "scatter",
+                    },
+                  ],
+                  parcoords: [
+                    {
+                      type: "parcoords",
+                      line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatterpolargl: [
+                    {
+                      type: "scatterpolargl",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  bar: [
+                    {
+                      error_x: { color: "#2a3f5f" },
+                      error_y: { color: "#2a3f5f" },
+                      marker: {
+                        line: { color: "#E5ECF6", width: 0.5 },
+                        pattern: {
+                          fillmode: "overlay",
+                          size: 10,
+                          solidity: 0.2,
+                        },
+                      },
+                      type: "bar",
+                    },
+                  ],
+                  scattergeo: [
+                    {
+                      type: "scattergeo",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatterpolar: [
+                    {
+                      type: "scatterpolar",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  histogram: [
+                    {
+                      marker: {
+                        pattern: {
+                          fillmode: "overlay",
+                          size: 10,
+                          solidity: 0.2,
+                        },
+                      },
+                      type: "histogram",
+                    },
+                  ],
+                  scattergl: [
+                    {
+                      type: "scattergl",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatter3d: [
+                    {
+                      type: "scatter3d",
+                      line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scattermapbox: [
+                    {
+                      type: "scattermapbox",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatterternary: [
+                    {
+                      type: "scatterternary",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scattercarpet: [
+                    {
+                      type: "scattercarpet",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  carpet: [
+                    {
+                      aaxis: {
+                        endlinecolor: "#2a3f5f",
+                        gridcolor: "white",
+                        linecolor: "white",
+                        minorgridcolor: "white",
+                        startlinecolor: "#2a3f5f",
+                      },
+                      baxis: {
+                        endlinecolor: "#2a3f5f",
+                        gridcolor: "white",
+                        linecolor: "white",
+                        minorgridcolor: "white",
+                        startlinecolor: "#2a3f5f",
+                      },
+                      type: "carpet",
+                    },
+                  ],
+                  table: [
+                    {
+                      cells: {
+                        fill: { color: "#EBF0F8" },
+                        line: { color: "white" },
+                      },
+                      header: {
+                        fill: { color: "#C8D4E3" },
+                        line: { color: "white" },
+                      },
+                      type: "table",
+                    },
+                  ],
+                  barpolar: [
+                    {
+                      marker: {
+                        line: { color: "#E5ECF6", width: 0.5 },
+                        pattern: {
+                          fillmode: "overlay",
+                          size: 10,
+                          solidity: 0.2,
+                        },
+                      },
+                      type: "barpolar",
+                    },
+                  ],
+                  pie: [{ automargin: true, type: "pie" }],
+                },
+                layout: {
+                  autotypenumbers: "strict",
+                  colorway: [
+                    "#636efa",
+                    "#EF553B",
+                    "#00cc96",
+                    "#ab63fa",
+                    "#FFA15A",
+                    "#19d3f3",
+                    "#FF6692",
+                    "#B6E880",
+                    "#FF97FF",
+                    "#FECB52",
+                  ],
+                  font: { color: "#2a3f5f" },
+                  hovermode: "closest",
+                  hoverlabel: { align: "left" },
+                  paper_bgcolor: "white",
+                  plot_bgcolor: "#E5ECF6",
+                  polar: {
+                    bgcolor: "#E5ECF6",
+                    angularaxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                    radialaxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                  },
+                  ternary: {
+                    bgcolor: "#E5ECF6",
+                    aaxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                    baxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                    caxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                  },
+                  coloraxis: { colorbar: { outlinewidth: 0, ticks: "" } },
+                  colorscale: {
+                    sequential: [
+                      [0.0, "#0d0887"],
+                      [0.1111111111111111, "#46039f"],
+                      [0.2222222222222222, "#7201a8"],
+                      [0.3333333333333333, "#9c179e"],
+                      [0.4444444444444444, "#bd3786"],
+                      [0.5555555555555556, "#d8576b"],
+                      [0.6666666666666666, "#ed7953"],
+                      [0.7777777777777778, "#fb9f3a"],
+                      [0.8888888888888888, "#fdca26"],
+                      [1.0, "#f0f921"],
+                    ],
+                    sequentialminus: [
+                      [0.0, "#0d0887"],
+                      [0.1111111111111111, "#46039f"],
+                      [0.2222222222222222, "#7201a8"],
+                      [0.3333333333333333, "#9c179e"],
+                      [0.4444444444444444, "#bd3786"],
+                      [0.5555555555555556, "#d8576b"],
+                      [0.6666666666666666, "#ed7953"],
+                      [0.7777777777777778, "#fb9f3a"],
+                      [0.8888888888888888, "#fdca26"],
+                      [1.0, "#f0f921"],
+                    ],
+                    diverging: [
+                      [0, "#8e0152"],
+                      [0.1, "#c51b7d"],
+                      [0.2, "#de77ae"],
+                      [0.3, "#f1b6da"],
+                      [0.4, "#fde0ef"],
+                      [0.5, "#f7f7f7"],
+                      [0.6, "#e6f5d0"],
+                      [0.7, "#b8e186"],
+                      [0.8, "#7fbc41"],
+                      [0.9, "#4d9221"],
+                      [1, "#276419"],
+                    ],
+                  },
+                  xaxis: {
+                    gridcolor: "white",
+                    linecolor: "white",
+                    ticks: "",
+                    title: { standoff: 15 },
+                    zerolinecolor: "white",
+                    automargin: true,
+                    zerolinewidth: 2,
+                  },
+                  yaxis: {
+                    gridcolor: "white",
+                    linecolor: "white",
+                    ticks: "",
+                    title: { standoff: 15 },
+                    zerolinecolor: "white",
+                    automargin: true,
+                    zerolinewidth: 2,
+                  },
+                  scene: {
+                    xaxis: {
+                      backgroundcolor: "#E5ECF6",
+                      gridcolor: "white",
+                      linecolor: "white",
+                      showbackground: true,
+                      ticks: "",
+                      zerolinecolor: "white",
+                      gridwidth: 2,
+                    },
+                    yaxis: {
+                      backgroundcolor: "#E5ECF6",
+                      gridcolor: "white",
+                      linecolor: "white",
+                      showbackground: true,
+                      ticks: "",
+                      zerolinecolor: "white",
+                      gridwidth: 2,
+                    },
+                    zaxis: {
+                      backgroundcolor: "#E5ECF6",
+                      gridcolor: "white",
+                      linecolor: "white",
+                      showbackground: true,
+                      ticks: "",
+                      zerolinecolor: "white",
+                      gridwidth: 2,
+                    },
+                  },
+                  shapedefaults: { line: { color: "#2a3f5f" } },
+                  annotationdefaults: {
+                    arrowcolor: "#2a3f5f",
+                    arrowhead: 0,
+                    arrowwidth: 1,
+                  },
+                  geo: {
+                    bgcolor: "white",
+                    landcolor: "#E5ECF6",
+                    subunitcolor: "white",
+                    showland: true,
+                    showlakes: true,
+                    lakecolor: "white",
+                  },
+                  title: { x: 0.05 },
+                  mapbox: { style: "light" },
+                },
+              },
+            },
+            { responsive: true }
+          );
+        }
+      </script>
+    </div>
+    <p>Correlation Pearson's Table</p>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right">
+          <th></th>
+          <th>cont_1</th>
+          <th>cont_2</th>
+          <th>pearson</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>0</th>
+          <td>TB_Ratio</td>
+          <td>TB_Ratio</td>
+          <td>1.000000</td>
+        </tr>
+        <tr>
+          <th>1</th>
+          <td>TB_Ratio</td>
+          <td>P_WHIP_Ratio</td>
+          <td>0.351225</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>TB_Ratio</td>
+          <td>A_HR_Ratio</td>
+          <td>0.120919</td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <td>TB_Ratio</td>
+          <td>ISO_Ratio</td>
+          <td>0.394789</td>
+        </tr>
+        <tr>
+          <th>4</th>
+          <td>TB_Ratio</td>
+          <td>SLG_Ratio</td>
+          <td>0.985451</td>
+        </tr>
+        <tr>
+          <th>5</th>
+          <td>TB_Ratio</td>
+          <td>TOB_Ratio</td>
+          <td>0.853207</td>
+        </tr>
+        <tr>
+          <th>6</th>
+          <td>TB_Ratio</td>
+          <td>P_ERA_Ratio</td>
+          <td>0.346763</td>
+        </tr>
+        <tr>
+          <th>7</th>
+          <td>TB_Ratio</td>
+          <td>HR9_Ratio</td>
+          <td>0.359757</td>
+        </tr>
+        <tr>
+          <th>8</th>
+          <td>TB_Ratio</td>
+          <td>IP_Ratio</td>
+          <td>0.154282</td>
+        </tr>
+        <tr>
+          <th>9</th>
+          <td>P_WHIP_Ratio</td>
+          <td>TB_Ratio</td>
+          <td>0.351225</td>
+        </tr>
+        <tr>
+          <th>10</th>
+          <td>P_WHIP_Ratio</td>
+          <td>P_WHIP_Ratio</td>
+          <td>1.000000</td>
+        </tr>
+        <tr>
+          <th>11</th>
+          <td>P_WHIP_Ratio</td>
+          <td>A_HR_Ratio</td>
+          <td>0.538814</td>
+        </tr>
+        <tr>
+          <th>12</th>
+          <td>P_WHIP_Ratio</td>
+          <td>ISO_Ratio</td>
+          <td>0.118771</td>
+        </tr>
+        <tr>
+          <th>13</th>
+          <td>P_WHIP_Ratio</td>
+          <td>SLG_Ratio</td>
+          <td>0.393825</td>
+        </tr>
+        <tr>
+          <th>14</th>
+          <td>P_WHIP_Ratio</td>
+          <td>TOB_Ratio</td>
+          <td>-0.020039</td>
+        </tr>
+        <tr>
+          <th>15</th>
+          <td>P_WHIP_Ratio</td>
+          <td>P_ERA_Ratio</td>
+          <td>0.705652</td>
+        </tr>
+        <tr>
+          <th>16</th>
+          <td>P_WHIP_Ratio</td>
+          <td>HR9_Ratio</td>
+          <td>0.990558</td>
+        </tr>
+        <tr>
+          <th>17</th>
+          <td>P_WHIP_Ratio</td>
+          <td>IP_Ratio</td>
+          <td>-0.573069</td>
+        </tr>
+        <tr>
+          <th>18</th>
+          <td>A_HR_Ratio</td>
+          <td>TB_Ratio</td>
+          <td>0.120919</td>
+        </tr>
+        <tr>
+          <th>19</th>
+          <td>A_HR_Ratio</td>
+          <td>P_WHIP_Ratio</td>
+          <td>0.538814</td>
+        </tr>
+        <tr>
+          <th>20</th>
+          <td>A_HR_Ratio</td>
+          <td>A_HR_Ratio</td>
+          <td>1.000000</td>
+        </tr>
+        <tr>
+          <th>21</th>
+          <td>A_HR_Ratio</td>
+          <td>ISO_Ratio</td>
+          <td>-0.088483</td>
+        </tr>
+        <tr>
+          <th>22</th>
+          <td>A_HR_Ratio</td>
+          <td>SLG_Ratio</td>
+          <td>0.028422</td>
+        </tr>
+        <tr>
+          <th>23</th>
+          <td>A_HR_Ratio</td>
+          <td>TOB_Ratio</td>
+          <td>-0.067103</td>
+        </tr>
+        <tr>
+          <th>24</th>
+          <td>A_HR_Ratio</td>
+          <td>P_ERA_Ratio</td>
+          <td>0.058958</td>
+        </tr>
+        <tr>
+          <th>25</th>
+          <td>A_HR_Ratio</td>
+          <td>HR9_Ratio</td>
+          <td>0.419581</td>
+        </tr>
+        <tr>
+          <th>26</th>
+          <td>A_HR_Ratio</td>
+          <td>IP_Ratio</td>
+          <td>0.186513</td>
+        </tr>
+        <tr>
+          <th>27</th>
+          <td>ISO_Ratio</td>
+          <td>TB_Ratio</td>
+          <td>0.394789</td>
+        </tr>
+        <tr>
+          <th>28</th>
+          <td>ISO_Ratio</td>
+          <td>P_WHIP_Ratio</td>
+          <td>0.118771</td>
+        </tr>
+        <tr>
+          <th>29</th>
+          <td>ISO_Ratio</td>
+          <td>A_HR_Ratio</td>
+          <td>-0.088483</td>
+        </tr>
+        <tr>
+          <th>30</th>
+          <td>ISO_Ratio</td>
+          <td>ISO_Ratio</td>
+          <td>1.000000</td>
+        </tr>
+        <tr>
+          <th>31</th>
+          <td>ISO_Ratio</td>
+          <td>SLG_Ratio</td>
+          <td>0.373103</td>
+        </tr>
+        <tr>
+          <th>32</th>
+          <td>ISO_Ratio</td>
+          <td>TOB_Ratio</td>
+          <td>0.352070</td>
+        </tr>
+        <tr>
+          <th>33</th>
+          <td>ISO_Ratio</td>
+          <td>P_ERA_Ratio</td>
+          <td>0.407319</td>
+        </tr>
+        <tr>
+          <th>34</th>
+          <td>ISO_Ratio</td>
+          <td>HR9_Ratio</td>
+          <td>0.140314</td>
+        </tr>
+        <tr>
+          <th>35</th>
+          <td>ISO_Ratio</td>
+          <td>IP_Ratio</td>
+          <td>-0.249837</td>
+        </tr>
+        <tr>
+          <th>36</th>
+          <td>SLG_Ratio</td>
+          <td>TB_Ratio</td>
+          <td>0.985451</td>
+        </tr>
+        <tr>
+          <th>37</th>
+          <td>SLG_Ratio</td>
+          <td>P_WHIP_Ratio</td>
+          <td>0.393825</td>
+        </tr>
+        <tr>
+          <th>38</th>
+          <td>SLG_Ratio</td>
+          <td>A_HR_Ratio</td>
+          <td>0.028422</td>
+        </tr>
+        <tr>
+          <th>39</th>
+          <td>SLG_Ratio</td>
+          <td>ISO_Ratio</td>
+          <td>0.373103</td>
+        </tr>
+        <tr>
+          <th>40</th>
+          <td>SLG_Ratio</td>
+          <td>SLG_Ratio</td>
+          <td>1.000000</td>
+        </tr>
+        <tr>
+          <th>41</th>
+          <td>SLG_Ratio</td>
+          <td>TOB_Ratio</td>
+          <td>0.823670</td>
+        </tr>
+        <tr>
+          <th>42</th>
+          <td>SLG_Ratio</td>
+          <td>P_ERA_Ratio</td>
+          <td>0.421198</td>
+        </tr>
+        <tr>
+          <th>43</th>
+          <td>SLG_Ratio</td>
+          <td>HR9_Ratio</td>
+          <td>0.420797</td>
+        </tr>
+        <tr>
+          <th>44</th>
+          <td>SLG_Ratio</td>
+          <td>IP_Ratio</td>
+          <td>0.034570</td>
+        </tr>
+        <tr>
+          <th>45</th>
+          <td>TOB_Ratio</td>
+          <td>TB_Ratio</td>
+          <td>0.853207</td>
+        </tr>
+        <tr>
+          <th>46</th>
+          <td>TOB_Ratio</td>
+          <td>P_WHIP_Ratio</td>
+          <td>-0.020039</td>
+        </tr>
+        <tr>
+          <th>47</th>
+          <td>TOB_Ratio</td>
+          <td>A_HR_Ratio</td>
+          <td>-0.067103</td>
+        </tr>
+        <tr>
+          <th>48</th>
+          <td>TOB_Ratio</td>
+          <td>ISO_Ratio</td>
+          <td>0.352070</td>
+        </tr>
+        <tr>
+          <th>49</th>
+          <td>TOB_Ratio</td>
+          <td>SLG_Ratio</td>
+          <td>0.823670</td>
+        </tr>
+        <tr>
+          <th>50</th>
+          <td>TOB_Ratio</td>
+          <td>TOB_Ratio</td>
+          <td>1.000000</td>
+        </tr>
+        <tr>
+          <th>51</th>
+          <td>TOB_Ratio</td>
+          <td>P_ERA_Ratio</td>
+          <td>0.001824</td>
+        </tr>
+        <tr>
+          <th>52</th>
+          <td>TOB_Ratio</td>
+          <td>HR9_Ratio</td>
+          <td>-0.009115</td>
+        </tr>
+        <tr>
+          <th>53</th>
+          <td>TOB_Ratio</td>
+          <td>IP_Ratio</td>
+          <td>0.398931</td>
+        </tr>
+        <tr>
+          <th>54</th>
+          <td>P_ERA_Ratio</td>
+          <td>TB_Ratio</td>
+          <td>0.346763</td>
+        </tr>
+        <tr>
+          <th>55</th>
+          <td>P_ERA_Ratio</td>
+          <td>P_WHIP_Ratio</td>
+          <td>0.705652</td>
+        </tr>
+        <tr>
+          <th>56</th>
+          <td>P_ERA_Ratio</td>
+          <td>A_HR_Ratio</td>
+          <td>0.058958</td>
+        </tr>
+        <tr>
+          <th>57</th>
+          <td>P_ERA_Ratio</td>
+          <td>ISO_Ratio</td>
+          <td>0.407319</td>
+        </tr>
+        <tr>
+          <th>58</th>
+          <td>P_ERA_Ratio</td>
+          <td>SLG_Ratio</td>
+          <td>0.421198</td>
+        </tr>
+        <tr>
+          <th>59</th>
+          <td>P_ERA_Ratio</td>
+          <td>TOB_Ratio</td>
+          <td>0.001824</td>
+        </tr>
+        <tr>
+          <th>60</th>
+          <td>P_ERA_Ratio</td>
+          <td>P_ERA_Ratio</td>
+          <td>1.000000</td>
+        </tr>
+        <tr>
+          <th>61</th>
+          <td>P_ERA_Ratio</td>
+          <td>HR9_Ratio</td>
+          <td>0.749946</td>
+        </tr>
+        <tr>
+          <th>62</th>
+          <td>P_ERA_Ratio</td>
+          <td>IP_Ratio</td>
+          <td>-0.582197</td>
+        </tr>
+        <tr>
+          <th>63</th>
+          <td>HR9_Ratio</td>
+          <td>TB_Ratio</td>
+          <td>0.359757</td>
+        </tr>
+        <tr>
+          <th>64</th>
+          <td>HR9_Ratio</td>
+          <td>P_WHIP_Ratio</td>
+          <td>0.990558</td>
+        </tr>
+        <tr>
+          <th>65</th>
+          <td>HR9_Ratio</td>
+          <td>A_HR_Ratio</td>
+          <td>0.419581</td>
+        </tr>
+        <tr>
+          <th>66</th>
+          <td>HR9_Ratio</td>
+          <td>ISO_Ratio</td>
+          <td>0.140314</td>
+        </tr>
+        <tr>
+          <th>67</th>
+          <td>HR9_Ratio</td>
+          <td>SLG_Ratio</td>
+          <td>0.420797</td>
+        </tr>
+        <tr>
+          <th>68</th>
+          <td>HR9_Ratio</td>
+          <td>TOB_Ratio</td>
+          <td>-0.009115</td>
+        </tr>
+        <tr>
+          <th>69</th>
+          <td>HR9_Ratio</td>
+          <td>P_ERA_Ratio</td>
+          <td>0.749946</td>
+        </tr>
+        <tr>
+          <th>70</th>
+          <td>HR9_Ratio</td>
+          <td>HR9_Ratio</td>
+          <td>1.000000</td>
+        </tr>
+        <tr>
+          <th>71</th>
+          <td>HR9_Ratio</td>
+          <td>IP_Ratio</td>
+          <td>-0.648533</td>
+        </tr>
+        <tr>
+          <th>72</th>
+          <td>IP_Ratio</td>
+          <td>TB_Ratio</td>
+          <td>0.154282</td>
+        </tr>
+        <tr>
+          <th>73</th>
+          <td>IP_Ratio</td>
+          <td>P_WHIP_Ratio</td>
+          <td>-0.573069</td>
+        </tr>
+        <tr>
+          <th>74</th>
+          <td>IP_Ratio</td>
+          <td>A_HR_Ratio</td>
+          <td>0.186513</td>
+        </tr>
+        <tr>
+          <th>75</th>
+          <td>IP_Ratio</td>
+          <td>ISO_Ratio</td>
+          <td>-0.249837</td>
+        </tr>
+        <tr>
+          <th>76</th>
+          <td>IP_Ratio</td>
+          <td>SLG_Ratio</td>
+          <td>0.034570</td>
+        </tr>
+        <tr>
+          <th>77</th>
+          <td>IP_Ratio</td>
+          <td>TOB_Ratio</td>
+          <td>0.398931</td>
+        </tr>
+        <tr>
+          <th>78</th>
+          <td>IP_Ratio</td>
+          <td>P_ERA_Ratio</td>
+          <td>-0.582197</td>
+        </tr>
+        <tr>
+          <th>79</th>
+          <td>IP_Ratio</td>
+          <td>HR9_Ratio</td>
+          <td>-0.648533</td>
+        </tr>
+        <tr>
+          <th>80</th>
+          <td>IP_Ratio</td>
+          <td>IP_Ratio</td>
+          <td>1.000000</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Categorical/Categorical - Brute Force Table</h3>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right">
+          <th>cat_1</th>
+          <th>cat_2</th>
+          <th>diff_mean_resp_ranking</th>
+          <th>diff_mean_resp_weighted_ranking</th>
+          <th>pearson</th>
+          <th>abs_pearson</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>HBP_Ratio</td>
+          <td>BA_Ratio</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>NaN</td>
+          <td>NaN</td>
+        </tr>
+        <tr>
+          <td>HBP_Ratio</td>
+          <td>OBP_Ratio</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>NaN</td>
+          <td>NaN</td>
+        </tr>
+        <tr>
+          <td>BA_Ratio</td>
+          <td>HBP_Ratio</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>NaN</td>
+          <td>NaN</td>
+        </tr>
+        <tr>
+          <td>BA_Ratio</td>
+          <td>OBP_Ratio</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>NaN</td>
+          <td>NaN</td>
+        </tr>
+        <tr>
+          <td>OBP_Ratio</td>
+          <td>HBP_Ratio</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>NaN</td>
+          <td>NaN</td>
+        </tr>
+        <tr>
+          <td>OBP_Ratio</td>
+          <td>BA_Ratio</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>NaN</td>
+          <td>NaN</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Categorical/Continuous - Brute Force Table</h3>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right">
+          <th>cat</th>
+          <th>cont</th>
+          <th>diff_mean_resp_ranking</th>
+          <th>diff_mean_resp_weighted_ranking</th>
+          <th>corr_ratio</th>
+          <th>abs_corr_ratio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>HBP_Ratio</td>
+          <td>TB_Ratio</td>
+          <td>0.250000</td>
+          <td>0.250000</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <td>HBP_Ratio</td>
+          <td>P_WHIP_Ratio</td>
+          <td>0.250000</td>
+          <td>0.250000</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <td>HBP_Ratio</td>
+          <td>A_HR_Ratio</td>
+          <td>0.250000</td>
+          <td>0.250000</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <td>HBP_Ratio</td>
+          <td>ISO_Ratio</td>
+          <td>0.188776</td>
+          <td>0.078571</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <td>HBP_Ratio</td>
+          <td>SLG_Ratio</td>
+          <td>0.188776</td>
+          <td>0.078571</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <td>HBP_Ratio</td>
+          <td>TOB_Ratio</td>
+          <td>0.188776</td>
+          <td>0.078571</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <td>HBP_Ratio</td>
+          <td>P_ERA_Ratio</td>
+          <td>0.188776</td>
+          <td>0.078571</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <td>HBP_Ratio</td>
+          <td>HR9_Ratio</td>
+          <td>0.188776</td>
+          <td>0.078571</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <td>HBP_Ratio</td>
+          <td>IP_Ratio</td>
+          <td>0.188776</td>
+          <td>0.078571</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <td>BA_Ratio</td>
+          <td>TB_Ratio</td>
+          <td>0.218750</td>
+          <td>0.200000</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <td>BA_Ratio</td>
+          <td>P_WHIP_Ratio</td>
+          <td>0.218750</td>
+          <td>0.200000</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <td>BA_Ratio</td>
+          <td>A_HR_Ratio</td>
+          <td>0.218750</td>
+          <td>0.200000</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <td>BA_Ratio</td>
+          <td>ISO_Ratio</td>
+          <td>0.250000</td>
+          <td>0.250000</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <td>BA_Ratio</td>
+          <td>SLG_Ratio</td>
+          <td>0.250000</td>
+          <td>0.250000</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <td>BA_Ratio</td>
+          <td>TOB_Ratio</td>
+          <td>0.250000</td>
+          <td>0.250000</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <td>BA_Ratio</td>
+          <td>P_ERA_Ratio</td>
+          <td>0.250000</td>
+          <td>0.250000</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <td>BA_Ratio</td>
+          <td>HR9_Ratio</td>
+          <td>0.250000</td>
+          <td>0.250000</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <td>BA_Ratio</td>
+          <td>IP_Ratio</td>
+          <td>0.250000</td>
+          <td>0.250000</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <td>OBP_Ratio</td>
+          <td>TB_Ratio</td>
+          <td>0.162500</td>
+          <td>0.125000</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <td>OBP_Ratio</td>
+          <td>P_WHIP_Ratio</td>
+          <td>0.162500</td>
+          <td>0.125000</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <td>OBP_Ratio</td>
+          <td>A_HR_Ratio</td>
+          <td>0.162500</td>
+          <td>0.125000</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <td>OBP_Ratio</td>
+          <td>ISO_Ratio</td>
+          <td>0.188776</td>
+          <td>0.078571</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <td>OBP_Ratio</td>
+          <td>SLG_Ratio</td>
+          <td>0.188776</td>
+          <td>0.078571</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <td>OBP_Ratio</td>
+          <td>TOB_Ratio</td>
+          <td>0.188776</td>
+          <td>0.078571</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <td>OBP_Ratio</td>
+          <td>P_ERA_Ratio</td>
+          <td>0.222222</td>
+          <td>0.183333</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <td>OBP_Ratio</td>
+          <td>HR9_Ratio</td>
+          <td>0.222222</td>
+          <td>0.183333</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <td>OBP_Ratio</td>
+          <td>IP_Ratio</td>
+          <td>0.222222</td>
+          <td>0.183333</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Continuous/Continuous - Brute Force Table</h3>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right">
+          <th>cont_1</th>
+          <th>cont_2</th>
+          <th>diff_mean_resp_ranking</th>
+          <th>diff_mean_resp_weighted_ranking</th>
+          <th>pearson</th>
+          <th>abs_pearson</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>TB_Ratio</td>
+          <td>P_WHIP_Ratio</td>
+          <td>0.062500</td>
+          <td>0.250000</td>
+          <td>0.351225</td>
+          <td>0.351225</td>
+        </tr>
+        <tr>
+          <td>TB_Ratio</td>
+          <td>A_HR_Ratio</td>
+          <td>0.062500</td>
+          <td>0.250000</td>
+          <td>0.120919</td>
+          <td>0.120919</td>
+        </tr>
+        <tr>
+          <td>TB_Ratio</td>
+          <td>ISO_Ratio</td>
+          <td>0.031250</td>
+          <td>0.250000</td>
+          <td>0.394789</td>
+          <td>0.394789</td>
+        </tr>
+        <tr>
+          <td>TB_Ratio</td>
+          <td>SLG_Ratio</td>
+          <td>0.025000</td>
+          <td>0.250000</td>
+          <td>0.985451</td>
+          <td>0.985451</td>
+        </tr>
+        <tr>
+          <td>TB_Ratio</td>
+          <td>TOB_Ratio</td>
+          <td>0.025000</td>
+          <td>0.250000</td>
+          <td>0.853207</td>
+          <td>0.853207</td>
+        </tr>
+        <tr>
+          <td>TB_Ratio</td>
+          <td>P_ERA_Ratio</td>
+          <td>0.050000</td>
+          <td>0.250000</td>
+          <td>0.346763</td>
+          <td>0.346763</td>
+        </tr>
+        <tr>
+          <td>TB_Ratio</td>
+          <td>HR9_Ratio</td>
+          <td>0.062500</td>
+          <td>0.250000</td>
+          <td>0.359757</td>
+          <td>0.359757</td>
+        </tr>
+        <tr>
+          <td>TB_Ratio</td>
+          <td>IP_Ratio</td>
+          <td>0.031250</td>
+          <td>0.250000</td>
+          <td>0.154282</td>
+          <td>0.154282</td>
+        </tr>
+        <tr>
+          <td>P_WHIP_Ratio</td>
+          <td>TB_Ratio</td>
+          <td>0.062500</td>
+          <td>0.250000</td>
+          <td>0.351225</td>
+          <td>0.351225</td>
+        </tr>
+        <tr>
+          <td>P_WHIP_Ratio</td>
+          <td>A_HR_Ratio</td>
+          <td>0.047194</td>
+          <td>0.078571</td>
+          <td>0.538814</td>
+          <td>0.538814</td>
+        </tr>
+        <tr>
+          <td>P_WHIP_Ratio</td>
+          <td>ISO_Ratio</td>
+          <td>0.062500</td>
+          <td>0.200000</td>
+          <td>0.118771</td>
+          <td>0.118771</td>
+        </tr>
+        <tr>
+          <td>P_WHIP_Ratio</td>
+          <td>SLG_Ratio</td>
+          <td>0.062500</td>
+          <td>0.250000</td>
+          <td>0.393825</td>
+          <td>0.393825</td>
+        </tr>
+        <tr>
+          <td>P_WHIP_Ratio</td>
+          <td>TOB_Ratio</td>
+          <td>0.062500</td>
+          <td>0.250000</td>
+          <td>-0.020039</td>
+          <td>0.020039</td>
+        </tr>
+        <tr>
+          <td>P_WHIP_Ratio</td>
+          <td>P_ERA_Ratio</td>
+          <td>0.065625</td>
+          <td>0.175000</td>
+          <td>0.705652</td>
+          <td>0.705652</td>
+        </tr>
+        <tr>
+          <td>P_WHIP_Ratio</td>
+          <td>HR9_Ratio</td>
+          <td>0.047194</td>
+          <td>0.078571</td>
+          <td>0.990558</td>
+          <td>0.990558</td>
+        </tr>
+        <tr>
+          <td>P_WHIP_Ratio</td>
+          <td>IP_Ratio</td>
+          <td>0.055556</td>
+          <td>0.183333</td>
+          <td>-0.573069</td>
+          <td>0.573069</td>
+        </tr>
+        <tr>
+          <td>A_HR_Ratio</td>
+          <td>TB_Ratio</td>
+          <td>0.062500</td>
+          <td>0.250000</td>
+          <td>0.120919</td>
+          <td>0.120919</td>
+        </tr>
+        <tr>
+          <td>A_HR_Ratio</td>
+          <td>P_WHIP_Ratio</td>
+          <td>0.047194</td>
+          <td>0.078571</td>
+          <td>0.538814</td>
+          <td>0.538814</td>
+        </tr>
+        <tr>
+          <td>A_HR_Ratio</td>
+          <td>ISO_Ratio</td>
+          <td>0.062500</td>
+          <td>0.200000</td>
+          <td>-0.088483</td>
+          <td>0.088483</td>
+        </tr>
+        <tr>
+          <td>A_HR_Ratio</td>
+          <td>SLG_Ratio</td>
+          <td>0.062500</td>
+          <td>0.250000</td>
+          <td>0.028422</td>
+          <td>0.028422</td>
+        </tr>
+        <tr>
+          <td>A_HR_Ratio</td>
+          <td>TOB_Ratio</td>
+          <td>0.062500</td>
+          <td>0.250000</td>
+          <td>-0.067103</td>
+          <td>0.067103</td>
+        </tr>
+        <tr>
+          <td>A_HR_Ratio</td>
+          <td>P_ERA_Ratio</td>
+          <td>0.065625</td>
+          <td>0.175000</td>
+          <td>0.058958</td>
+          <td>0.058958</td>
+        </tr>
+        <tr>
+          <td>A_HR_Ratio</td>
+          <td>HR9_Ratio</td>
+          <td>0.047194</td>
+          <td>0.078571</td>
+          <td>0.419581</td>
+          <td>0.419581</td>
+        </tr>
+        <tr>
+          <td>A_HR_Ratio</td>
+          <td>IP_Ratio</td>
+          <td>0.055556</td>
+          <td>0.183333</td>
+          <td>0.186513</td>
+          <td>0.186513</td>
+        </tr>
+        <tr>
+          <td>ISO_Ratio</td>
+          <td>TB_Ratio</td>
+          <td>0.031250</td>
+          <td>0.250000</td>
+          <td>0.394789</td>
+          <td>0.394789</td>
+        </tr>
+        <tr>
+          <td>ISO_Ratio</td>
+          <td>P_WHIP_Ratio</td>
+          <td>0.062500</td>
+          <td>0.200000</td>
+          <td>0.118771</td>
+          <td>0.118771</td>
+        </tr>
+        <tr>
+          <td>ISO_Ratio</td>
+          <td>A_HR_Ratio</td>
+          <td>0.062500</td>
+          <td>0.200000</td>
+          <td>-0.088483</td>
+          <td>0.088483</td>
+        </tr>
+        <tr>
+          <td>ISO_Ratio</td>
+          <td>SLG_Ratio</td>
+          <td>0.031250</td>
+          <td>0.250000</td>
+          <td>0.373103</td>
+          <td>0.373103</td>
+        </tr>
+        <tr>
+          <td>ISO_Ratio</td>
+          <td>TOB_Ratio</td>
+          <td>0.031250</td>
+          <td>0.250000</td>
+          <td>0.352070</td>
+          <td>0.352070</td>
+        </tr>
+        <tr>
+          <td>ISO_Ratio</td>
+          <td>P_ERA_Ratio</td>
+          <td>0.062500</td>
+          <td>0.250000</td>
+          <td>0.407319</td>
+          <td>0.407319</td>
+        </tr>
+        <tr>
+          <td>ISO_Ratio</td>
+          <td>HR9_Ratio</td>
+          <td>0.062500</td>
+          <td>0.200000</td>
+          <td>0.140314</td>
+          <td>0.140314</td>
+        </tr>
+        <tr>
+          <td>ISO_Ratio</td>
+          <td>IP_Ratio</td>
+          <td>0.039062</td>
+          <td>0.250000</td>
+          <td>-0.249837</td>
+          <td>0.249837</td>
+        </tr>
+        <tr>
+          <td>SLG_Ratio</td>
+          <td>TB_Ratio</td>
+          <td>0.025000</td>
+          <td>0.250000</td>
+          <td>0.985451</td>
+          <td>0.985451</td>
+        </tr>
+        <tr>
+          <td>SLG_Ratio</td>
+          <td>P_WHIP_Ratio</td>
+          <td>0.062500</td>
+          <td>0.250000</td>
+          <td>0.393825</td>
+          <td>0.393825</td>
+        </tr>
+        <tr>
+          <td>SLG_Ratio</td>
+          <td>A_HR_Ratio</td>
+          <td>0.062500</td>
+          <td>0.250000</td>
+          <td>0.028422</td>
+          <td>0.028422</td>
+        </tr>
+        <tr>
+          <td>SLG_Ratio</td>
+          <td>ISO_Ratio</td>
+          <td>0.031250</td>
+          <td>0.250000</td>
+          <td>0.373103</td>
+          <td>0.373103</td>
+        </tr>
+        <tr>
+          <td>SLG_Ratio</td>
+          <td>TOB_Ratio</td>
+          <td>0.025000</td>
+          <td>0.250000</td>
+          <td>0.823670</td>
+          <td>0.823670</td>
+        </tr>
+        <tr>
+          <td>SLG_Ratio</td>
+          <td>P_ERA_Ratio</td>
+          <td>0.050000</td>
+          <td>0.250000</td>
+          <td>0.421198</td>
+          <td>0.421198</td>
+        </tr>
+        <tr>
+          <td>SLG_Ratio</td>
+          <td>HR9_Ratio</td>
+          <td>0.062500</td>
+          <td>0.250000</td>
+          <td>0.420797</td>
+          <td>0.420797</td>
+        </tr>
+        <tr>
+          <td>SLG_Ratio</td>
+          <td>IP_Ratio</td>
+          <td>0.031250</td>
+          <td>0.250000</td>
+          <td>0.034570</td>
+          <td>0.034570</td>
+        </tr>
+        <tr>
+          <td>TOB_Ratio</td>
+          <td>TB_Ratio</td>
+          <td>0.025000</td>
+          <td>0.250000</td>
+          <td>0.853207</td>
+          <td>0.853207</td>
+        </tr>
+        <tr>
+          <td>TOB_Ratio</td>
+          <td>P_WHIP_Ratio</td>
+          <td>0.062500</td>
+          <td>0.250000</td>
+          <td>-0.020039</td>
+          <td>0.020039</td>
+        </tr>
+        <tr>
+          <td>TOB_Ratio</td>
+          <td>A_HR_Ratio</td>
+          <td>0.062500</td>
+          <td>0.250000</td>
+          <td>-0.067103</td>
+          <td>0.067103</td>
+        </tr>
+        <tr>
+          <td>TOB_Ratio</td>
+          <td>ISO_Ratio</td>
+          <td>0.031250</td>
+          <td>0.250000</td>
+          <td>0.352070</td>
+          <td>0.352070</td>
+        </tr>
+        <tr>
+          <td>TOB_Ratio</td>
+          <td>SLG_Ratio</td>
+          <td>0.025000</td>
+          <td>0.250000</td>
+          <td>0.823670</td>
+          <td>0.823670</td>
+        </tr>
+        <tr>
+          <td>TOB_Ratio</td>
+          <td>P_ERA_Ratio</td>
+          <td>0.050000</td>
+          <td>0.250000</td>
+          <td>0.001824</td>
+          <td>0.001824</td>
+        </tr>
+        <tr>
+          <td>TOB_Ratio</td>
+          <td>HR9_Ratio</td>
+          <td>0.062500</td>
+          <td>0.250000</td>
+          <td>-0.009115</td>
+          <td>0.009115</td>
+        </tr>
+        <tr>
+          <td>TOB_Ratio</td>
+          <td>IP_Ratio</td>
+          <td>0.031250</td>
+          <td>0.250000</td>
+          <td>0.398931</td>
+          <td>0.398931</td>
+        </tr>
+        <tr>
+          <td>P_ERA_Ratio</td>
+          <td>TB_Ratio</td>
+          <td>0.050000</td>
+          <td>0.250000</td>
+          <td>0.346763</td>
+          <td>0.346763</td>
+        </tr>
+        <tr>
+          <td>P_ERA_Ratio</td>
+          <td>P_WHIP_Ratio</td>
+          <td>0.065625</td>
+          <td>0.175000</td>
+          <td>0.705652</td>
+          <td>0.705652</td>
+        </tr>
+        <tr>
+          <td>P_ERA_Ratio</td>
+          <td>A_HR_Ratio</td>
+          <td>0.065625</td>
+          <td>0.175000</td>
+          <td>0.058958</td>
+          <td>0.058958</td>
+        </tr>
+        <tr>
+          <td>P_ERA_Ratio</td>
+          <td>ISO_Ratio</td>
+          <td>0.062500</td>
+          <td>0.250000</td>
+          <td>0.407319</td>
+          <td>0.407319</td>
+        </tr>
+        <tr>
+          <td>P_ERA_Ratio</td>
+          <td>SLG_Ratio</td>
+          <td>0.050000</td>
+          <td>0.250000</td>
+          <td>0.421198</td>
+          <td>0.421198</td>
+        </tr>
+        <tr>
+          <td>P_ERA_Ratio</td>
+          <td>TOB_Ratio</td>
+          <td>0.050000</td>
+          <td>0.250000</td>
+          <td>0.001824</td>
+          <td>0.001824</td>
+        </tr>
+        <tr>
+          <td>P_ERA_Ratio</td>
+          <td>HR9_Ratio</td>
+          <td>0.065625</td>
+          <td>0.175000</td>
+          <td>0.749946</td>
+          <td>0.749946</td>
+        </tr>
+        <tr>
+          <td>P_ERA_Ratio</td>
+          <td>IP_Ratio</td>
+          <td>0.044444</td>
+          <td>0.183333</td>
+          <td>-0.582197</td>
+          <td>0.582197</td>
+        </tr>
+        <tr>
+          <td>HR9_Ratio</td>
+          <td>TB_Ratio</td>
+          <td>0.062500</td>
+          <td>0.250000</td>
+          <td>0.359757</td>
+          <td>0.359757</td>
+        </tr>
+        <tr>
+          <td>HR9_Ratio</td>
+          <td>P_WHIP_Ratio</td>
+          <td>0.047194</td>
+          <td>0.078571</td>
+          <td>0.990558</td>
+          <td>0.990558</td>
+        </tr>
+        <tr>
+          <td>HR9_Ratio</td>
+          <td>A_HR_Ratio</td>
+          <td>0.047194</td>
+          <td>0.078571</td>
+          <td>0.419581</td>
+          <td>0.419581</td>
+        </tr>
+        <tr>
+          <td>HR9_Ratio</td>
+          <td>ISO_Ratio</td>
+          <td>0.062500</td>
+          <td>0.200000</td>
+          <td>0.140314</td>
+          <td>0.140314</td>
+        </tr>
+        <tr>
+          <td>HR9_Ratio</td>
+          <td>SLG_Ratio</td>
+          <td>0.062500</td>
+          <td>0.250000</td>
+          <td>0.420797</td>
+          <td>0.420797</td>
+        </tr>
+        <tr>
+          <td>HR9_Ratio</td>
+          <td>TOB_Ratio</td>
+          <td>0.062500</td>
+          <td>0.250000</td>
+          <td>-0.009115</td>
+          <td>0.009115</td>
+        </tr>
+        <tr>
+          <td>HR9_Ratio</td>
+          <td>P_ERA_Ratio</td>
+          <td>0.065625</td>
+          <td>0.175000</td>
+          <td>0.749946</td>
+          <td>0.749946</td>
+        </tr>
+        <tr>
+          <td>HR9_Ratio</td>
+          <td>IP_Ratio</td>
+          <td>0.055556</td>
+          <td>0.183333</td>
+          <td>-0.648533</td>
+          <td>0.648533</td>
+        </tr>
+        <tr>
+          <td>IP_Ratio</td>
+          <td>TB_Ratio</td>
+          <td>0.031250</td>
+          <td>0.250000</td>
+          <td>0.154282</td>
+          <td>0.154282</td>
+        </tr>
+        <tr>
+          <td>IP_Ratio</td>
+          <td>P_WHIP_Ratio</td>
+          <td>0.055556</td>
+          <td>0.183333</td>
+          <td>-0.573069</td>
+          <td>0.573069</td>
+        </tr>
+        <tr>
+          <td>IP_Ratio</td>
+          <td>A_HR_Ratio</td>
+          <td>0.055556</td>
+          <td>0.183333</td>
+          <td>0.186513</td>
+          <td>0.186513</td>
+        </tr>
+        <tr>
+          <td>IP_Ratio</td>
+          <td>ISO_Ratio</td>
+          <td>0.039062</td>
+          <td>0.250000</td>
+          <td>-0.249837</td>
+          <td>0.249837</td>
+        </tr>
+        <tr>
+          <td>IP_Ratio</td>
+          <td>SLG_Ratio</td>
+          <td>0.031250</td>
+          <td>0.250000</td>
+          <td>0.034570</td>
+          <td>0.034570</td>
+        </tr>
+        <tr>
+          <td>IP_Ratio</td>
+          <td>TOB_Ratio</td>
+          <td>0.031250</td>
+          <td>0.250000</td>
+          <td>0.398931</td>
+          <td>0.398931</td>
+        </tr>
+        <tr>
+          <td>IP_Ratio</td>
+          <td>P_ERA_Ratio</td>
+          <td>0.044444</td>
+          <td>0.183333</td>
+          <td>-0.582197</td>
+          <td>0.582197</td>
+        </tr>
+        <tr>
+          <td>IP_Ratio</td>
+          <td>HR9_Ratio</td>
+          <td>0.055556</td>
+          <td>0.183333</td>
+          <td>-0.648533</td>
+          <td>0.648533</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

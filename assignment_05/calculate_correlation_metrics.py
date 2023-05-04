@@ -131,11 +131,11 @@ def create_corrheatmapfigs(corr_cat_cat, corr_con_cat, corr_con_con):
 
     # fig_cc, fig_ccat, and fig_cat are plotly figures
     # create an empty list to store the figures
-    corr_figs = []
+    corr_figs = [fig_cat_cat, fig_con_cat, fig_con_con]
 
     # append the figures to the list
-    corr_figs.append(fig_cat_cat)
-    corr_figs.append(fig_con_cat)
-    corr_figs.append(fig_con_con)
+    # corr_figs.append(fig_cat_cat)
+    # corr_figs.append(fig_con_cat)
+    # corr_figs.append(fig_con_con)
 
     return corr_figs

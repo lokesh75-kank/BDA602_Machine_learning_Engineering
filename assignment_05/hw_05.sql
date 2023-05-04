@@ -1,8 +1,7 @@
 
 DROP TEMPORARY TABLE IF EXISTS tempory_team_pitching;
---
 CREATE TEMPORARY TABLE IF NOT EXISTS tempory_team_pitching
- ENGINE = MEMORY AS SELECT
+ENGINE = MEMORY AS SELECT
 tb_count.win,
 tb_count.atBat,
 tb_count.Hit,
@@ -21,10 +20,6 @@ ON p_count.game_id = tb_count.game_id
 AND p_count.team_id = tb_count.team_id
 GROUP BY p_count.team_id, p_count.game_id;
 
-SELECT * from tempory_team_pitching;
-
-change column types in tempory_team_pitching table
---
  ALTER TABLE tempory_team_pitching
  CHANGE COLUMN win Pitch_win INT NULL DEFAULT 0,
  CHANGE COLUMN atBat Pitch_atBat INT NULL DEFAULT 0,
@@ -69,11 +64,8 @@ change column types in tempory_team_pitching table
  team_id,
  game_id;
 
-select * from temporary_features;
-===============================================================================
 DROP TEMPORARY TABLE IF EXISTS 100_rolling_days;
---
-  CREATE TEMPORARY TABLE  100_rolling_days ENGINE=MEMORY AS
+CREATE TEMPORARY TABLE  100_rolling_days ENGINE=MEMORY AS
   SELECT
   ft1.team_id as team_id,
   ft1.game_id as game_id,
@@ -105,7 +97,7 @@ DROP TEMPORARY TABLE IF EXISTS 100_rolling_days;
   GROUP BY ft1.team_id, ft1.game_id, g1.local_date
   ORDER BY ft1.team_id,g1.local_date;
 
- CREATE UNIQUE INDEX 100_rolling_days_idx ON 100_rolling_days(team_id, game_id);
+--  CREATE UNIQUE INDEX 100_rolling_days_idx ON 100_rolling_days(team_id, game_id);
 
  DROP TABLE IF EXISTS Baseball_features;
 
@@ -115,8 +107,12 @@ ROUND((rdh.TB / rda.TB),3) AS TB_Ratio,
 ROUND((((rdh.Pitch_HR + rdh.Pitch_BB) / rdh.Pitch_IP) / ((rda.Pitch_HR + rda.Pitch_BB) / rda.Pitch_IP)),3) AS P_WHIP_Ratio,
 ROUND((rdh.Hit_By_Pitch / NULLIF(rda.Hit_By_Pitch,0)),3) AS HBP_Ratio,
 ROUND(((rdh.atBat/rdh.Home_Run)/(rda.atBat/rda.Home_Run)),3) AS A_HR_Ratio,
-ROUND((((rdh.TB-rdh.B)/rdh.atBat)/NULLIF(((rda.TB-rda.B)/rda.atBat),0)),3) AS ISO_Ratio,
-ROUND(((rdh.Hit / rdh.atBat) / (rda.Hit / rda.atBat)),3) AS BA_Ratio,
+-- ROUND((((rdh.TB-rdh.B)/rdh.atBat)/NULLIF(((rda.TB-rda.B)/rda.atBat),0)),3) AS ISO_Ratio,
+ROUND((((rdh.TB-rdh.B)/rdh.atBat)/NULLIF((rda.TB-rda.B),0)),3) AS ISO_Ratio,
+-- ROUND(((rdh.Hit / rdh.atBat) / (rda.Hit / rda.atBat)),3) AS BA_Ratio,
+CASE WHEN ROUND(((rdh.Hit / rdh.atBat) / (rda.Hit / rda.atBat)),5) < 0.5 THEN 0
+     ELSE 1
+     END AS BA_Ratio,
 ROUND((((rdh.TB) / rdh.atBat) / ((rda.TB) / rda.atBat)),3) AS SLG_Ratio,
 ROUND((((rdh.Hit + rdh.BB + rdh.Hit_By_Pitch) / (rdh.atBat + rdh.BB + rdh.Hit_By_Pitch + rdh.Sac_Fly))
  / ((rda.Hit + rda.BB + rda.Hit_By_Pitch) / (rda.atBat + rda.BB + rda.Hit_By_Pitch + rda.Sac_Fly))),3) AS OBP_Ratio,
@@ -131,11 +127,3 @@ game g JOIN 100_rolling_days rdh
 ON g.game_id = rdh.game_id AND g.home_team_id = rdh.team_id
 JOIN 100_rolling_days rda ON g.game_id = rda.game_id AND g.away_team_id = rda.team_id
 JOIN boxscore b ON b.game_id = g.game_id;
-
-SELECT * from Baseball_features;
-
---  CREATE INDEX game_id_index ON game (game_id);
--- CREATE INDEX home_team_id_index ON Baseball_features (home_team_id);
--- CREATE INDEX away_team_id_index ON Baseball_features (away_team_id);
---  CREATE INDEX boxscore_game_id_index ON boxscore (game_id);
---  CREATE INDEX rdh_game_id_team_id_index ON 100_rolling_days (game_id, team_id);

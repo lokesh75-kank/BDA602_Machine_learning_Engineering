@@ -1,18 +1,32 @@
-#My current ubuntu version is 22.04.2
-FROM ubuntu:22.04.2
+##My current ubuntu version is 22.04.2
+##FROM ubuntu:22.04.2
+##FROM Python:3.10
+#FROM ubuntu:latest
 
-ENV APP_HOME /app
-WORKDIR $APP_HOME
+FROM ubuntu:latest
 
-RUN apt-get update \
-    && apt-get install -y python3.10 mariadb-client \
+# Seting a working directory for the app
+WORKDIR /app
+
+# Installing necessary packages and dependencies
+RUN apt-get update && apt-get install -y \
+    mariadb-client \
+    build-essential \
+    python3.10 \
+    python3.10-dev \
+    python3-pip \
+    software-properties-common \
     && rm -rf /var/lib/apt/lists/*
 
-    #installs Python 3.10 and mariadb_client in my Docker image
-    ## rm: command removes the package index files from the Docker image to reduce the size of the image.
+# Installing Python packages using pip
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-ENV PYTHONPATH /
+# Copying app files
+COPY ./assignment_06/ /app/
 
-RUN mkdir ./result
-RUN chmod +x ./baseball_db.sh
-CMD ["/bin/sh", "-c", "./baseball_db.sh"]
+# Making scripts executable
+RUN chmod +x /app/baseball_db.sh /app/main.py
+
+# Starting the app using the CMD command
+CMD ["/app/baseball_db.sh"]

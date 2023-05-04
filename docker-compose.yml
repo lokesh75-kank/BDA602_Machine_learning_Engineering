@@ -1,0 +1,35 @@
+version: "3.8"
+services:
+  Lokesh_mariadb:
+    image: lscr.io/linuxserver/mariadb
+    container_name: mariadb_container
+    environment:
+      - MYSQL_DATABASE:baseball
+      - MYSQL_ROOT_PASSWORD=1196
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=1196
+    volumes:
+      - mariadb:/config
+    ports:
+      - "8000:3306"
+    restart: unless-stopped
+
+  Lokesh_mysql:
+    container_name: mysql_hw_06
+    image: mysql_service
+    build:
+      context: .
+      dockerfile: assignment_06/Dockerfile
+    depends_on:
+      - Lokesh_mariadb
+    volumes:
+      - ./assignment_06/Brute_Cat_Cat_Plots:/app/Brute_Cat_Cat_Plots
+      - ./assignment_06/Brute_Con_Cat_Plots:/app/Brute_Con_Cat_Plots
+      - ./assignment_06/Brute_Con_Con_Plots:/app/Brute_Con_Con_Plots
+      - ./assignment_06/Categorical_Mean_of_Response_Plot:/app/Categorical_Mean_of_Response_Plot
+      - ./assignment_06/Categorical_Predictors_Plots:/app/Categorical_Predictors_Plots
+      - ./assignment_06/Continuous_Mean_of_Response_Plot:/app/Continuous_Mean_of_Response_Plot
+      - ./assignment_06/Continuous_Predictors_Plots:/app/Continuous_Predictors_Plots
+volumes:
+  mariadb:
+    driver: local

@@ -17,7 +17,7 @@ def predictor_plots(df_pred, df_res):
     my_fig_con = []
     my_fig_cat = []
 
-    if df_res.dtype == "object" or df_res.nunique() <= 2:
+    if df_res.dtypes == "object" or df_res.nunique() <= 2:
         # Categorical Response
         # Check if predictor is Boolean / Categorical
         for col in df_pred.columns:
@@ -39,7 +39,11 @@ def predictor_plots(df_pred, df_res):
                 my_fig_con.append(fig)
                 # fig.show()
 
-    elif df_res.dtype == "float64" or df_res.dtype == "int32" or df_res.dtype == "bool":
+    elif (
+        df_res.dtypes == "float64"
+        or df_res.dtypes == "int32"
+        or df_res.dtypes == "bool"
+    ):
         # print(df_res.dtype)
         # Continuous Response
         # Check if predictor is Boolean / Categorical
@@ -50,7 +54,7 @@ def predictor_plots(df_pred, df_res):
                 # df_pred = df_pred.sort_values("origin")
                 fig = px.violin(
                     df_res,
-                    y=df_res.to_frame().columns[0],
+                    y=df_res.columns[0],
                     x=df_pred[col],
                     color=df_pred[col],
                     box=True,

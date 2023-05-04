@@ -1,0 +1,21 @@
+ Incorrect calculation for categorical v. continuous Difference with Mean of Response. 
+ - Incorrect calculation for continuous v. continuous Difference with Mean of Response. 
+ - Incorrect values for categorical v. continuous Difference with Mean of Response brute force plot. 
+ - Incorrect values for continuous v. continuous Difference with Mean of Response brute force plot. 
+ - There were errors in the code that prevented it from running. - Right off the bat I tried running the code without any changes and the "titanic" dataset failed. I tried the "tips" one and that worked, but they all should work. If it doesn't work with all the datasets, there's a good chance it won't work with the "secret" dataset. 
+ - Phew,.. it looks like it’s running fine on the “secret” dataset,.. it’s just VERY slow. 
+ 
+ - … and slowing down,… it’s not going to finish… need to figure out why -
+ -I figured out the problem: It looks like you copied the cat/cat brute force code for the cat/cont. The problem is that instead of doing a range of values for the continuous values, the code is looping on EACH of them, instead of buckets (ie: 0 >= x and x < 10 ). Instead it’s doing it this way, it’s actually looping on each individual values. It’s messing up the plots and the values for it. 
+ 
+ - This problem is also present in the cont / cont brute force. The code got stuck there too, and it’s because it’s doing a double for loop on ALL the individual values. 
+ 
+ - Since it took a lot of work to fix the above and skip those sections of code since it would take too long to run I noticed a few interesting things (no points lost here, just notes for you). At one point, you had an list, and you individually added a bunch of stuff to it. ``` corr_figs = [] # append the figures to the list corr_figs.append(fig_cat_cat) corr_figs.append(fig_con_cat) corr_figs.append(fig_con_con) ``` 
+ 
+ -It would have bunch much simpler to do `corr_figs = [fig_cat_cat, fig_Con_cat, fig_con_con]`. However, related to this, you then had to reference these objects by index. This requires you to know the index each one is in (a possible place where an error can happen). 
+ 
+ It would have been even better to save these in a dictionary: ``` corr_figs = {“cat_cat”: fig_cat_cat, “con_cat”: fig_con_cat, “con_con”: fig_con_con} ``` Is even better. 
+ 
+ - For some reason I don’t see correlation values in your correlation matrix. Thankfully, the hoverover works and I can get them that way.
+ - You’re cat/cat brute force was good, but there was an issue with the plot, it didn’t look like the values were in the correct order.
+- Julien Pierret
