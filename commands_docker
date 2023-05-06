@@ -1,0 +1,15 @@
+docker commands:
+
+docker-compose up
+docker-compose up -d
+# to see imagees
+docker images
+
+#to see all runnning docker images
+
+docker ps
+docker ps -a
+docker run image_name ls
+
+#to see all runnning docker container
+docker exec -it <container_id_or_name> ls
