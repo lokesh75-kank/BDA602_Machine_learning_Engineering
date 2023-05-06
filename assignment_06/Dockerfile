@@ -31,7 +31,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copying app files
-COPY ./assignment_06/baseball.sql ./sql_files/
+COPY ./baseball.sql ./sql_files/
 COPY ./assignment_06/hw02.sql ./sql_files/
 COPY ./assignment_06/baseball_db.sh ./sh_files/
 
@@ -43,3 +43,5 @@ COPY ./assignment_06/baseball_db.sh ./sh_files/
 
 RUN chmod +rwx ./sh_files/baseball_db.sh
 CMD ["/bin/bash", "./sh_files/baseball_db.sh"]
+
+
