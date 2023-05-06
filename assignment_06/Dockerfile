@@ -8,6 +8,14 @@ FROM ubuntu:latest
 # Seting a working directory for the app
 WORKDIR /app
 
+RUN mkdir ./sql_files
+RUN chmod -R 777 ./sql_files
+
+RUN mkdir ./sh_files
+RUN chmod -R 777 ./sh_files
+
+RUN mkdir ./output
+RUN chmod -R 777 ./output
 # Installing necessary packages and dependencies
 RUN apt-get update && apt-get install -y \
     mariadb-client \
@@ -23,10 +31,15 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copying app files
-COPY ./assignment_06/ /app/
+COPY ./assignment_06/baseball.sql ./sql_files/
+COPY ./assignment_06/hw02.sql ./sql_files/
+COPY ./assignment_06/baseball_db.sh ./sh_files/
 
 # Making scripts executable
-RUN chmod +x /app/baseball_db.sh /app/main.py
+#chmod +x /app/baseball_db.sh /app/main.py
 
 # Starting the app using the CMD command
-CMD ["/app/baseball_db.sh"]
+#CMD ["/app/baseball_db.sh"]
+
+RUN chmod +rwx ./sh_files/baseball_db.sh
+CMD ["/bin/bash", "./sh_files/baseball_db.sh"]
