@@ -43,5 +43,3 @@ COPY ./assignment_06/baseball_db.sh ./sh_files/
 
 RUN chmod +rwx ./sh_files/baseball_db.sh
 CMD ["/bin/bash", "./sh_files/baseball_db.sh"]
-
-

@@ -37,5 +37,5 @@ mysql -h Lokesh_mariadb -u root -p1196 baseball < ./sql_files/hw02.sql || handle
 echo "SQL script execution done"
 
 echo "Exporting data ..."
-mysql -h Lokesh_mariadb -u root -p1196 baseball -e 'SELECT * from rolling_100_partition;' > ./output/result.txt || handle_error "Failed to export data"
+mysql -h Lokesh_mariadb -u root -p1196 baseball -e 'SELECT * from rolling_100_partition where game_id = 12560;' > ./output/result.txt || handle_error "Failed to export data"
 echo "Data exported to file ./output/result.txt"
