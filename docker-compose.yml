@@ -19,11 +19,17 @@ services:
     image: mysql_service
     build:
       context: .
-      dockerfile: assignment_06/Dockerfile
+      dockerfile: finals/Dockerfile
     depends_on:
       - Lokesh_mariadb
     volumes:
-      - ./assignment_06/result:/app/output
+      - ./finals/Brute_Cat_Cat_Plots:/app/Brute_Cat_Cat_Plots
+      - ./finals/Brute_Con_Cat_Plots:/app/Brute_Con_Cat_Plots
+      - ./finals/Brute_Con_Con_Plots:/app/Brute_Con_Con_Plots
+      - ./finals/Categorical_Mean_of_Response_Plot:/app/Categorical_Mean_of_Response_Plot
+      - ./finals/Categorical_Predictors_Plots:/app/Categorical_Predictors_Plots
+      - ./finals/Continuous_Mean_of_Response_Plot:/app/Continuous_Mean_of_Response_Plot
+      - ./finals/Continuous_Predictors_Plots:/app/Continuous_Predictors_Plots
 #    environment:
 #      - DB_HOST=Lokesh_mariadb
 #      - DB_PORT=3306

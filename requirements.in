@@ -1,5 +1,5 @@
 
-mariadb==1.1.6
+
 numpy
 pandas==1.5.3
 plotly
@@ -7,3 +7,6 @@ statsmodels
 scikit-learn
 seaborn
 pyspark
+pymysql
+SQLAlchemy
+xgboost

@@ -10,12 +10,12 @@ cycler==0.11.0
     # via matplotlib
 fonttools==4.39.3
     # via matplotlib
+greenlet==2.0.2
+    # via sqlalchemy
 joblib==1.2.0
     # via scikit-learn
 kiwisolver==1.4.4
     # via matplotlib
-# mariadb==1.1.6
-#     # via -r requirements.in
 matplotlib==3.7.1
     # via seaborn
 numpy==1.24.1
@@ -29,9 +29,9 @@ numpy==1.24.1
     #   scipy
     #   seaborn
     #   statsmodels
+    #   xgboost
 packaging==23.1
     # via
-    #   mariadb
     #   matplotlib
     #   plotly
     #   statsmodels
@@ -48,6 +48,8 @@ plotly==5.14.1
     # via -r requirements.in
 py4j==0.10.9.7
     # via pyspark
+pymysql==1.0.3
+    # via -r requirements.in
 pyparsing==3.0.9
     # via matplotlib
 pyspark==3.4.0
@@ -64,15 +66,22 @@ scipy==1.10.1
     # via
     #   scikit-learn
     #   statsmodels
+    #   xgboost
 seaborn==0.12.2
     # via -r requirements.in
 six==1.16.0
     # via
     #   patsy
     #   python-dateutil
+sqlalchemy==2.0.12
+    # via -r requirements.in
 statsmodels==0.13.5
     # via -r requirements.in
 tenacity==8.2.2
     # via plotly
 threadpoolctl==3.1.0
     # via scikit-learn
+typing-extensions==4.5.0
+    # via sqlalchemy
+xgboost==1.7.5
+    # via -r requirements.in
