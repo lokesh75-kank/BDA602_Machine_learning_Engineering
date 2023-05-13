@@ -30,6 +30,7 @@ services:
       - ./finals/Categorical_Predictors_Plots:/app/Categorical_Predictors_Plots
       - ./finals/Continuous_Mean_of_Response_Plot:/app/Continuous_Mean_of_Response_Plot
       - ./finals/Continuous_Predictors_Plots:/app/Continuous_Predictors_Plots
+      - ./finals/roc_curves_and_outliers:/app/roc_curves_and_outliers
 #    environment:
 #      - DB_HOST=Lokesh_mariadb
 #      - DB_PORT=3306

@@ -17,14 +17,15 @@ def predictor_plots(df_pred, df_res):
     my_fig_con = []
     my_fig_cat = []
 
-    if df_res.dtype == "object" or df_res.nunique() <= 2:
+    if df_res.dtype == "object":
+        # if df_res.dtype == "object" or df_res.nunique() <= 2:
         # Categorical Response
         # Check if predictor is Boolean / Categorical
         for col in df_pred.columns:
             if (
                 df_pred[col].dtype == "object"
                 or df_pred[col].dtype.name == "category"
-                or df_pred[col].nunique() <= 2
+                # or df_pred[col].nunique() <= 2
             ):
                 catagorical_pred.append(col)
 
@@ -43,17 +44,14 @@ def predictor_plots(df_pred, df_res):
                 my_fig_con.append(fig)
                 # fig.show()
 
-    elif df_res.dtype == "float64" or df_res.dtype == "int32" or df_res.dtype == "bool":
+    elif df_res.dtype == "float64" or df_res.dtype == "int64" or df_res.dtype == "bool":
         # print(df_res.dtype)
         # Continuous Response
         # Check if predictor is Boolean / Categorical
         for col in df_pred.columns:
-            if (
-                df_pred[col].dtype == "object"
-                or df_pred[col].dtype.name == "category"
-                or df_pred[col].nunique() <= 2
-            ):
+            if df_pred[col].dtype == "object" or df_pred[col].nunique() <= 2:
                 catagorical_pred.append(col)
+                print("cat_list", catagorical_pred)
 
                 # df_pred = df_pred.sort_values("origin")
                 fig = px.violin(
@@ -65,8 +63,8 @@ def predictor_plots(df_pred, df_res):
                 )
                 fig.update_layout(title=f"Violin Plot of Response by {col}")
                 # fig.show()
-                fig = px.histogram(df_pred, x=col, color=col, barmode="overlay")
-                fig.update_layout(title=f"Distribution of Response by {col}")
+                # fig = px.histogram(df_pred, x=col, color=col, barmode="overlay")
+                # fig.update_layout(title=f"Distribution of Response by {col}")
                 my_fig_cat.append(fig)
                 # fig.show()
             else:
@@ -309,15 +307,36 @@ def p_t_values(df, continuous_pred, response):
     return p_value, t_value
 
 
-def impurity_based_feature_importance(df, continuous_pred_df, response):
-    X = continuous_pred_df
+# def impurity_based_feature_importance(df, continuous_pred_df, response):
+#     numeric_columns = continuous_pred_df.select_dtypes(include=['float', 'int']).columns
+#     X = continuous_pred_df[numeric_columns]
+#     y = df[response]
+#
+#     model = RandomForestRegressor(n_estimators=100, random_state=None)
+#     model.fit(X, y)
+#     # Compute impurity based feature importance
+#     feature_importance = model.feature_importances_
+#     print("feature Importance:", feature_importance)
+#
+#     return feature_importance
+
+
+def impurity_based_feature_importance(df, response):
+    # numeric_columns = continuous_pred_df.select_dtypes(include=['float', 'int']).columns
+    X = df.drop("home_team_wins", axis=1)
     y = df[response]
 
     model = RandomForestRegressor(n_estimators=100, random_state=None)
     model.fit(X, y)
     # Compute impurity based feature importance
     feature_importance = model.feature_importances_
-    print("feature 0mp:", feature_importance)
+    # Get column names
+    column_names = X.columns
+
+    # Print column names and their feature importances
+    print("Feature Importance:")
+    for name, importance in zip(column_names, feature_importance):
+        print(f"{name}: {importance}")
 
     return feature_importance
 

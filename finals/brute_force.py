@@ -21,6 +21,8 @@ def form_pairs(list1, list2):
 
 
 def cat_cat_brute_force(catagorical_pred, df, response):
+    # if isinstance(catagorical_pred, str):
+    #     catagorical_pred = [catagorical_pred]  # Convert single string to a list
     my_df = form_pairs(catagorical_pred, catagorical_pred)
 
     pearson = []
@@ -67,7 +69,7 @@ def cat_con_brute_force(catagorical_pred, continuous_pred, df, response):
         # access the values in column A and B for each row
         # print("rows")
         # print(row['col1'], row['col2'])
-
+        # corr, abs_val = calculate_corr_con_cat(cat_values, cont_values)
         corr, abs_val = calculate_corr_con_cat(df[row["col1"]], df[row["col2"]])
         corr_list.append(corr)
         abs_list.append(abs_val)
@@ -125,7 +127,6 @@ def con_con_brute_force(continuous_pred, df, response):
 
 
 def calculate_corr_cat_cat(x, y, bias_correction=True, tschuprow=False):
-
     corr_coeff = numpy.nan
     try:
         x, y = fill_na(x), fill_na(y)
@@ -180,7 +181,7 @@ def calculate_corr_con_cat(categories, values):
     y_avg_array = numpy.zeros(cat_num)
     n_array = numpy.zeros(cat_num)
     for i in range(0, cat_num):
-        cat_measures = values[numpy.argwhere(f_cat == i).flatten()]
+        cat_measures = values[f_cat == i]
         n_array[i] = len(cat_measures)
         y_avg_array[i] = numpy.average(cat_measures)
     y_total_avg = numpy.sum(numpy.multiply(y_avg_array, n_array)) / numpy.sum(n_array)
@@ -213,43 +214,35 @@ def fill_na(data):
         return numpy.array([value if value is not None else 0 for value in data])
 
 
+# ================================================================
+
+
 # def diff_mean_resp_weighted_ranking_cat_cat(list1, list2, df, response_name):
 #     uw_mse_list = []
 #     uw_mse_list_ans = []
 #     w_mse_list = []
 #     w_mse_list_ans = []
+#     bin_size = 10  # Set bin size to 10
 #
-#     for i in range(len(list1) - 1):  # Iterate over the buckets in list1
-#         bin1_start = list1[i]
-#         bin1_end = list1[i + 1]
-#
-#         for j in range(len(list2) - 1):  # Iterate over the buckets in list2
-#             bin2_start = list2[j]
-#             bin2_end = list2[j + 1]
+#     for cat1_start in range(math.floor(df[list1].values.min()), math.ceil(df[list1].values.max()), bin_size):
+#         cat1_end = cat1_start + bin_size
+#         for cat2_start in range(math.floor(df[list2].values.min()), math.ceil(df[list2].values.max()), bin_size):
+#             cat2_end = cat2_start + bin_size
+#             print("check 1")
 #
 #             my_list = []
 #             cat_mean_list = []
-#
-#             # Filter the dataframe based on bucket ranges
-#             filtered_df = df[(df[cat1] >= bin1_start) & (df[cat1] < bin1_end) &
-#                              (df[cat2] >= bin2_start) & (df[cat2] < bin2_end)]
-#
-#             no_bins1 = filtered_df[cat1].unique()
-#             no_bins2 = filtered_df[cat2].unique()
-#
-#             for k in no_bins1:
+#             for i in range(cat1_start, cat1_end):
 #                 temp = []
+#                 for j in range(cat2_start, cat2_end):
+#                     cat_mean = df[(df[list1] >= i) & (df[list1] < i + bin_size) &
+#                                   (df[list2] >= j) & (df[list2] < j + bin_size)][response_name].mean()
+#                     cat_count = df[(df[list1] >= i) & (df[list1] < i + bin_size) &
+#                                    (df[list2] >= j) & (df[list2] < j + bin_size)][response_name].count()
 #
-#                 for l in no_bins2:
-#                     cat_mean = filtered_df[(filtered_df[cat1] == k) &
-#                                            (filtered_df[cat2] == l)][response_name].mean()
-#
-#                     cat_count = filtered_df[(filtered_df[cat1] == k) &
-#                                             (filtered_df[cat2] == l)][response_name].count()
-#
-#                     my_list.append([k, l, cat_count, cat_mean])
+#                     print("check 2")
+#                     my_list.append([i, j, cat_count, cat_mean])
 #                     temp.append(cat_mean)
-#
 #                 cat_mean_list.append(temp)
 #
 #             # Create directory if it doesn't exist
@@ -259,30 +252,36 @@ def fill_na(data):
 #             fig = go.Figure(
 #                 data=go.Heatmap(
 #                     z=cat_mean_list,
-#                     x=np.array(no_bins1),
-#                     y=np.array(no_bins2),
+#                     x=np.arange(cat1_start, cat1_end),
+#                     y=np.arange(cat2_start, cat2_end),
 #                     colorscale="RdBu",
 #                     zmin=-3.5,
 #                     zmax=3,
 #                 )
 #             )
+#             print("check 3")
 #
-#             file_name = f"Plot_{bin1_start}_{bin1_end}_{bin2_start}_{bin2_end}.html"
+#             file_name = f"Plot_{cat1_start}_{cat1_end}_{cat2_start}_{cat2_end}.html"
 #             file_path = os.path.join("Brute_Cat_Cat_Plots", file_name)
 #             pio.write_html(fig, file_path, include_plotlyjs="cdn")
 #
 #             table = pd.DataFrame(my_list, columns=["cat1", "cat2", "BinCount", "BinMean"])
-#             pop_mean = filtered_df[response_name].mean()
+#             pop_mean = df[response_name].mean()
 #             table["PopulationMean"] = pop_mean
-#             table["MeanSquareDiff"] = [((m - pop_mean) ** 2) for m in table["BinMean"]]
-#             table["PopulationProportion"] = [n / table["BinCount"].sum() for n in table["BinCount"]]
+#             table["MeanSquareDiff"] = [(i - pop_mean) ** 2 for i in table["BinMean"]]
+#             # table["PopulationProportion"] = [i / table["BinCount"].sum() for i in table["BinCount"]]
+#             table["PopulationProportion"] = [i / table["BinCount"].sum()
+#                                              if table["BinCount"].sum() != 0 else 0 for i in
+#                                              table["BinCount"]]
+#             print("check 3")
 #             table["WeightedMSD"] = table["MeanSquareDiff"] * table["PopulationProportion"]
 #
-#             uw_mse_list.append(table["MeanSquareDiff"].sum() / (len(no_bins1) * len(no_bins2)))
+#             uw_mse_list.append(table["MeanSquareDiff"].sum() / (len(cat_mean_list) * len(cat_mean_list[0])))
 #             w_mse_list.append(table["WeightedMSD"].sum())
 #
 #             uw_mse_list_ans.append(uw_mse_list[-1])
 #             w_mse_list_ans.append(w_mse_list[-1])
+#             print("end line")
 #
 #     return uw_mse_list_ans, w_mse_list_ans
 
@@ -368,10 +367,8 @@ def diff_mean_resp_weighted_ranking_cat_cat(list1, list2, df, response_name):
                 table["MeanSquareDiff"].sum() / (len(no_bins1) * len(no_bins2))
             )
             w_mse_list.append(table["WeightedMSD"].sum())
-
             uw_mse_list_ans.append(uw_mse_list[-1])
             w_mse_list_ans.append(w_mse_list[-1])
-
             # print("here")
             # print(cat1, uw_mse_list[-1], cat2, w_mse_list[-1])
     # uw_mse = sum(uw_mse_list) / len(uw_mse_list)
@@ -423,9 +420,7 @@ def diff_mean_resp_weighted_ranking_cont_cat(list1, list2, df, response_name):
             # print(no_bins1)
             # print(no_bins2)
             # print(cat_mean_list)
-
             # Create directory if it doesn't exist
-
             if not os.path.exists("Brute_Con_Cat_Plots"):
                 os.makedirs("Brute_Con_Cat_Plots")
 
@@ -479,45 +474,58 @@ def diff_mean_resp_weighted_ranking_cont_cont(list1, list2, df, response_name):
     uw_mse_list_ans = []
     w_mse_list = []
     w_mse_list_ans = []
+    no_bins = 10
     for cont1 in list1:
+        pred1 = df[cont1]
+        min_pred1 = pred1.min()
+        max_pred1 = pred1.max()
+        bin_size1 = (max_pred1 - min_pred1) / no_bins
         for cont2 in list2:
             my_list = []
-            no_bins1 = df[cont1].unique()
-            # print("no_bins01\n",no_bins1)
-            no_bins2 = df[cont2].unique()
+            pred2 = df[cont2]
+            # Y = df[response_name]
+            min_pred2 = pred2.min()
+            max_pred2 = pred2.max()
+            bin_size2 = (max_pred2 - min_pred2) / no_bins
+            x1_l = []
+            x2_l = []
+            x1_u = []
+            x2_u = []
+            x1_mid = []
+            x2_mid = []
+            for k in range(no_bins):
+                x1_l.append(min_pred1 + (bin_size1 * k))
+                x2_l.append(min_pred2 + (bin_size2 * k))
+                x1_u.append(min_pred1 + (bin_size1 * (k + 1)))
+                x2_u.append(min_pred2 + (bin_size2 * (k + 1)))
+                x1_mid.append(
+                    (min_pred1 + (bin_size1 * k))
+                    + (min_pred1 + (bin_size1 * (k + 1))) / 2
+                )
+                x2_mid.append(
+                    (min_pred2 + (bin_size2 * k))
+                    + (min_pred2 + (bin_size2 * (k + 1))) / 2
+                )
             cat_mean_list = []
-            for i in no_bins1:
+            for i in range(no_bins):
                 temp = []
-                for j in no_bins2:
-                    cat_mean = df[(df[cont1] == i) & (df[cont2] == j)][
-                        response_name
-                    ].mean()
-                    cat_count = df[(df[cont1] == i) & (df[cont2] == j)][
-                        response_name
-                    ].count()
+                for j in range(no_bins):
+                    # cat_mean = df[(df[cont1] == i) & (df[cont2] == j)][
+                    #     response_name
+                    # ].mean()
+                    # cat_count = df[(df[cont1] == i) & (df[cont2] == j)][
+                    #     response_name
+                    # ].count()
 
-                    # tried this to define range of bins but got errors
-                    # no_bins1 = np.linspace(df[cont1].min(), df[cont1].max(), num=11)
-                    # no_bins2 = np.linspace(df[cont2].min(), df[cont2].max(), num=11)
-                    # cat_mean_list = []
-                    # for i in range(len(no_bins1) - 1):
-                    #     temp = []
-                    #     for j in range(len(no_bins2) - 1):
-                    #         cat_mean = df[(df[cont1] >= no_bins1[i]) &
-                    #         (df[cont1] < no_bins1[i + 1]) &
-                    #                       (df[cont2] >= no_bins2[j]) &
-                    #                       (df[cont2] < no_bins2[j + 1])][response_name].mean()
-                    #         cat_count = df[(df[cont1] >= no_bins1[i]) &
-                    #         (df[cont1] < no_bins1[i + 1]) &
-                    #                        (df[cont2] >= no_bins2[j]) &
-                    #                        (df[cont2] < no_bins2[j + 1])][response_name].count()
+                    x1_cond = df[cont1].between(x1_l[i], x1_u[i], inclusive="right")
+                    x2_cond = df[cont2].between(x2_l[j], x2_u[j], inclusive="right")
 
-                    my_list.append([i, j, cat_count, cat_mean])
-                    temp.append(cat_mean)
+                    bin_mean = df[x1_cond & x2_cond][response_name].mean()
+                    bin_count = df[x1_cond & x2_cond][response_name].count()
+
+                    my_list.append([i, j, bin_count, bin_mean])
+                    temp.append(bin_mean)
                 cat_mean_list.append(temp)
-            # print(no_bins1)
-            # print(no_bins2)
-            # print(cat_mean_list)
 
             # Create directory if it doesn't exist
 
@@ -527,8 +535,8 @@ def diff_mean_resp_weighted_ranking_cont_cont(list1, list2, df, response_name):
             fig = go.Figure(
                 data=go.Heatmap(
                     z=cat_mean_list,
-                    x=np.array(no_bins1),
-                    y=np.array(no_bins2),
+                    x=np.array(no_bins),
+                    y=np.array(no_bins),
                     colorscale="RdBu",
                     zmin=-3.5,
                     zmax=3,
@@ -553,10 +561,8 @@ def diff_mean_resp_weighted_ranking_cont_cont(list1, list2, df, response_name):
             table["WeightedMSD"] = (
                 table["MeanSquareDiff"] * table["PopulationProportion"]
             )
+            uw_mse_list.append(table["MeanSquareDiff"].sum() / (no_bins * no_bins))
 
-            uw_mse_list.append(
-                table["MeanSquareDiff"].sum() / (len(no_bins1) * len(no_bins2))
-            )
             w_mse_list.append(table["WeightedMSD"].sum())
 
             uw_mse_list_ans.append(uw_mse_list[-1])

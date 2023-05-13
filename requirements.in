@@ -6,7 +6,6 @@ plotly
 statsmodels
 scikit-learn
 seaborn
-pyspark
 pymysql
-SQLAlchemy
+sqlalchemy==1.4.23
 xgboost
