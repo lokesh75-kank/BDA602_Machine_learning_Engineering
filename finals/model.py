@@ -8,6 +8,9 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import (
     accuracy_score,
     classification_report,
+    f1_score,
+    precision_score,
+    recall_score,
     roc_auc_score,
     roc_curve,
 )
@@ -22,10 +25,10 @@ def modeling(df):
 
     # Step 1: Sort DataFrame based on the year column
     df_sorted = df.sort_values("year")
-    print(df_sorted[["year", "home_team_wins"]])
+    # print(df_sorted[["year", "home_team_wins"]])
     # Step 2: Determine the cutoff year for splitting the data
     cutoff_year = df_sorted["year"].max() - 1
-    print("cutoff_year:", cutoff_year)
+    # print("cutoff_year:", cutoff_year)
 
     # Step 3: Split DataFrame into X (features) and y (target variable)
     X = df_sorted.drop("home_team_wins", axis=1)
@@ -33,7 +36,7 @@ def modeling(df):
 
     # Step 4: Identify the index where the cutoff year starts
     cutoff_index = (X["year"] == cutoff_year).idxmax()
-    print("cutoff_index", cutoff_index)
+    # print("cutoff_index", cutoff_index)
     # Step 5: Create the training and testing sets based on the cutoff index
     X_train = X.loc[:cutoff_index]
     X_test = X.loc[cutoff_index:]
@@ -44,7 +47,7 @@ def modeling(df):
     X_train.reset_index(drop=True, inplace=True)
     X_test.reset_index(drop=True, inplace=True)
     y_train.reset_index(drop=True, inplace=True)
-    print("y_train:", y_train)
+    # print("y_train:", y_train)
     y_test.reset_index(drop=True, inplace=True)
 
     # Define the output directory
@@ -224,3 +227,62 @@ def modeling(df):
     plt.legend(loc="lower right")
     plt.savefig(os.path.join(output_dir, "Decision_Tree_ROC.png"))
     plt.close()
+
+    print("Comparing the models built against one another")
+
+    # # Define a list of model names
+    # model_names = ["Logistic Regression", "Random Forest", "KNN", "Gradient Boosting", "XGBoost", "Decision Tree"]
+    #
+    # # Define empty dictionary to store AUC scores
+    # auc_scores = {}
+    #
+    # # Iterate over the models
+    # for model_name, model in zip(model_names, [model, rf, knn, gb, xgb, dt]):
+    #     # Calculate ROC curve and AUC score
+    #     y_pred_prob = model.predict_proba(X_test)[:, 1]
+    #     fpr, tpr, _ = roc_curve(y_test, y_pred_prob)
+    #     auc_scores[model_name] = roc_auc_score(y_test, y_pred_prob)
+    #
+    # # Print the AUC scores
+    # for model_name in model_names:
+    #     print("Model:", model_name)
+    #     print("AUC:", auc_scores[model_name])
+    #     print()
+
+    model_names = [
+        "Logistic Regression",
+        "Random Forest",
+        "KNN",
+        "Gradient Boosting",
+        "XGBoost",
+        "Decision Tree",
+    ]
+
+    accuracy_scores = {}
+    precision_scores = {}
+    recall_scores = {}
+    f1_scores = {}
+    auc_scores = {}
+
+    for model_name, model in zip(model_names, [model, rf, knn, gb, xgb, dt]):
+        # Make predictions
+        y_pred = model.predict(X_test)
+
+        # Calculate evaluation metrics
+        accuracy_scores[model_name] = accuracy_score(y_test, y_pred)
+        precision_scores[model_name] = precision_score(y_test, y_pred)
+        recall_scores[model_name] = recall_score(y_test, y_pred)
+        f1_scores[model_name] = f1_score(y_test, y_pred)
+
+        # Calculate ROC AUC score
+        y_pred_prob = model.predict_proba(X_test)[:, 1]
+        auc_scores[model_name] = roc_auc_score(y_test, y_pred_prob)
+
+    for model_name in model_names:
+        print("Model:", model_name)
+        print("Accuracy:", accuracy_scores[model_name])
+        print("Precision:", precision_scores[model_name])
+        print("Recall:", recall_scores[model_name])
+        print("F1-score:", f1_scores[model_name])
+        print("AUC:", auc_scores[model_name])
+        print()

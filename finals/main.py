@@ -67,7 +67,6 @@ def main():
             "HBP_ISO_Ratio",
         ]
     )
-
     response = "home_team_wins"
     df_pred = df.drop("home_team_wins", axis=1)
 
@@ -147,6 +146,7 @@ def main():
         ax.set_ylabel("Values")
         # Save the figure
         plt.savefig("roc_curves_and_outliers/outliers.png")
+
         # Show the plot
         plt.show()
 
@@ -207,9 +207,25 @@ def main():
 
     impurity_based_feature_importance(df, response)
 
-    # print(
-    #     """
-    # """)
+    print(
+        """
+        After comparing the models, here's a brief summary of the results:
+Logistic Regression has the highest accuracy (0.546) and a relatively high recall (0.962),
+indicating that it correctly identifies a large proportion of positive instances.
+Random Forest has lower accuracy (0.500) but shows balanced precision (0.535) and
+recall (0.646) scores.
+KNN has moderate accuracy (0.523) and performs reasonably well in terms of precision
+(0.553) and recall (0.659).
+Gradient Boosting has a relatively high recall (0.812), indicating it identifies a
+higher proportion of positive instances, but has lower accuracy (0.541).
+XGBoost has similar performance to the other models with moderate accuracy (0.520)
+and precision (0.552) scores.
+Decision Tree has the lowest accuracy (0.505) and relatively low precision (0.548)
+and recall (0.540) scores.
+Based on these results, the Logistic Regression model appears to be the best overall,
+as it has the highest accuracy and reasonably balanced precision and recall scores.
+    """
+    )
 
 
 if __name__ == "__main__":
