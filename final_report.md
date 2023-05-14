@@ -69,15 +69,97 @@ In this project, I have utilized various calculation methods to derive insightfu
 
 This is the comprehensive list of features used in the project, encompassing a wide range of statistics and ratios. These features play a crucial role in the analysis and evaluation of player and team performance in the realm of baseball. For code please check out final_features.sql file under finals directory.
 
+## Feature Analysis
 
-Installation
-Explain the steps required to install and set up your project. Include any necessary dependencies and their versions, along with instructions on how to install them. If applicable, provide specific details on how to configure any environment variables or settings.
+In the feature analysis for this project, the following tasks were performed:
 
-Usage
-Describe how users can utilize your project. Provide clear instructions on how to run the code and any necessary input formats or parameters. If there are any examples or demonstrations, include them here. Additionally, you can include information on how to train the model or generate predictions.
+1. Handled Outliers:
+   - Outliers, which are data points that significantly deviate from the rest of the data, were identified.
+   - Different techniques were used to handle outliers, such as removing them, replacing them with central tendency measures (e.g., median or mean), or capping them at a certain value.
+   - Outliers were identified by comparing the values of a specific column (col) with lower and upper bounds.
+   - If outliers were found, they were handled using either the median or mean method.
+   - The np.clip function was used with the median method to limit outlier values to the lower and upper bounds.
+   - With the mean method, a lambda function was applied to replace outlier values below the lower bound with the lower bound value and values above the upper bound with the upper bound value.
+   
+![outliers](https://github.com/lokesh75-kank/BDA602_Machine_learning_Engineering/assets/85188079/dc89d83e-9330-4375-b163-73b5d91ad473)
 
-Dataset
-If your project uses a specific dataset, provide information about it in this section. Include details such as the source of the dataset, its format, and any preprocessing steps that were applied. If the dataset is publicly available, consider including a link to it.
+2. Scaled Features using MinMaxScaler:
+   - The values of features were scaled to a common scale using MinMaxScaler.
+   - MinMaxScaler transformed the features to a specified range (e.g., between 0 and 1).
+   - By applying MinMaxScaler to the features, they were brought to the same scale, improving the performance of certain machine learning algorithms that are sensitive to feature scale.
+
+
+3. Visualized Data Distribution:
+   - The distribution of data points was visualized to understand underlying patterns and characteristics.
+   - Different types of plots were used based on the data types and the information being conveyed.
+   - Commonly used plots, such as histograms, box plots, scatter plots, line plots, and bar plots, were employed.
+   - Histograms provided insights into the distribution and frequency of data values.
+   - Box plots displayed summary statistics (e.g., median, quartiles) and identified outliers in the data.
+   - Scatter plots showed the relationship between two variables and helped identify patterns or correlations.
+   - Line plots illustrated trends and changes over time.
+   - Bar plots were used to visualize categorical data and compare different groups or categories.
+
+e.g
+![image](https://github.com/lokesh75-kank/BDA602_Machine_learning_Engineering/assets/85188079/c31a5ceb-a327-4d5a-bf67-8fbabc229370)
+
+
+![image](https://github.com/lokesh75-kank/BDA602_Machine_learning_Engineering/assets/85188079/437603e3-0416-4f99-b364-c1730fa4df9d)
+
+
+![image](https://github.com/lokesh75-kank/BDA602_Machine_learning_Engineering/assets/85188079/b1ca9ac2-885f-4b87-bf22-65b0c990036d)
+
+
+Outliers were handled, features were scaled using MinMaxScaler, and data distribution was visualized, enhancing the dataset for further analysis and modeling.
+
+4. Calculated Weighted and Unweighted Metrics for Continuous and Categorical Features:
+   - Continuous features were divided into bins to calculate weighted and unweighted metrics.
+   - The number of bins was set to 10, and the range of each bin was determined based on the minimum and maximum values of the feature.
+   - For each bin, the mean and count of the corresponding response variable were calculated.
+   - The population mean of the response variable was also computed.
+   - Weighted Mean Square Difference (MSD) was determined by multiplying the mean square difference of each bin by its population proportion.
+   - Unweighted MSD was obtained by summing the mean square differences of all bins and dividing by the total number of bins.
+
+5. Computed P and t Values for Continuous Predictors:
+   - P and t values were calculated to assess the significance of continuous predictors in relation to the response variable.
+   - Ordinary Least Squares (OLS) regression was performed using the continuous predictor and response variable.
+   - The linear regression model was fitted, and the summary statistics were obtained.
+   - The t value and p value of the predictor were extracted from the model summary.
+
+e.g
+## Feature Analysis Results
+
+| Feature    | Plot       | Mean of Response Plot | Diff Mean Response (Weighted) | Diff Mean Response (Unweighted) | P-Value              | T-Score     |
+|------------|------------|----------------------|-------------------------------|---------------------------------|----------------------|-------------|
+| TB_Ratio   | TB_Ratio   | TB_Ratio             | 0.000328                      | 0.060422                        | 4.331031e-247        | 33.791093   |
+
+- **Feature**: "TB_Ratio" represents the feature that was analyzed.
+- **Plot**: "TB_Ratio" denotes the type of plot used to visualize the feature.
+- **Mean of Response Plot**: "TB_Ratio" represents the plot that displays the mean response for different values of "TB_Ratio".
+- **Diff Mean Response (Weighted)**: 0.000328 is the weighted difference in the mean response between different values of "TB_Ratio".
+- **Diff Mean Response (Unweighted)**: 0.060422 is the unweighted difference in the mean response between different values of "TB_Ratio".
+- **P-Value**: 4.331031e-247 is the p-value associated with the "TB_Ratio" feature.
+- **T-Score**: 33.791093 represents the t-score for the "TB_Ratio" feature.
+
+The provided result suggests that the "TB_Ratio" feature has a significant impact on the response variable. The small p-value and high t-score indicate strong evidence to reject the null hypothesis of no relationship between "TB_Ratio" and the response variable. The weighted and unweighted differences in the mean response further highlight the effect of the "TB_Ratio" feature on the response variable.
+
+
+
+6.impurity-based feature importance analysis
+
+The technique was applied to identify the relative importance of different features in predicting the target variable.
+
+1. **Data Preparation:** The dataset was prepared by separating the target variable (home_team_wins) from the rest of the features (X) and storing it in the variable y.
+
+2. **Model Training:** A Random Forest Regressor model with 100 estimators was utilized to capture the relationships between the features and the target variable. The model was trained using the prepared dataset (X and y).
+
+3. **Computing Feature Importance:** The impurity-based feature importance was computed using the `RandomForestRegressor.feature_importances_` attribute. This attribute calculates the normalized total reduction in the criterion (e.g., mean squared error) brought by a feature across all trees in the random forest. Feature importances were computed for each feature in X.
+
+4. **Printing Feature Importance:** The column names of the features and their corresponding importances were printed to the console. This information was obtained by pairing each feature name with its importance value using a loop.
+
+The impurity-based feature importance analysis provides insights into the features that have the most significant impact on predicting the target variable (home_team_wins). This information can help prioritize and focus on the most influential features during subsequent modeling and analysis stages.
+
+
+
 
 Model Architecture
 If your project involves a specific machine learning model or algorithm, describe its architecture or provide a high-level overview. Include any relevant equations, diagrams, or visualizations that can help readers understand the model's structure.
