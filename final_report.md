@@ -159,31 +159,300 @@ The technique was applied to identify the relative importance of different featu
 The impurity-based feature importance analysis provides insights into the features that have the most significant impact on predicting the target variable (home_team_wins). This information can help prioritize and focus on the most influential features during subsequent modeling and analysis stages.
 
 
+| Feature                      | Importance               |
+|------------------------------|--------------------------|
+| IP_Ratio                     | 0.0503                   |
+| WHIP_HBP_Ratio               | 0.0502                   |
+| P_WHIP_Ratio                 | 0.0461                   |
+| HR_OBP_Ratio                 | 0.0463                   |
+| TOB_Ratio                    | 0.0445                   |
+| A_HR_Ratio                   | 0.0443                   |
+| OBP_Ratio                    | 0.0450                   |
+| TotalBases_WHIP_Ratio        | 0.0443                   |
+| HR9_Ratio                    | 0.0437                   |
+| HR9_IP_Product               | 0.0437                   |
+| ISO_Ratio                    | 0.0010                   |
+| BA_Ratio                     | 0.0001                   |
+| strikout_per_inn             | 0.0000                   |
+| scaled_strikout_per_inn      | 0.0000                   |
 
 
-Model Architecture
-If your project involves a specific machine learning model or algorithm, describe its architecture or provide a high-level overview. Include any relevant equations, diagrams, or visualizations that can help readers understand the model's structure.
+The table above shows the feature importance values for the analyzed features. The top features with the highest importance values are IP_Ratio, WHIP_HBP_Ratio, and P_WHIP_Ratio, indicating their strong influence on the target variable. Conversely, features like ISO_Ratio, BA_Ratio, and strikout_per_inn have negligible importance in the analysis.
 
-Results
-Present the results of your machine learning project in this section. Include any performance metrics, accuracy scores, or visualizations that demonstrate the effectiveness of your model. If applicable, compare your results to previous approaches or state-of-the-art methods.
 
-Future Work
-Discuss potential future improvements or enhancements that could be made to your project. This could include additional features, alternative algorithms, or areas of research that could be explored further.
+7. Difference with mean of response
 
-Contributing
-If you want to encourage others to contribute to your project, provide guidelines on how they can do so. Explain the process for submitting bug reports, suggesting improvements, or proposing new features. Include information about your preferred coding style, branch structure, and how to submit pull requests.
+In the feature analysis, the weighted mean squared difference was calculated for each feature using 10 bins. This involved comparing the average response value in each bin to the population average response. A higher rank in mean squared difference indicates a better predictor, as it signifies a larger difference between the average response values in the bins and the population average response.
 
-License
-Specify the license under which your project is distributed. If you're unsure about licensing, consult with your legal team or refer to popular open-source licenses like MIT, Apache, or GNU.
+ e.g
+ sum_BB
+ ![image](https://github.com/lokesh75-kank/BDA602_Machine_learning_Engineering/assets/85188079/1241a538-4ba9-41eb-8c29-8bb71dace42e)
+sum_Sac_Fly
+![image](https://github.com/lokesh75-kank/BDA602_Machine_learning_Engineering/assets/85188079/842f1be8-5806-481c-bdd8-f7f8e57d5f74)
 
-Acknowledgments
-Use this section to thank anyone who contributed to the project, provided guidance, or inspired you. Acknowledge any relevant libraries, frameworks, or resources that you utilized.
+       
+ 8. Correlation Matrix
+ 
+The Pearson correlation coefficient method was employed to determine the correlation between different types of features. This method measures the linear relationship between two variables by calculating their covariance and dividing it by the product of their standard deviations.
 
-Contact Information
-Provide your contact information or any other means for users to reach out to you with questions or feedback. This can be your email address, GitHub profile, or any other preferred method of communication.
+Firstly, categorical-categorical features were evaluated to assess the association between two categorical variables. The correlation coefficient ranges from -1 to 1, where values closer to 1 indicate a strong positive relationship, values closer to -1 represent a strong negative relationship, and values close to 0 imply no significant correlation.
 
-Remember, the above sections are just suggestions, and you can customize them according to the specific needs of your machine learning project.
-                                
-                                  
-                         
-                         
+Secondly, categorical-continuous features were analyzed to examine the connection between a categorical variable and a continuous variable. The correlation coefficient provides insights into the strength and direction of the relationship.
+
+Lastly, continuous-continuous features were assessed to determine the linear correlation between two continuous variables. The correlation coefficient helps understand the degree of dependence between the variables, with values near 1 or -1 indicating a strong positive or negative linear relationship, respectively.
+
+By employing the Pearson correlation coefficient method, valuable insights were obtained regarding the interdependencies among different types of features in the dataset.
+
+![image](https://github.com/lokesh75-kank/BDA602_Machine_learning_Engineering/assets/85188079/98b524ee-b369-4633-b230-0b1c8e65d44f)
+
+In this plot we can see some features are hightly correlated so we can remove either of them. for e.g Times_On_Base_ERA_Difference and SLG_ERA_Difference
+
+## Model Building
+
+### Handed Null Values
+
+Null values were filled with 0 to preserve the structure and integrity of the dataset, especially for numerical features, and to avoid data loss.
+
+### Sorted the DataFrame
+
+The DataFrame was sorted based on the "year" column to ensure chronological order.
+
+### Determined the Cutoff Year
+
+The maximum year in the sorted DataFrame was subtracted by 1 to determine the cutoff year for splitting the data.
+
+### Splitted the Data
+
+The DataFrame was split into two parts: X (features) and y (target variable). The index where the cutoff year starts was identified, and the training and testing sets were created based on the cutoff index.
+
+### Reset Index
+
+The index of the training and testing sets for X and y were reset to ensure sequential indexing.
+
+
+### Models Used
+I implemented the following models for analysis:
+
+- Logistic Regression
+- Random Forest Classifier
+- K-Nearest Neighbors (KNN) Model
+- Gradient Boosting Model
+- XGBoost Model
+- Decision Tree Model
+
+### Evaluation Techniques
+To assess the performance of the models, I employed various evaluation techniques, including:
+
+- ROC Curve and AUC Score
+- Accuracy
+- Precision
+- Recall
+- F1-Score
+- Confusion Matrix
+- 
+By utilizing these evaluation techniques, I gained insights into the models' predictive abilities and their performance across different metrics.
+ 
+## Logistic Regression
+| Model                 | Accuracy   |
+|-----------------------|------------|
+| Logistic Regression   | 0.548      |
+
+Classification Report of Logistic Regression:
+
+|           | precision  | recall  | f1-score | support |
+|-----------|------------|---------|----------|---------|
+|    0      |   0.51     |  0.08   |   0.14   |   6592  |
+|    1      |   0.55     |  0.94   |   0.69   |   7944  |
+
+|   accuracy              |    0.55    |
+|-------------------------|------------|
+|   macro avg             |    0.53    |
+|   weighted avg          |    0.53    |
+
+| Model               | Accuracy | Precision | Recall | F1-score | AUC    |
+|---------------------|----------|-----------|--------|----------|--------|
+| Logistic Regression | 0.5484   | 0.5511    | 0.9373 | 0.6941   | 0.5462 |
+
+![Logistic_Regression_ROC](https://github.com/lokesh75-kank/BDA602_Machine_learning_Engineering/assets/85188079/2bddc0dc-7bca-4482-ba8e-15a0a6db178b)
+
+![Logistic_Regression_Confusion_Matrix](https://github.com/lokesh75-kank/BDA602_Machine_learning_Engineering/assets/85188079/0587e1ef-04e9-4056-b99c-41f072927d59)
+
+## Random_Forest
+
+| Model              | Accuracy |
+|--------------------|----------|
+| Random Forest      | 0.5116   |
+
+|           | precision | recall | f1-score | support |
+|-----------|-----------|--------|----------|---------|
+| Class 0   | 0.45      | 0.34   | 0.39     | 6592    |
+| Class 1   | 0.54      | 0.66   | 0.59     | 7944    |
+|-----------|-----------|--------|----------|---------|
+| accuracy  |           |        | 0.51     | 14536   |
+| macro avg | 0.50      | 0.50   | 0.49     | 14536   |
+| weighted avg | 0.50   | 0.51   | 0.50     | 14536   |
+
+      
+|      Model       |  Accuracy  | Precision |  Recall   | F1-score  |    AUC    |
+|----------------- |------------|-----------|-----------|-----------|-----------|
+| Random Forest    | 0.511557   | 0.544050  | 0.656093  | 0.594841  | 0.498470  |
+
+
+![Random_Forest_ROC](https://github.com/lokesh75-kank/BDA602_Machine_learning_Engineering/assets/85188079/2cf12494-b982-4213-b353-a0b5969c38da)
+
+![Random_Forest_Confusion_Matrix](https://github.com/lokesh75-kank/BDA602_Machine_learning_Engineering/assets/85188079/a5c89c36-9866-474b-934a-a8951dff88ed)
+
+## KNN
+
+| Metric                        | Value     |
+|-------------------------------|-----------|
+| Accuracy of KNN               | 0.5218767 |
+|                               |           |
+| Classification Report         |           |
+|                               |           |
+|               | precision | recall | f1-score | support |
+|---------------|-----------|--------|----------|---------|
+| 0             | 0.46      | 0.36   | 0.40     | 6592    |
+| 1             | 0.55      | 0.66   | 0.60     | 7944    |
+|               |           |        |          |         |
+| accuracy      |           |        |          | 0.52    |
+| macro avg     | 0.51      | 0.51   | 0.50     | 14536   |
+| weighted avg  | 0.51      | 0.52   | 0.51     | 14536   |
+
+|     Model    |    Accuracy   |   Precision   |    Recall    |   F1-score   |     AUC      |
+|--------------|---------------|---------------|--------------|--------------|--------------|
+|     KNN      |    0.5219     |    0.5526     |    0.6576    |    0.6005    |    0.5109    |
+
+
+![KNN_ROC](https://github.com/lokesh75-kank/BDA602_Machine_learning_Engineering/assets/85188079/916d8741-1eab-4acf-9a1f-fbd565462c24)
+
+![KNN_Confusion_Matrix](https://github.com/lokesh75-kank/BDA602_Machine_learning_Engineering/assets/85188079/e31e0781-ccb4-41e5-8fe2-ff312d9d5434)
+
+
+## Gradian_Boosting
+
+|                           | precision | recall | f1-score | support |
+|---------------------------|-----------|--------|----------|---------|
+|           0               |   0.48    |  0.25  |   0.33   |   6592  |
+|           1               |   0.56    |  0.78  |   0.65   |   7944  |
+|---------------------------|-----------|--------|----------|---------|
+|      accuracy             |           |        |   0.54   |  14536  |
+|      macro avg            |   0.52    |  0.51  |   0.49   |  14536  |
+|   weighted avg            |   0.52    |  0.54  |   0.50   |  14536  |
+
+|     Model       |   Accuracy   |  Precision  |    Recall   |  F1-score   |     AUC     |
+|-----------------|--------------|-------------|-------------|-------------|-------------|
+| Gradient Boosting|   0.538      |   0.555     |   0.775     |   0.647     |   0.520     |
+
+![Gradient_Boosting_ROC](https://github.com/lokesh75-kank/BDA602_Machine_learning_Engineering/assets/85188079/b2577e8e-1dea-4982-a35a-3394d1906f06)
+![Gradient_Boosting_Confusion_Matrix](https://github.com/lokesh75-kank/BDA602_Machine_learning_Engineering/assets/85188079/c26911a7-0d9f-4e42-a39e-b33c7bee63ea)
+
+
+## XGBoost
+
+| Metric              | Value      |
+|---------------------|------------|
+| Accuracy            | 0.5289     |
+| Precision (class 0) | 0.47       |
+| Precision (class 1) | 0.55       |
+| Recall (class 0)    | 0.31       |
+| Recall (class 1)    | 0.71       |
+| F1-score (class 0)  | 0.37       |
+| F1-score (class 1)  | 0.62       |
+| Support (class 0)   | 6592       |
+| Support (class 1)   | 7944       |
+| Macro Avg (Precision, Recall, F1-score) | 0.51 |
+| Weighted Avg (Precision, Recall, F1-score) | 0.52 |
+| Accuracy (overall)  | 0.53       |
+| Total support       | 14536      |
+
+| Metric    | Value                |
+|-----------|----------------------|
+| Accuracy  | 0.5288937809576224  |
+| Precision | 0.5536203522504892  |
+| Recall    | 0.7122356495468278  |
+| F1-score  | 0.6229905307201057  |
+| AUC       | 0.5075463392411932  |
+
+![XGBoost_ROC](https://github.com/lokesh75-kank/BDA602_Machine_learning_Engineering/assets/85188079/758df80b-56cc-4d2a-84af-c2841d43f49a)
+
+![XGBoost_Confusion_Matrix](https://github.com/lokesh75-kank/BDA602_Machine_learning_Engineering/assets/85188079/b8142936-788f-4d71-9e53-79fb8db1f0d8)
+
+## Decision Tree
+
+| Metric                             | Value     |
+|------------------------------------|-----------|
+| Accuracy of Decision Tree           | 0.5151348 |
+|                                    |           |
+| Classification Report of Decision  |           |
+| Tree Classifier                    |           |
+| Precision (0)                      | 0.47      |
+| Recall (0)                         | 0.47      |
+| F1-score (0)                       | 0.47      |
+| Support (0)                        | 6592      |
+|                                    |           |
+| Precision (1)                      | 0.56      |
+| Recall (1)                         | 0.55      |
+| F1-score (1)                       | 0.55      |
+| Support (1)                        | 7944      |
+|                                    |           |
+| Accuracy                           | 0.52      |
+| Macro Average (f1-score)           | 0.51      |
+| Macro Average (weighted avg)       | 0.51      |
+| Weighted Average (f1-score)        | 0.52      |
+| Weighted Average (weighted avg)    | 0.52      |
+| Support                            | 14536     |
+
+
+|     Model    |    Accuracy    |   Precision   |    Recall     |   F1-score    |      AUC      |
+|:------------:|:--------------:|:-------------:|:-------------:|:-------------:|:-------------:|
+| Decision Tree|   0.5151348   |   0.5569975   |   0.5511078   |   0.5540369   |   0.5114459   |
+
+![Decision_Tree_ROC](https://github.com/lokesh75-kank/BDA602_Machine_learning_Engineering/assets/85188079/ffb13b9e-9ea0-4bfc-846c-971805f4a562)
+![Decision_Tree_Confusion_Matrix](https://github.com/lokesh75-kank/BDA602_Machine_learning_Engineering/assets/85188079/407483fa-b80e-4c34-9ed3-f4c997ebe3e1)
+
+## After comparing the models, here's a brief summary of the results:
+
+Logistic Regression has the highest accuracy (0.546) and a relatively high recall (0.962),
+indicating that it correctly identifies a large proportion of positive instances.
+Random Forest has lower accuracy (0.500) but shows balanced precision (0.535) and
+recall (0.646) scores.
+KNN has moderate accuracy (0.523) and performs reasonably well in terms of precision
+(0.553) and recall (0.659).
+Gradient Boosting has a relatively high recall (0.812), indicating it identifies a
+higher proportion of positive instances, but has lower accuracy (0.541).
+XGBoost has similar performance to the other models with moderate accuracy (0.520)
+and precision (0.552) scores.
+Decision Tree has the lowest accuracy (0.505) and relatively low precision (0.548)
+and recall (0.540) scores.
+Based on these results, the Logistic Regression model appears to be the best overall,
+as it has the highest accuracy and reasonably balanced precision and recall scores.
+
+## Docker and Run this project
+
+To run this project, please follow the steps below:
+
+1. **Install MariaDB:** Ensure that you have Mariadb installed on your system.
+
+2. **Install Docker Engine and Docker Compose:** Make sure you have Docker Engine and Docker Compose installed. These tools are required to build and run the Docker containers for this project.
+
+3. **Download the database file:** Download the necessary database file from the link provided in the project report. This file contains the required data for the project.
+
+4. **Clone the final GitHub repository:** Clone the final GitHub repository for this project onto your local machine. This repository contains all the code and configuration files needed to run the project.
+
+5. **Navigate to the project directory:** Using the command line, navigate to the directory where you cloned the GitHub repository.
+
+6. **Build and run the Docker containers:** Run the `docker-compose up` command in the project directory. This command will build and run the Docker containers, which include all the necessary dependencies and configurations for the project.
+
+7. **Check the results and generated plots:** After the Docker containers have started, you can find the results and generated plots in the directory. This directory will contain the output files and visualizations produced by the project.
+
+Please make sure to follow these steps in order to successfully run the project and access the results.
+
+
+## Reference
+
+- https://en.wikipedia.org/wiki/Baseball_statistics
+- https://www.teaching.mrsharky.com/index.html
+- https://en.wikipedia.org/wiki/Variance_of_the_mean_and_predicted_responses
+- https://docs.docker.com/reference/
+- https://mariadb.com/kb/en/documentation/
