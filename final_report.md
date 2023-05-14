@@ -1,5 +1,6 @@
 ![image](https://github.com/lokesh75-kank/BDA602_Machine_learning_Engineering/assets/85188079/6ab579cf-edba-48db-b90e-b76d08c73b1c)
 
+# Final Project Report by Lokesh Kank (05/13/2023)
 ## Project Title
 
 This project focuses on making prior forecasts of results in baseball games. By narrowing our focus to this binary classification, I aim to accurately predict whether a team will emerge as the winner or loser. Through data analysis and machine learning techniques,the goal is to enhance the accuracy of these predictions.
