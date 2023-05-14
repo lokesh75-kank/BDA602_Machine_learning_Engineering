@@ -50,12 +50,12 @@ def main():
     query = "SELECT * FROM baseball_final_features"
     df = pd.read_sql(query, engine)
 
-    print("Features_analyzing")
-
+    #     print("Features_analyzing")
+    #
     for col in df.columns:
         if df[col].isnull().any():
             df[col].fillna(0, inplace=True)
-
+    #
     df = df.drop(
         columns=[
             "bag_game_id",
@@ -67,6 +67,7 @@ def main():
             "HBP_ISO_Ratio",
         ]
     )
+
     response = "home_team_wins"
     df_pred = df.drop("home_team_wins", axis=1)
 

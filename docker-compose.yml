@@ -31,6 +31,7 @@ services:
       - ./finals/Continuous_Mean_of_Response_Plot:/app/Continuous_Mean_of_Response_Plot
       - ./finals/Continuous_Predictors_Plots:/app/Continuous_Predictors_Plots
       - ./finals/roc_curves_and_outliers:/app/roc_curves_and_outliers
+      - ./finals/confusion_matrices:/app/confusion_matrices
 #    environment:
 #      - DB_HOST=Lokesh_mariadb
 #      - DB_PORT=3306

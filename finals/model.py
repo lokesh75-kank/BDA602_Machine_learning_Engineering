@@ -1,6 +1,7 @@
 import os
 
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 # from sklearn import svm
 from sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier
@@ -8,6 +9,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import (
     accuracy_score,
     classification_report,
+    confusion_matrix,
     f1_score,
     precision_score,
     recall_score,
@@ -230,25 +232,6 @@ def modeling(df):
 
     print("Comparing the models built against one another")
 
-    # # Define a list of model names
-    # model_names = ["Logistic Regression", "Random Forest", "KNN", "Gradient Boosting", "XGBoost", "Decision Tree"]
-    #
-    # # Define empty dictionary to store AUC scores
-    # auc_scores = {}
-    #
-    # # Iterate over the models
-    # for model_name, model in zip(model_names, [model, rf, knn, gb, xgb, dt]):
-    #     # Calculate ROC curve and AUC score
-    #     y_pred_prob = model.predict_proba(X_test)[:, 1]
-    #     fpr, tpr, _ = roc_curve(y_test, y_pred_prob)
-    #     auc_scores[model_name] = roc_auc_score(y_test, y_pred_prob)
-    #
-    # # Print the AUC scores
-    # for model_name in model_names:
-    #     print("Model:", model_name)
-    #     print("AUC:", auc_scores[model_name])
-    #     print()
-
     model_names = [
         "Logistic Regression",
         "Random Forest",
@@ -286,3 +269,31 @@ def modeling(df):
         print("F1-score:", f1_scores[model_name])
         print("AUC:", auc_scores[model_name])
         print()
+
+    output_dir = "./confusion_matrices"
+
+    # Create the directory if it doesn't exist
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+
+    models = [model, rf, knn, gb, xgb, dt]  # Update with your actual trained models
+
+    for model_name, model in zip(model_names, models):
+        # Get predictions
+        y_pred = model.predict(X_test)
+
+        # Calculate confusion matrix
+        cm = confusion_matrix(y_test, y_pred)
+
+        # Plot confusion matrix
+        plt.figure()
+        sns.heatmap(cm, annot=True, fmt="d", cmap="Blues")
+        plt.title("Confusion Matrix - " + model_name)
+        plt.xlabel("Predicted label")
+        plt.ylabel("True label")
+        plt.savefig(
+            os.path.join(
+                output_dir, model_name.replace(" ", "_") + "_Confusion_Matrix.png"
+            )
+        )
+        plt.close()
